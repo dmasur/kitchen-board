@@ -26,8 +26,13 @@
   <div class="panel-body" *ngIf="authenticationService.isAuthenticated">
     <h4>Appointments available for {{authenticationService.userName}}:</h4>
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let appointment of appointments">
-        {{appointment}}
+      <li class="list-group-item" *ngFor="let day of daysWithEvents">
+        {{day.date | date}}
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let event of day.events">
+              {{day.date | date:'shortTime'}}: {{event.orgEvent.summary}}
+            </li>
+          </ul>
       </li>
     </ul>
     <button class="btn btn-default navbar-btn" (click)="refreshAppointments()">Refresh</button>

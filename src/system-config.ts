@@ -7,6 +7,7 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'underscore': '../node_modules/underscore/underscore.js'
 };
 
 /** User packages configuration. */
@@ -54,6 +55,5 @@ System.config({
   },
   packages: cliSystemConfigPackages
 });
-
 // Apply the user's configuration.
 System.config({ map, packages });

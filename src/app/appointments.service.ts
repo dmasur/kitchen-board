@@ -8,7 +8,7 @@ export class AppointmentsService {
   constructor() {
   }
 
-  getAllCalendars():Promise{
+  getAllCalendars(){
     return new Promise((resolve, reject) => {
       gapi.client.load('calendar', 'v3', function() {
         var request2 = gapi.client.calendar.calendarList.list({});
@@ -45,7 +45,7 @@ export class AppointmentsService {
             if (!when) {
               when = event.start.date;
             }
-            appointments.push(event.summary)
+            appointments.push(event)
           }
         }
         resolve(appointments);
@@ -57,7 +57,8 @@ export class AppointmentsService {
     return new Promise((resolve, reject) => {
       this.getAllCalendars().then(calendars => {
         var eventCalls = [];
-        for(var i = 0; i < calendars.length; i++) {
+
+        for(var i = 0; i < (calendars as Array<ICalendarListEntry>).length; i++) {
           eventCalls.push(this.getEvents(calendars[i]));
         }
         Promise.all(eventCalls).then(function(result){

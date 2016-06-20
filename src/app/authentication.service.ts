@@ -42,7 +42,7 @@ export class AuthenticationService {
       .then(() => this.initializeGoogleCalendarAPI())
       .then(() => this.loadGooglePlusUserData())
       .then((response:any) => this.setUserData(response.result.displayName, response.result.image.url))
-      .catch((error:any) => {debugger;console.log('authentication failed: ' + error)});
+      .catch((error:any) => {console.log('authentication failed: ' + error)});
   }
 
   private proceedAuthentication(immediate:boolean){
