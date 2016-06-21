@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { GoogleCalendarComponent } from './google-calendar.component';
+import { NewsComponent } from './news.component';
 
-// describe('Component: GoogleCalendar', () => {
+// describe('Component: News', () => {
 //   it('should create an instance', () => {
-//     let component = new GoogleCalendarComponent();
+//     let component = new NewsComponent();
 //     expect(component).toBeTruthy();
 //   });
 // });

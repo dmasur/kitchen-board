@@ -19,13 +19,12 @@
   </div>
 </nav>
 <div class="col-md-3">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
-        {{weatherInfo.cityName}} {{weatherInfo.temp}}° C <img src="http://openweathermap.org/img/w/{{weatherInfo.icon}}.png" alt="" />
-      </li>
-    </ul>
+  <app-weather></app-weather>
 </div>
 <div class="col-md-3">
   <app-google-calendar></app-google-calendar>
+</div>
+<div class="col-md-3">
+  <app-news></app-news>
 </div>
 

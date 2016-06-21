@@ -69,6 +69,5 @@ export class GoogleCalendarComponent implements OnInit {
     } else {
       this.refreshEvents()
     }
-
   }
 }

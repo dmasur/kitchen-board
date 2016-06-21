@@ -17,8 +17,13 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'angular2-cookie/**/*.js',
-      'bootstrap/dist/js/bootstrap.min.js',
-      'underscore/underscore.js'
+      'bootstrap/dist/**/*.+(css|js|js.map)',
+      'jquery/dist/jquery.min.+(js|map)',
+      'moment/min/moment-with-locales.min.js',
+      'moment/moment.js',
+      'moment/locale/de.js',
+      'underscore/underscore.js',
+      'rss-feed-emitter/dist/rss-feed-emitter.js'
     ]
   });
 };

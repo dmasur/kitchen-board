@@ -8,12 +8,15 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'underscore': 'vendor/underscore/underscore.js',
-  'angular2-cookie': 'vendor/angular2-cookie'
+  'angular2-cookie': 'vendor/angular2-cookie',
+  'moment': 'vendor/moment',
+  'rss-feed-emitter': 'rss-feed-emitter/dist/rss-feed-emitter.js'
 };
 
 /** User packages configuration. */
 const packages: any = {
-  'angular2-cookie':            { main: 'core.js',  defaultExtension: 'js' },
+  'angular2-cookie': { main: 'core.js',  defaultExtension: 'js' },
+  'moment': { main: 'moment.js',  defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,6 +40,8 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/google-calendar',
+  'app/weather',
+  'app/news',
   /** @cli-barrel */
 ];
 
