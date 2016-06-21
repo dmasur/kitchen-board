@@ -9,7 +9,7 @@ class WeatherInfo{
 
 @Component({
   moduleId: module.id,
-  inputs: ['city'],
+  inputs: ['city', 'longitude', 'latitude'],
   selector: 'app-weather',
   templateUrl: 'weather.component.html',
   styleUrls: ['weather.component.css'],
@@ -18,6 +18,8 @@ class WeatherInfo{
 export class WeatherComponent implements OnInit {
   weatherInfos: Array<WeatherInfo>;
   city: string;
+  longitude: string;
+  latitude: string
 
   constructor(private cookieService: CookieService, private http: Http) {}
 
@@ -36,15 +38,14 @@ export class WeatherComponent implements OnInit {
 
   refreshEvents(){
     this.weatherInfos = [];
-    var requestString = "https://api.openweathermap.org/data/2.5/forecast?q=" + this.city
-                        + "&format=json&units=metric&cnt=4"
-                        + "&APPID=f316649a0a3ade226bfdfcc8c3b57fd3" ;
+    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/b7b2a91c78b9c2045bd83550affe1daa/"+this.longitude+","+this.latitude;
     this.http.get(requestString).subscribe(data => {
       var json = data.json()
-      json.list.forEach(entry => {
-        var temp = Math.round(parseFloat(entry.main.temp));
-        var date = new Date(entry.dt_txt);
-        var weatherInfo= new WeatherInfo(date, entry.weather[0].icon, temp, entry.weather[0].description);
+      json.hourly.data.slice(0,3).forEach(entry => {
+        debugger
+        var temp = Math.round((parseFloat(entry.main.temperature) -32) * 5 / 9);
+        var date = new Date(entry.time*1000);
+        var weatherInfo= new WeatherInfo(date, entry.icon, temp, entry.summary);
         this.weatherInfos.push(weatherInfo);
       })
       this.cookieService.put('weather.savedAt', JSON.stringify(Date.now()));
