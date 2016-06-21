@@ -11,7 +11,8 @@ const map: any = {
   'angular2-cookie': 'vendor/angular2-cookie',
   'angular2-moment': 'vendor/angular2-moment',
   'moment': 'vendor/moment/min',
-  'rss-feed-emitter2': 'vendor/rss-feed-emitter/dist'
+  'rss-feed-emitter2': 'vendor/rss-feed-emitter/dist',
+  'jquery': 'vendor/jquery/dist'
 };
 
 /** User packages configuration. */
@@ -20,6 +21,7 @@ const packages: any = {
   'moment': { main: 'moment-with-locales.min.js',  defaultExtension: 'js' },
   'rss-feed-emitter': { main: 'rss-feed-emitter.js',  defaultExtension: 'js' },
   'angular2-moment': { main: 'index.js',  defaultExtension: 'js' },
+  'jquery': { main: 'jquery.min.js',  defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

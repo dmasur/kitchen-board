@@ -1,3 +1,9 @@
-<p>
-  news works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading lead">Nachrichten</div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let news of newsItems" style="min-height:110px">
+      <img src="{{news.image}}" style="float: left; margin: 0 5px 5px 0" />
+      <span class="">{{news.title}}</span>
+    </li>
+  </ul>
+</div>

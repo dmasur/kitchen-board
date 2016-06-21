@@ -4,7 +4,7 @@ import { Http, Response, HTTP_BINDINGS } from '@angular/http';
 import {DateFormatPipe} from 'angular2-moment';
 
 class WeatherInfo{
-  constructor(public date: Date, public icon: string, public temp: number, public iconText: string) {}
+  constructor(public date: Date, public icon: string, public temp: number, public summary: string) {}
 }
 
 @Component({
@@ -29,7 +29,7 @@ export class WeatherComponent implements OnInit {
 
   loadWeather(){
       var lastSave = this.cookieService.getObject('weather.savedAt');
-      if(false && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+      if(true && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
         this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
       } else {
         this.refreshEvents();
@@ -42,8 +42,7 @@ export class WeatherComponent implements OnInit {
     this.http.get(requestString).subscribe(data => {
       var json = data.json()
       json.hourly.data.slice(0,3).forEach(entry => {
-        debugger
-        var temp = Math.round((parseFloat(entry.main.temperature) -32) * 5 / 9);
+        var temp = Math.round((parseFloat(entry.temperature) -32) * 5 / 9);
         var date = new Date(entry.time*1000);
         var weatherInfo= new WeatherInfo(date, entry.icon, temp, entry.summary);
         this.weatherInfos.push(weatherInfo);
