@@ -4,6 +4,7 @@ import { AppointmentsService } from '../appointments.service';
 import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
 import * as moment from 'moment';
 import IEvent = gapi.client.calendar.IEvent;
+import {Observable} from 'rxjs/Rx';
 
 class Day{
   events: Array<IEvent> = [];
@@ -27,7 +28,14 @@ export class GoogleCalendarComponent implements OnInit {
   constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {
   }
 
-  ngOnInit() { this.loadEvents() }
+  ngOnInit() {
+
+    this.loadEvents();
+    let observer = Observable.interval(1000 * 60 * 60);
+    let subscription = observer.subscribe(x => {
+      this.loadEvents()
+    });
+  }
 
   refreshEvents() {
     /*
