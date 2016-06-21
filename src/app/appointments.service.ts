@@ -62,7 +62,7 @@ export class AppointmentsService {
           eventCalls.push(this.getEvents(calendars[i]));
         }
         Promise.all(eventCalls).then(function(result){
-          resolve([].concat.apply([], result));
+          resolve([].concat.apply([], result).slice(0, 5));
         });
       });
     });

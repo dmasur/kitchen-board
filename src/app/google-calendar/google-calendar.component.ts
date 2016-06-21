@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import { AppointmentsService } from '../appointments.service';
 import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
-import * as moment from 'moment';
 import IEvent = gapi.client.calendar.IEvent;
 import {Observable} from 'rxjs/Rx';
 
@@ -11,7 +10,11 @@ class Day{
   date: Date;
 }
 class Event{
-  constructor(public date: Date, public summary: string, public hasTime: boolean) {}
+  constructor(public date: Date,
+              public summary: string,
+              public hasTime: boolean,
+              public person: string
+  ) {}
 }
 
 @Component({
@@ -31,8 +34,7 @@ export class GoogleCalendarComponent implements OnInit {
   ngOnInit() {
 
     this.loadEvents();
-    let observer = Observable.interval(1000 * 60 * 60);
-    let subscription = observer.subscribe(x => {
+    Observable.interval(1000 * 60 * 60).subscribe(x => {
       this.loadEvents()
     });
   }
@@ -52,7 +54,8 @@ export class GoogleCalendarComponent implements OnInit {
         if(eventList[i].start != undefined){
           var hasTime = eventList[i].start.dateTime !== undefined;
           var date = hasTime ? eventList[i].start.dateTime : eventList[i].start.date;
-          events.push(new Event(new Date(date), eventList[i].summary, hasTime));
+          var event = new Event(new Date(date), eventList[i].summary, hasTime, eventList[i].creator.displayName)
+          events.push(event);
         }
       };
       for(var i=0;i<events.length; i++){

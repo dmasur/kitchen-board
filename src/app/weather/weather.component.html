@@ -1,8 +1,12 @@
-<p class="lead">{{city}}</p>
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
-    {{weatherInfo.date | amDateFormat: 'LT'}}
-    <img src="http://openweathermap.org/img/w/{{weatherInfo.icon}}.png" alt="{{weatherInfo.iconText}}" />
-    {{weatherInfo.temp}}° C
-  </li>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">{{city}}</div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
+        {{weatherInfo.date | amDateFormat: 'LT'}}
+        <img src="http://openweathermap.org/img/w/{{weatherInfo.icon}}.png" alt="{{weatherInfo.iconText}}" />
+        {{weatherInfo.temp}}° C
+      </li>
+    </ul>
+  </div>
+</div>

@@ -46,6 +46,7 @@ const barrels: string[] = [
   'app/weather',
   'app/news',
   'app/schedule',
+  'app/clock',
   /** @cli-barrel */
 ];
 

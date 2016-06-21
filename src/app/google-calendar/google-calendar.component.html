@@ -1,9 +1,11 @@
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let day of daysWithEvents">
-    {{day.date | amDateFormat:'D. MMMM'}} <span class="label label-default">{{day.date | amTimeAgo}}</span>
+<div class="panel panel-default">
+  <div class="panel-heading">Nächste Termine</div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let day of daysWithEvents">
+      {{day.date | amDateFormat:'dddd, D. MMMM'}} ({{day.date | amTimeAgo}})
       <p class="list-group-item" *ngFor="let event of day.events">
-        <span *ngIf="event.hasTime">{{day.date | amDateFormat:'LT'}} </span>{{event.summary}}
+        {{event.summary}}<span *ngIf="event.hasTime"> | {{day.date | amDateFormat:'LT'}} | {{event.person}}</span>
       </p>
-  </li>
-</ul>
-<button class="btn btn-default navbar-btn" (click)="refreshAppointments()">Refresh</button>
+    </li>
+  </ul>
+</div>
