@@ -18,16 +18,21 @@
     </div>
   </div>
 </nav>
-<div class="col-md-3">
-  <app-weather city="Bottrop"></app-weather>
-</div>
-<div class="col-md-3">
-  <app-google-calendar></app-google-calendar>
-</div>
-<div class="col-md-3" style="display: none">
-  <app-news></app-news>
-</div>
-<div class="col-md-3">
-  <app-schedule></app-schedule>
-</div>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="item col-md-3">
+      <app-clock></app-clock>
+      <app-schedule></app-schedule>
+    </div>
+    <div class="item col-md-3">
+      <app-weather city="Bottrop"></app-weather>
+      <app-weather city="Düsseldorf"></app-weather>
+    </div>
+    <div class="item col-md-6">
+      <app-google-calendar></app-google-calendar>
+    </div>
+    <div class="item col-md-3" style="display: none">
+      <app-news></app-news>
+    </div>
+  </div>
+</div>D

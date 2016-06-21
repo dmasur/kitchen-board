@@ -41,6 +41,7 @@ var barrels = [
     'app/weather',
     'app/news',
     'app/schedule',
+    'app/clock',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
