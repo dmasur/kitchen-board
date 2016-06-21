@@ -79,7 +79,7 @@ export class GoogleCalendarComponent implements OnInit {
 
   loadEvents() {
     var lastSave = this.cookieService.getObject('calendar.savedAt');
-    if(false&&lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+    if(lastSave < Date.now() + 10 * 60000) { // 10 Minuten
       this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
     } else {
       this.refreshEvents()

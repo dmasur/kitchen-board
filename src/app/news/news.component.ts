@@ -40,7 +40,7 @@ export class NewsComponent implements OnInit {
 
   loadNews(){
     var lastSave = this.cookieService.getObject('news.savedAt');
-    if(false && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+    if(lastSave < Date.now() + 10 * 60000) { // 10 Minuten
       this.newsItems = JSON.parse(this.cookieService.get('news.items'));
     } else {
       this.refreshNews()

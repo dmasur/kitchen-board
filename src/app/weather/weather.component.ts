@@ -29,7 +29,7 @@ export class WeatherComponent implements OnInit {
 
   loadWeather(){
       var lastSave = this.cookieService.getObject('weather.savedAt');
-      if(true && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+      if(lastSave < Date.now() + 10 * 60000) { // 10 Minuten
         this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
       } else {
         this.refreshEvents();
