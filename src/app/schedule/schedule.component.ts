@@ -18,14 +18,14 @@ class ClassInfo{
 export class ScheduleComponent implements OnInit {
   schedule = [
     [],
-    ["Deutsch", "Mathe", "Englisch", "Sport", "Musik"],
-    ["Deutsch", "Mathe", "Englisch", "Sport", "Musik"],
-    ["Deutsch", "Mathe", "Englisch", "Sport", "Musik"],
-    ["Deutsch", "Mathe", "Englisch", "Sport", "Musik"],
-    ["Deutsch", "Mathe", "Englisch", "Sport", "Musik"],
+    ["Mathe", "Sport", "Religon", "Englisch"],
+    ["Biologie", "Deutsch", "SoWi", "Musik", "Kunst"],
+    ["Englisch", "Kunst", "Instrument", "Sport", "Deutsch"],
+    ["MINT", "Musik", "Mathe", "Religion", "Klassenleiterst."],
+    ["Erdkunde", "Deutsch", "Englisch", "Biologie", "Sport"],
     []
   ]
-  times = ["8:00 - 8:45", "9:00 - 9:45", "10:00 - 10:45", "11:00 - 11:45", "12:00 - 12:45"]
+  times = ["8:00 - 9:00", "9:05 - 10:05", "10:20 - 11:20", "11:25 - 12:25", "12:50 - 13:50"]
   timeTable = []
   date:Date = new Date();
   constructor() {
