@@ -36,7 +36,7 @@ export class WeatherComponent implements OnInit {
 
   refreshEvents(){
     this.weatherInfos = [];
-    var requestString = "http://api.openweathermap.org/data/2.5/forecast?q=" + this.city
+    var requestString = "https://api.openweathermap.org/data/2.5/forecast?q=" + this.city
                         + "&format=json&units=metric&cnt=4"
                         + "&APPID=f316649a0a3ade226bfdfcc8c3b57fd3" ;
     this.http.get(requestString).subscribe(data => {
