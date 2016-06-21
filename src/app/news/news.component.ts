@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { Http, Response, HTTP_BINDINGS } from '@angular/http';
-import * as rss from "rss-feed-emitter";
-
+import { Http, Response, HTTP_BINDINGS, Headers } from '@angular/http';
 class News {
   title: string;
   url: string;
@@ -27,7 +25,7 @@ export class NewsComponent implements OnInit {
 
   loadNews(){
     var lastSave = this.cookieService.getObject('news.savedAt');
-    if(false && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+    if(lastSave < Date.now() + 10 * 60000) { // 10 Minuten
       this.newsItems = JSON.parse(this.cookieService.get('news.items'));
     } else {
       this.refreshNews()
@@ -35,9 +33,8 @@ export class NewsComponent implements OnInit {
   }
 
   refreshNews(){
-    this.http.get('http://www.spiegel.de/schlagzeilen/tops/index.rss').subscribe(data => {
-
-    })
+    //this.http.get('http://newsfeed.zeit.de/index').subscribe(data => {
+    //  debugger
+    //});
   }
-
 }

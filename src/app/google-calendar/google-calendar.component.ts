@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import { AppointmentsService } from '../appointments.service';
+import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
+import * as moment from 'moment';
 import IEvent = gapi.client.calendar.IEvent;
 
 class Day{
@@ -8,13 +10,13 @@ class Day{
   date: Date;
 }
 class Event{
-  summary: string;
-  date: Date;
+  constructor(public date: Date, public summary: string, public hasTime: boolean) {}
 }
 
 @Component({
   moduleId: module.id,
   selector: 'app-google-calendar',
+  pipes: [TimeAgoPipe, DateFormatPipe],
   templateUrl: 'google-calendar.component.html',
   styleUrls: ['google-calendar.component.css'],
   providers: [AppointmentsService]
@@ -22,7 +24,8 @@ class Event{
 export class GoogleCalendarComponent implements OnInit {
   daysWithEvents: Array<Day>;
 
-  constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {  }
+  constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {
+  }
 
   ngOnInit() { this.loadEvents() }
 
@@ -39,8 +42,9 @@ export class GoogleCalendarComponent implements OnInit {
       var eventList = (appointments as Array<IEvent>);
       for(var i=0; i<eventList.length; i++) {
         if(eventList[i].start != undefined){
-          var date = eventList[i].start.dateTime !== undefined ? eventList[i].start.dateTime : eventList[i].start.date;
-          events.push({date: Date.parse(date), summary: eventList[i].summary});
+          var hasTime = eventList[i].start.dateTime !== undefined;
+          var date = hasTime ? eventList[i].start.dateTime : eventList[i].start.date;
+          events.push(new Event(new Date(date), eventList[i].summary, hasTime));
         }
       };
       for(var i=0;i<events.length; i++){
@@ -64,7 +68,7 @@ export class GoogleCalendarComponent implements OnInit {
 
   loadEvents() {
     var lastSave = this.cookieService.getObject('calendar.savedAt');
-    if(true || lastSave < Date.now() + 10 * 60000) { // 10 Minuten
+    if(false&&lastSave < Date.now() + 10 * 60000) { // 10 Minuten
       this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
     } else {
       this.refreshEvents()

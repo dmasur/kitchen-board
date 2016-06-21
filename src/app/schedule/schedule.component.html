@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan="2">
+      Stundenplan Sidney für {{date | amDateFormat:'dddd'}}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let classInfo of timeTable">
+    <td>
+      {{classInfo.time}}
+    </td>
+    <td>
+      {{classInfo.subject}}
+    </td>
+  </tr>
+  </tbody>
+</table>
