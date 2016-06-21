@@ -1,3 +1,11 @@
-<p>
-  google-calendar works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let day of daysWithEvents">
+    {{day.date | date}}
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let event of day.events">
+          {{day.date | date:'shorttime'}}: {{event.summary}}
+        </li>
+      </ul>
+  </li>
+</ul>
+<button class="btn btn-default navbar-btn" (click)="refreshAppointments()">Refresh</button>

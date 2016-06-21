@@ -7,11 +7,13 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  'underscore': '../node_modules/underscore/underscore.js'
+  'underscore': 'vendor/underscore/underscore.js',
+  'angular2-cookie': 'vendor/angular2-cookie'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'angular2-cookie':            { main: 'core.js',  defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

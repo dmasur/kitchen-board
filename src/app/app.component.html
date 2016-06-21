@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">{{title}}</a>
+      <a class="navbar-brand" href="#">Übersicht</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -12,32 +12,20 @@
         </li>
         <li *ngIf="authenticationService.isAuthenticated">
           <!-- curly brackets are used to bind a part of a text to a component's field value -->
-          <p class="navbar-text">Signed in as {{authenticationService.userName}}<small>  <a href="#" (click)="authenticationService.logout()">(Logout)</a></small></p>
-        </li>
-        <li *ngIf="authenticationService.isAuthenticated">
-          <!-- brackets are used to bind an attribute value to a component's field value -->
-          <img class="img-responsive" [src]="authenticationService.userImageUrl">
+          <p class="navbar-text">{{authenticationService.userName}}<small></small></p>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="panel panel-default">
-  <div class="panel-body" *ngIf="authenticationService.isAuthenticated">
-    <h4>Appointments available for {{authenticationService.userName}}:</h4>
+<div class="col-md-3">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let day of daysWithEvents">
-        {{day.date | date}}
-          <ul class="list-group">
-            <li class="list-group-item" *ngFor="let event of day.events">
-              {{day.date | date:'shortTime'}}: {{event.orgEvent.summary}}
-            </li>
-          </ul>
+      <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
+        {{weatherInfo.cityName}} {{weatherInfo.temp}}° C <img src="http://openweathermap.org/img/w/{{weatherInfo.icon}}.png" alt="" />
       </li>
     </ul>
-    <button class="btn btn-default navbar-btn" (click)="refreshAppointments()">Refresh</button>
-  </div>
-  <div class="panel-body" *ngIf="!authenticationService.isAuthenticated">
-    <h4>Welcome to Angular2 feat. OAuth2</h4>
-  </div>
 </div>
+<div class="col-md-3">
+  <app-google-calendar></app-google-calendar>
+</div>
+

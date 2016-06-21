@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
-import { AuthenticationService } from './authentication.service';
-import { AppointmentsService } from './appointments.service';
-import IEvent = gapi.client.calendar.IEvent;
+import { Component, OnInit } from '@angular/core';
+import { GoogleCalendarComponent } from './google-calendar/google-calendar.component';
+import {AuthenticationService} from './authentication.service'
+import {CookieService} from 'angular2-cookie/core';
+import { Http, Response, HTTP_BINDINGS } from '@angular/http';
 
-class Day{
-  events: Array<IEvent> = [];
-  date: Date;
-}
-class Event{
-  orgEvent: IEvent;
-  date: Date;
+class WeatherInfo{
+  cityName: string;
+  temp: string;
+  icon: string;
 }
 
 @Component({
@@ -17,58 +15,46 @@ class Event{
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  providers: [AuthenticationService, AppointmentsService]
+  directives: [GoogleCalendarComponent],
+  providers: [Http, HTTP_BINDINGS, AuthenticationService, CookieService]
 })
-export class AppComponent {
-  title = 'app works!';
-  authenticationService: AuthenticationService;
-  appointmentsService: AppointmentsService;
-  appointments: Array<string>;
-  daysWithEvents: Array<Day>;
-  groupedEvents: any;
 
-  constructor(authenticationService: AuthenticationService, appointmentsService: AppointmentsService){
-    this.authenticationService = authenticationService;
-    this.appointmentsService = appointmentsService;
+export class AppComponent implements OnInit {
+  weatherInfos: Array<WeatherInfo>;
+
+  constructor(private authenticationService: AuthenticationService, private cookieService: CookieService, private http: Http){
   }
-  sortEvents(event1, event2){
-    var date1 = event1.start.dateTime !== null ? event1.start.dateTime : event1.start.date;
-    var date2 = event2.start.dateTime !== null ? event2.start.dateTime : event2.start.date;
-    return Date.parse(date1) - (Date.parse(date2));
+
+  ngOnInit() {
+    this.updateWeather();
   }
-  refreshAppointments() {
-    /*
-     * loading the appointments is done asychronously. the service's loadAppointments() method
-     * returns a Promise that provides access to the newly loaded set of appointments. Updating
-     * the array of appointments triggers angular's one-way-binding between the field and the
-     * widget.
-     */
-    this.appointmentsService.loadAppointments().then(appointments => {
-      var events = [];
-      this.daysWithEvents = [];
-      var eventList = (appointments as Array<IEvent>);
-      for(var i=0; i<eventList.length; i++) {
-        if(eventList[i].start != undefined){
-          var date = eventList[i].start.dateTime !== undefined ? eventList[i].start.dateTime : eventList[i].start.date;
-          events.push({date: Date.parse(date), orgEvent: eventList[i]});
-        }
-      };
-      for(var i=0;i<events.length; i++){
-        var day : Day = this.daysWithEvents.find(day => (day.date == events[i].date));
-        if(day == null){
-          day = new Day();
-          day.date = events[i].date;
-          day.events = [];
-          day.events.push(events[i]);
-          if(day.date.toString() != "NaN"){
-            this.daysWithEvents.push(day);
-          }
-        }else{
-          day.events.push(events[i]);
-        }
-      }
-      debugger;
-      console.log("asd")
-    });
+
+  updateWeather(){
+    this.weatherInfos = [];
+    // var cities = ['Bottrop', 'Düsseldorf'];
+    // cities.forEach(city => {
+    //   var weatherInfo = new WeatherInfo();
+    //   weatherInfo.cityName = city;
+    //   var requestString = "http://api.openweathermap.org/data/2.5/weather?q=" + city
+    //                       + "&format=json&units=metric"
+    //                       + "&APPID=f316649a0a3ade226bfdfcc8c3b57fd3" ;
+    //   this.http.get(requestString).subscribe(data => {
+    //     var json = data.json()
+    //   weatherInfo.icon = json.weather[0].icon;
+    //   weatherInfo.temp = json.main.temp;
+    //   //http://openweathermap.org/img/w/
+    //   //var json = JSON.parse(data._body);
+    //   this.weatherInfos.push(weatherInfo);
+    // })
+    //   this.cookieService.put('weather.savedAt', JSON.stringify(Date.now()));
+    //   this.cookieService.put('weather.weatherInfos', JSON.stringify(this.weatherInfos));
+    // });
   }
+
+  updateRss(){
+    //this.http.get("http://www.spiegel.de/schlagzeilen/tops/index.rss").subscribe(data => {
+
+    //});
+  }
+
 }
