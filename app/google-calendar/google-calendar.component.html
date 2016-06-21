@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Nächste Termine</div>
+  <div class="panel-heading lead">Nächste Termine</div>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let day of daysWithEvents">
       {{day.date | amDateFormat:'dddd, D. MMMM'}} ({{day.date | amTimeAgo}})

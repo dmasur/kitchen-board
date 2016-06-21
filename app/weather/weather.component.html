@@ -4,7 +4,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
         {{weatherInfo.date | amDateFormat: 'LT'}}
-        <img src="http://openweathermap.org/img/w/{{weatherInfo.icon}}.png" alt="{{weatherInfo.iconText}}" />
+        {{weatherInfo.summary}}
         {{weatherInfo.temp}}° C
       </li>
     </ul>
