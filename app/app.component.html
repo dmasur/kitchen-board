@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Übersicht</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- *ng-if is a directive transpiling to valid html-->
+        <li *ngIf="!authenticationService.isAuthenticated">
+          <!-- (click) binds the components authenticationService.login() method to the onClick-event -->
+          <button class="btn btn-default navbar-btn" (click)="authenticationService.login()">Login with Google</button>
+        </li>
+        <li *ngIf="authenticationService.isAuthenticated">
+          <!-- curly brackets are used to bind a part of a text to a component's field value -->
+          <p class="navbar-text">{{authenticationService.userName}}<small></small></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-3">
+  <app-weather city="Bottrop"></app-weather>
+</div>
+<div class="col-md-3">
+  <app-google-calendar></app-google-calendar>
+</div>
+<div class="col-md-3" style="display: none">
+  <app-news></app-news>
+</div>
+<div class="col-md-3">
+  <app-schedule></app-schedule>
+</div>
+

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head class="no-js" lang="">
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>KitchenBoard</title>
+  <base href="/kitchen-board/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://apis.google.com/js/client.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vendor/moment/moment.js"></script>
+  <script src="vendor/moment/locale/de.js"></script>
+</head>
+<body style="padding-top: 70px;">
+  <app-root>Loading...</app-root>
+    <script src="vendor/es6-shim/es6-shim.js"></script>
+    <script src="vendor/reflect-metadata/Reflect.js"></script>
+    <script src="vendor/systemjs/dist/system.src.js"></script>
+    <script src="vendor/zone.js/dist/zone.js"></script>
+    <script>
+      System.import('system-config.js').then(function () {
+        System.import('main');
+      }).catch(console.error.bind(console));
+    </script>
+</body>
+</html>

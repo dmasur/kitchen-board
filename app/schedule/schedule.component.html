@@ -1,0 +1,23 @@
+<p class="lead">Stundenplan {{date | amDateFormat:'dddd'}}</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th >
+      Zeit
+    </th>
+    <th >
+      Fach
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let classInfo of timeTable">
+    <td>
+      {{classInfo.time}}
+    </td>
+    <td>
+      {{classInfo.subject}}
+    </td>
+  </tr>
+  </tbody>
+</table>
