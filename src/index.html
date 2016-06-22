@@ -17,15 +17,16 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <script src="vendor/jquery/dist/jquery.min.js"></script>
 </head>
+<base href=".">
 <body style="padding-top: 70px;">
   <app-root>Loading...</app-root>
-    {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
-    {{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
+  {{#each scripts.polyfills}}
+  <script src="{{.}}"></script>
+  {{/each}}
+  <script>
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
 </body>
 </html>

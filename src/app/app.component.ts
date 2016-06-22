@@ -1,33 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleCalendarComponent } from './google-calendar/google-calendar.component';
-import { WeatherComponent } from './weather/weather.component';
-import { NewsComponent } from './news/news.component';
-import { ScheduleComponent } from './schedule/schedule.component';
-import { ClockComponent } from './clock/clock.component';
-import {AuthenticationService} from './authentication.service'
+import {AuthenticationService} from './authentication.service';
 import {CookieService} from 'angular2-cookie/core';
-import { Http, Response, HTTP_BINDINGS } from '@angular/http';
+import { Http, HTTP_BINDINGS } from '@angular/http';
 import * as moment from 'moment';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [GoogleCalendarComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent],
+  directives: [ROUTER_DIRECTIVES],
   providers: [Http, HTTP_BINDINGS, AuthenticationService, CookieService]
 })
 
 export class AppComponent implements OnInit {
-  private onlineStatus: string = "online";
 
   constructor(private authenticationService: AuthenticationService){
     moment.locale('de');
   }
 
   ngOnInit(){
-    if(!this.authenticationService.isAuthenticated){
-      this.authenticationService.login();
-    }
   }
 }
