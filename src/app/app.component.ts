@@ -18,8 +18,16 @@ import * as moment from 'moment';
   providers: [Http, HTTP_BINDINGS, AuthenticationService, CookieService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private onlineStatus: string = "offline";
+
   constructor(private authenticationService: AuthenticationService){
     moment.locale('de');
+  }
+
+  ngOnInit(){
+    if(!this.authenticationService.isAuthenticated){
+      this.authenticationService.login();
+    }
   }
 }

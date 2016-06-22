@@ -26,10 +26,12 @@ class News {
   moduleId: module.id,
   selector: 'app-news',
   templateUrl: 'news.component.html',
-  styleUrls: ['news.component.css']
+  styleUrls: ['news.component.css'],
+  inputs:['onlineStatus']
 })
 export class NewsComponent implements OnInit {
   newsItems: Array<News>;
+  onlineStatus: string;
 
   constructor(private cookieService: CookieService, private http: Http) {}
 
@@ -40,10 +42,10 @@ export class NewsComponent implements OnInit {
 
   loadNews(){
     var lastSave = this.cookieService.getObject('news.savedAt');
-    if(lastSave < Date.now() + 10 * 60000) { // 10 Minuten
-      this.newsItems = JSON.parse(this.cookieService.get('news.items'));
-    } else {
+    if(this.onlineStatus == "online" && lastSave > Date.now() + 10 * 60000) { // 10 Minuten
       this.refreshNews()
+    } else {
+      this.newsItems = JSON.parse(this.cookieService.get('news.items'));
     }
   }
 
