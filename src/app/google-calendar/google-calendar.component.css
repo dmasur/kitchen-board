@@ -1,0 +1,17 @@
+.date{
+  padding: 5px;
+  font-size: 1em;
+  font-size: 1.2vw;
+  border-right: 1px solid;
+  border-color: #ddd;
+}
+.day.row{
+  margin-top: 0px;
+}
+hr{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.list-group-item {
+  border: none;
+}
