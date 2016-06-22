@@ -12,18 +12,19 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://apis.google.com/js/client.js"></script>
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
 </head>
+<base href=".">
 <body style="padding-top: 70px;">
   <app-root>Loading...</app-root>
-    <script src="vendor/es6-shim/es6-shim.js"></script>
-    <script src="vendor/reflect-metadata/Reflect.js"></script>
-    <script src="vendor/systemjs/dist/system.src.js"></script>
-    <script src="vendor/zone.js/dist/zone.js"></script>
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
+  <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/reflect-metadata/Reflect.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/zone.js/dist/zone.js"></script>
+  <script>
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
 </body>
 </html>
