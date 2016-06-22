@@ -14,7 +14,7 @@ import { ClockComponent } from '../clock/clock.component';
   directives: [GoogleCalendarComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent]
 })
 export class DashboardComponent implements OnInit {
-  private onlineStatus: string = "offline";
+  private onlineStatus: string = "online";
 
   constructor(private authenticationService: AuthenticationService) {}
 
