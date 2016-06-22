@@ -5,13 +5,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <!-- *ng-if is a directive transpiling to valid html-->
-        <li *ngIf="!authenticationService.isAuthenticated">
-          <!-- (click) binds the components authenticationService.login() method to the onClick-event -->
-          <button class="btn btn-default navbar-btn" (click)="authenticationService.login()">Login with Google</button>
-        </li>
         <li *ngIf="authenticationService.isAuthenticated">
-          <!-- curly brackets are used to bind a part of a text to a component's field value -->
           <p class="navbar-text">{{authenticationService.userName}}</p>
         </li>
       </ul>

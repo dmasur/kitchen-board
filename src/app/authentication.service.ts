@@ -20,7 +20,6 @@ export class AuthenticationService {
   }
 
   login() {
-    console.log('proceed login');
     // check the authentication and present a dialog on failure
     this.internalAuthenticate(false);
   }
