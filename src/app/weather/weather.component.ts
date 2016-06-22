@@ -21,7 +21,7 @@ export class WeatherComponent implements OnInit {
   longitude: string;
   latitude: string;
   onlineStatus: string;
-  nextUpdate: Date;
+  lastUpdate:Date;
 
   constructor(private cookieService: CookieService, private http: Http) {}
 
@@ -30,12 +30,12 @@ export class WeatherComponent implements OnInit {
   }
 
   loadWeather(){
-    this.refreshEvents();
-    this.nextUpdate = new Date(JSON.parse(this.cookieService.get('weather.nextUpdate')));
-    if(this.onlineStatus == "online" && new Date() > this.nextUpdate) {
+    if(this.onlineStatus == "online"){
       this.refreshEvents();
-    } else {
+      setInterval(this.refreshEvents, 10 * 60)
+    }else {
       this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
+      this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));
     }
   }
 
@@ -51,8 +51,8 @@ export class WeatherComponent implements OnInit {
         var weatherInfo= new WeatherInfo(date, entry.icon, temp, entry.summary);
         this.weatherInfos.push(weatherInfo);
       })
-      this.cookieService.put('weather.savedAt', JSON.stringify(Date.now()));
-      this.cookieService.put('weather.nextUpdate', JSON.stringify(new Date(Date.now() + 10 * 60000)));
+      this.lastUpdate = new Date();
+      this.cookieService.put('weather.savedAt', JSON.stringify(this.lastUpdate));
       this.cookieService.put('weather.weatherInfos', JSON.stringify(this.weatherInfos));
     })
   }

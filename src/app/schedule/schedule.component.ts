@@ -33,10 +33,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
     this.updateTimeTable();
-    let observer = Observable.interval(1000 * 60 * 60);
-    let subscription = observer.subscribe(x => {
-      this.updateTimeTable()
-    });
+    setInterval(this.updateTimeTable, 10 * 60)
   }
 
   getDisplayedDate(currentDate: Date):Date{

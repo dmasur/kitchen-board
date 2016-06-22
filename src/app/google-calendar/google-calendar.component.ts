@@ -29,14 +29,19 @@ class Event{
 export class GoogleCalendarComponent implements OnInit {
   daysWithEvents: Array<Day>;
   private onlineStatus:string;
+  lastUpdate:Date;
+  
   constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {
   }
 
   ngOnInit() {
-    this.loadEvents();
-    Observable.interval(1000 * 60 * 60).subscribe(x => {
-      this.loadEvents()
-    });
+    if(this.onlineStatus == "online"){
+      this.refreshEvents();
+      setInterval(this.refreshEvents, 10 * 60)
+    }else {
+      this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
+      this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
+    }
   }
 
   refreshEvents() {
@@ -72,17 +77,9 @@ export class GoogleCalendarComponent implements OnInit {
           day.events.push(events[i]);
         }
       }
-      this.cookieService.put('calendar.savedAt', JSON.stringify(Date.now()));
+      this.lastUpdate = new Date();
+      this.cookieService.put('calendar.savedAt', JSON.stringify(this.lastUpdate));
       this.cookieService.put('calendar.daysWithEvents', JSON.stringify(this.daysWithEvents));
     });
-  }
-
-  loadEvents() {
-    var lastSave = this.cookieService.getObject('calendar.savedAt');
-    if(this.onlineStatus == "online" && lastSave > Date.now() + 10 * 60000) { // 10 Minuten
-    this.refreshEvents()
-    } else {
-      this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
-    }
   }
 }

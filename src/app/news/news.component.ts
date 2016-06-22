@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService, CookieOptions } from 'angular2-cookie/core';
 import { Http, Response, HTTP_BINDINGS, Headers } from '@angular/http';
-
-import 'rxjs/add/observable/throw';
-
-// Operators
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toPromise';
+import {DateFormatPipe} from 'angular2-moment';
 
 declare var $:any;
 
@@ -27,11 +18,13 @@ class News {
   selector: 'app-news',
   templateUrl: 'news.component.html',
   styleUrls: ['news.component.css'],
-  inputs:['onlineStatus']
+  inputs:['onlineStatus'],
+  pipes: [DateFormatPipe]
 })
 export class NewsComponent implements OnInit {
   newsItems: Array<News>;
   onlineStatus: string;
+  lastUpdate:Date;
 
   constructor(private cookieService: CookieService, private http: Http) {}
 
@@ -41,11 +34,12 @@ export class NewsComponent implements OnInit {
   }
 
   loadNews(){
-    var lastSave = this.cookieService.getObject('news.savedAt');
-    if(this.onlineStatus == "online" && lastSave > Date.now() + 10 * 60000) { // 10 Minuten
-      this.refreshNews()
-    } else {
+    if(this.onlineStatus == "online"){
+      this.refreshNews();
+      setInterval(this.refreshNews, 10 * 60)
+    }else {
       this.newsItems = JSON.parse(this.cookieService.get('news.items'));
+      this.lastUpdate = JSON.parse(this.cookieService.get('news.savedAt'));
     }
   }
 
@@ -62,7 +56,8 @@ export class NewsComponent implements OnInit {
         newsItems.push(news);
     }
     this.newsItems = newsItems;
-    this.cookieService.putObject('news.saveAt', new Date());
+    this.lastUpdate = new Date();
+    this.cookieService.put('news.savedAt', JSON.stringify(this.lastUpdate));
     this.cookieService.put('news.items', JSON.stringify(newsItems))
   }
 
