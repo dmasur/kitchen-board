@@ -3,7 +3,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 
 export const routes: RouterConfig = [
-  { path: '/', component: DashboardComponent },
+  { path: '', component: DashboardComponent, index: true },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'settings', component: SettingsComponent }
 ];
