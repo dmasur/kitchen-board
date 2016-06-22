@@ -43,7 +43,9 @@ export class GoogleCalendarComponent implements OnInit {
       this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
     }
   }
-
+  dateString(date:Date): string{
+    return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
+  }
   refreshEvents() {
     /*
      * loading the appointments is done asychronously. the service's loadAppointments() method
@@ -63,8 +65,10 @@ export class GoogleCalendarComponent implements OnInit {
           events.push(event);
         }
       };
+      events = events.sort((a,b) => a.date.getTime() - b.date.getTime()).slice(0,5);
       for(var i=0;i<events.length; i++){
-        var day : Day = this.daysWithEvents.find(day => (day.date == events[i].date));
+        var daystring = events[i].date.getFullYear().toString() + events[i].date.getMonth().toString() + events[i].date.getDay().toString();
+        var day : Day = this.daysWithEvents.find(day => (this.dateString(day.date) == this.dateString(events[i].date)));
         if(day == null){
           day = new Day();
           day.date = events[i].date;
