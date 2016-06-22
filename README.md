@@ -29,3 +29,10 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## ToDO:
+- Icons for weather condition
+- Settingspage for Api Keys and Schedule
+- Time to next update
+- IndexedDB instead of cookies
+- Schedule change at midday
