@@ -38,9 +38,9 @@ export class ScheduleComponent implements OnInit {
 
   getDisplayedDate(currentDate: Date):Date{
     if(currentDate.getHours() >= 12){
-      return new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+      return new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
     }else{
-      return new Date();
+      return currentDate;
     }
   }
 
