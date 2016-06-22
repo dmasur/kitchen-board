@@ -32,8 +32,8 @@ export class ScheduleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updateTimeTable();
-    setInterval(this.updateTimeTable, 10 * 60)
+    //this.updateTimeTable();
+    setInterval(() => this.updateTimeTable(), 10 * 60)
   }
 
   getDisplayedDate(currentDate: Date):Date{
@@ -48,9 +48,9 @@ export class ScheduleComponent implements OnInit {
     return this.times.map((e, i) => new ClassInfo(e, schedule[displayedDate.getDay()][i]));
   }
 
-  updateTimeTable(){
+  updateTimeTable = () => {
     this.displayedDate = this.getDisplayedDate(new Date());
     this.timeTable = this.generateTimeTable(this.schedule, this.displayedDate);
-  }
+  };
 
 }

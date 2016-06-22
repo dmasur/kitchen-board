@@ -30,14 +30,14 @@ export class GoogleCalendarComponent implements OnInit {
   daysWithEvents: Array<Day>;
   private onlineStatus:string;
   lastUpdate:Date;
-  
+
   constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {
   }
 
   ngOnInit() {
     if(this.onlineStatus == "online"){
       this.refreshEvents();
-      setInterval(this.refreshEvents, 10 * 60)
+      setInterval(() => this.refreshEvents(), 10 * 60)
     }else {
       this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
       this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
