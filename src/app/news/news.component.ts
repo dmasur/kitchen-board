@@ -30,6 +30,7 @@ export class NewsComponent implements OnInit {
 
   loadNews(){
     if(this.onlineStatus == "online"){
+      this.refreshNews();
       setInterval(() => this.refreshNews(), 10 * 60 * 1000)
     }else {
       this.newsItems = JSON.parse(this.cookieService.get('news.items'));
