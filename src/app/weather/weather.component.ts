@@ -55,7 +55,7 @@ export class WeatherComponent implements OnInit {
 
   loadWeather(){
     if(this.onlineStatus == "online"){
-      setInterval(() => this.refreshEvents(), 10 * 60)
+      setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
     }else {
       this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
       this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));

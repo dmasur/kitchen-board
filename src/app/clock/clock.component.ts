@@ -14,11 +14,7 @@ export class ClockComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.updateTime();
-    let observer = Observable.interval(1000);
-    observer.subscribe(x => {
-      this.updateTime()
-    });
+    setInterval(() => this.updateTime(), 1000)
   }
 
   updateTime(){

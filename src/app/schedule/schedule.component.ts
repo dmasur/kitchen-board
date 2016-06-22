@@ -32,7 +32,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   ngOnInit() {
-    setInterval(() => this.updateTimeTable(), 10 * 60)
+    setInterval(() => this.updateTimeTable(), 10 * 60 * 1000)
   }
 
   getDisplayedDate(currentDate: Date):Date{
