@@ -2,15 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService, CookieOptions } from 'angular2-cookie/core';
 import { Http, Response, HTTP_BINDINGS, Headers } from '@angular/http';
 import {DateFormatPipe} from 'angular2-moment';
-
 declare var $:any;
 
 class News {
-  title: string;
-  url: string;
-  image: string;
-  summary: string;
-  date: Date;
+  constructor(public title: string, public image: string, public summary: string, public date: Date) {}
 }
 
 @Component({
@@ -45,15 +40,15 @@ export class NewsComponent implements OnInit {
 
   parse(data) {
     var newsItems = [];
-    var items = $(data.text()).find("item").slice(0,5);
+    var items = $(data.text()).find("item").slice(0,6);
     for ( var i = 0, l = items.length; i < l; i++ ) {
         var el = $(items[i]);
-        var news = new News();
-        news.title = el.find("title").text();
-        news.summary = el.find("description").text();
-        news.date = new Date(el.find("pubDate").text());
-        news.image = el.find("enclosure").attr("url");
-        newsItems.push(news);
+        newsItems.push(new News(
+          el.find("title").text(),
+          el.find("enclosure").attr("url"),
+          el.find("description").text(),
+          new Date(el.find("pubDate").text())
+        ));
     }
     this.newsItems = newsItems;
     this.lastUpdate = new Date();
