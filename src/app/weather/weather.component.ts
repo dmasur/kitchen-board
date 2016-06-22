@@ -9,7 +9,7 @@ class WeatherInfo{
 
 @Component({
   moduleId: module.id,
-  inputs: ['city', 'longitude', 'latitude'],
+  inputs: ['city', 'longitude', 'latitude', 'onlineStatus'],
   selector: 'app-weather',
   templateUrl: 'weather.component.html',
   styleUrls: ['weather.component.css'],
@@ -19,7 +19,8 @@ export class WeatherComponent implements OnInit {
   weatherInfos: Array<WeatherInfo>;
   city: string;
   longitude: string;
-  latitude: string
+  latitude: string;
+  onlineStatus: string;
 
   constructor(private cookieService: CookieService, private http: Http) {}
 
@@ -29,10 +30,10 @@ export class WeatherComponent implements OnInit {
 
   loadWeather(){
       var lastSave = this.cookieService.getObject('weather.savedAt');
-      if(true && lastSave < Date.now() + 10 * 60000) { // 10 Minuten
-        this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
-      } else {
+      if(this.onlineStatus == "online" && lastSave > Date.now() + 10 * 60000) { // 10 Minuten
         this.refreshEvents();
+      } else {
+        this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
       }
   }
 

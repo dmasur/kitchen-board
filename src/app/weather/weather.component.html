@@ -3,9 +3,7 @@
   <div class="panel-body">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
-        {{weatherInfo.date | amDateFormat: 'LT'}}
-        {{weatherInfo.summary}}
-        {{weatherInfo.temp}}° C
+        {{weatherInfo.date | amDateFormat: 'LT'}} | {{weatherInfo.temp}}° C | {{weatherInfo.summary}}
       </li>
     </ul>
   </div>
