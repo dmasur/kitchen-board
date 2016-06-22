@@ -19,7 +19,7 @@ import * as moment from 'moment';
 })
 
 export class AppComponent implements OnInit {
-  private onlineStatus: string = "offline";
+  private onlineStatus: string = "online";
 
   constructor(private authenticationService: AuthenticationService){
     moment.locale('de');

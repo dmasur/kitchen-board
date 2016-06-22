@@ -27,7 +27,7 @@ export class ScheduleComponent implements OnInit {
   ]
   times = ["8:00 - 9:00", "9:05 - 10:05", "10:20 - 11:20", "11:25 - 12:25", "12:50 - 13:50"]
   timeTable = []
-  date:Date = new Date();
+  displayedDate:Date = new Date();
   constructor() {
   }
 
@@ -39,9 +39,21 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
+  getDisplayedDate(currentDate: Date):Date{
+    if(currentDate.getHours() >= 12){
+      return new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    }else{
+      return new Date();
+    }
+  }
+
+  generateTimeTable(schedule:any, displayedDate:Date){
+    return this.times.map((e, i) => new ClassInfo(e, schedule[displayedDate.getDay()][i]));
+  }
+
   updateTimeTable(){
-    this.date = new Date();
-    this.timeTable = this.times.map((e, i) => new ClassInfo(e, this.schedule[this.date.getDay()][i]));
+    this.displayedDate = this.getDisplayedDate(new Date());
+    this.timeTable = this.generateTimeTable(this.schedule, this.displayedDate);
   }
 
 }

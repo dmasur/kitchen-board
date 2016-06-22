@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading lead">{{city}}</div>
+  <div class="panel-heading"><span class="lead">{{city}}</span><span class="small"> Update: {{nextUpdate | amTimeAgo}}</span></div>
   <div class="panel-body">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
