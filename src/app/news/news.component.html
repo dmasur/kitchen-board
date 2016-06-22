@@ -2,7 +2,7 @@
   <div class="panel-heading"><span class="lead">Nachrichten</span><span class="small"> ({{lastUpdate | amDateFormat: 'LT'}})</span></div>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let news of newsItems">
-      <img src="{{news.image}}" />
+      <img *ngIf="news.image" src="{{news.image}}" />
       <span class="">{{news.title}}</span>
     </li>
   </ul>
