@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'angular2-cookie/core';
+import { Settings } from '../shared/settings';
+
 
 @Component({
   moduleId: module.id,
@@ -7,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-
-  constructor() {}
+  constructor(private cookieService:CookieService, private settings:Settings) {}
 
   ngOnInit() {
+    var savedSettings = this.cookieService.getObject('settings') as Settings;
+    this.settings = savedSettings || new Settings();
+  }
+
+  onSubmit(){
+    this.cookieService.putObject('settings', this.settings);
   }
 
 }
