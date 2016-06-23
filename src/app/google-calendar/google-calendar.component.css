@@ -4,7 +4,6 @@
   font-size: 1.2vw;
   border-right: 1px solid;
   border-color: #ddd;
-  vertical-align: middle;
 }
 .list-group-item {
   border: none;
@@ -18,4 +17,8 @@
 }
 .table li{
   padding: 2px;
+}
+
+.table>tbody>tr>td{
+  vertical-align: middle;
 }
