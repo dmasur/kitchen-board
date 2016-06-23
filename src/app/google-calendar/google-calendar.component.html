@@ -1,14 +1,15 @@
 <div class="panel panel-default">
   <div class="panel-heading"><span class="lead">Nächste Termine</span><span class="small"> ({{lastUpdate | amDateFormat: 'LT'}})</span></div>
-  <div class="day row" *ngFor="let day of daysWithEvents">
-    <div class="col-md-3 text-center date">{{day.date | amDateFormat:'dddd'}}<br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}<br/>{{day.date | amTimeAgo}}</div>
-    <div class="col-md-9">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let event of day.events">
-          <span *ngIf="event.hasTime">{{event.date | amDateFormat:'LT'}} | </span>{{event.summary}} | {{event.person}}
-        </li>
-      </ul>
-    </div>
-    <div class="spacer col-md-12"><hr/></div>
-  </div>
+  <table class="table">
+    <tr class="day row {{rowClass(day)}}" *ngFor="let day of daysWithEvents">
+      <td class="text-center date">{{day.date | amDateFormat:'dddd'}}<br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}<br/>{{day.date | amTimeAgo}}</td>
+      <td>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let event of day.events">
+            <span *ngIf="event.hasTime">{{event.date | amDateFormat:'LT'}} | </span>{{event.summary}} | {{event.person}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
 </div>

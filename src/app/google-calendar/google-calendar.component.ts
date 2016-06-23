@@ -46,6 +46,18 @@ export class GoogleCalendarComponent implements OnInit {
   dateString(date:Date): string{
     return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
   }
+  rowClass(day:Day):string{
+    var today = new Date();
+    var tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDay()+1)
+    var dateString = this.dateString(new Date(day.date.toString()));
+    if(dateString == this.dateString(today)){
+      return "success";
+    }else if(dateString == this.dateString(tomorrow)){
+      return "info";
+    }else{
+      return "";
+    }
+  }
   refreshEvents() {
     /*
      * loading the appointments is done asychronously. the service's loadAppointments() method
