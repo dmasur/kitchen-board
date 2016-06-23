@@ -13,8 +13,7 @@ export class SettingsComponent implements OnInit {
   constructor(private cookieService:CookieService, private settings:Settings) {}
 
   ngOnInit() {
-    var savedSettings = this.cookieService.getObject('settings') as Settings;
-    this.settings = savedSettings || new Settings();
+    this.settings = this.settings || new Settings();
   }
 
   onSubmit(){

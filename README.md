@@ -38,3 +38,5 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - IndexedDB instead of cookies
 - Daily Quote: http://spruchsammlung.com/content/rssquotes
 - Schedule shows actual class
+- Icons on Iceweasel
+- jQuery fest einbinden

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from './authentication.service';
-import {CookieService} from 'angular2-cookie/core';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import * as moment from 'moment';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { Settings } from './shared/settings';
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +11,7 @@ import { Settings } from './shared/settings';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [Settings, Http, HTTP_PROVIDERS, AuthenticationService, CookieService]
+  providers: [Http, HTTP_PROVIDERS, AuthenticationService, CookieService]
 })
 
 export class AppComponent implements OnInit {
