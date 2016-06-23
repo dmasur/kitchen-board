@@ -2,7 +2,7 @@ i{
   font-size: 2em;
 }
 .time, .temp, .precip{
-  font-size: 2vw;
+  font-size: 1.9vw;
   vertical-align: center;
 }
 .last-update{

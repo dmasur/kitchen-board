@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Settings } from '../shared/settings';
 
 @Injectable()
 export class AuthenticationService {
-  // constants
-  static clientId = '1078497277864-qqbub1tptpk82t6n79of58t4san95sng.apps.googleusercontent.com';
-  static apiKey = 'AIzaSyDqnBamyp-2_KLiekRLSkq4dtYVOnM0dbA';
   static scopes = ['https://www.googleapis.com/auth/plus.me','https://www.googleapis.com/auth/calendar.readonly'];
   /*
    * global application state, so it's OK to keep it as field value of a singleton. alternative would be a
@@ -13,10 +11,14 @@ export class AuthenticationService {
   public isAuthenticated: boolean = false;
   public userName: string;
   public userImageUrl: string;
+  private clientId: string;
+  private apiKey: string;
 
-  constructor(){
+  constructor(private settings: Settings){
     // check the authentication silently
     this.internalAuthenticate(true);
+    this.clientId = settings.googleClientId;
+    this.apiKey = settings.googleApiKey
   }
 
   login() {
@@ -47,10 +49,10 @@ export class AuthenticationService {
   private proceedAuthentication(immediate:boolean){
     return new Promise((resolve, reject) => {
       console.log('proceed authentication - immediate: ' + immediate);
-      gapi.client.setApiKey(AuthenticationService.apiKey);
+      gapi.client.setApiKey(this.apiKey);
       var authorisationRequestData =
       {
-        client_id: AuthenticationService.clientId,
+        client_id: this.clientId,
         scope: AuthenticationService.scopes,
         immediate: immediate,
         response_type: 'token'

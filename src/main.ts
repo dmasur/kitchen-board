@@ -4,8 +4,9 @@ import { AppComponent, environment } from './app/';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
 import {CookieService, CookieOptions} from 'angular2-cookie/core';
 import {Settings} from './app/shared/settings';
+
 var cookieService = (new CookieService(new CookieOptions({})));
-var settings = cookieService.getObject('settings');
+var settings = cookieService.getObject('settings') || new Settings();
 
 if (environment.production) {
   enableProdMode();

@@ -5,6 +5,7 @@ import { WeatherComponent } from '../weather/weather.component';
 import { NewsComponent } from '../news/news.component';
 import { ScheduleComponent } from '../schedule/schedule.component';
 import { ClockComponent } from '../clock/clock.component';
+import { Settings } from '../shared/settings';
 
 @Component({
   moduleId: module.id,
@@ -15,8 +16,11 @@ import { ClockComponent } from '../clock/clock.component';
 })
 export class DashboardComponent implements OnInit {
   private onlineStatus: string;
+  private enabled:boolean;
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService, private settings: Settings) {
+    this.enabled = settings.googleApiKey !== undefined && settings.googleClientId !== undefined;
+  }
 
   ngOnInit() {
     if(window.navigator.onLine){
@@ -24,9 +28,8 @@ export class DashboardComponent implements OnInit {
     }else{
       this.onlineStatus = "offline"
     }
-    if(!this.authenticationService.isAuthenticated){
+    if(this.enabled && !this.authenticationService.isAuthenticated){
       this.authenticationService.login();
     }
   }
-
 }

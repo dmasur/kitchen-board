@@ -29,20 +29,25 @@ export class WeatherComponent implements OnInit {
   latitude: string;
   onlineStatus: string;
   lastUpdate:Date;
+  enabled: boolean;
 
-  constructor(private cookieService: CookieService, private http: Http, private settings: Settings) {}
+  constructor(private cookieService: CookieService, private http: Http, private settings: Settings) {
+    this.enabled = settings.forecastIoApiKey !== undefined;
+  }
 
   ngOnInit() {
     this.loadWeather();
   }
 
   loadWeather(){
-    if(this.onlineStatus == "online"){
+    if(this.enabled && this.onlineStatus == "online"){
       this.refreshEvents();
       setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
     }else {
-      this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
-      this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));
+      if(this.cookieService.get('weather.savedAt') != undefined){
+        this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
+        this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));
+      }
     }
   }
   getIconClass(weatherInfo: WeatherInfo):string{

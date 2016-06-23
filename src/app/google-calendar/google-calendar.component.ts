@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import { AppointmentsService } from '../services/appointments.service';
 import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
-import IEvent = gapi.client.calendar.IEvent;
 import {Observable} from 'rxjs/Rx';
+import {Settings} from '../shared/settings';
+import IEvent = gapi.client.calendar.IEvent;
 
 class Day{
   events: Array<IEvent> = [];
@@ -27,25 +28,31 @@ class Event{
   inputs: ['onlineStatus']
 })
 export class GoogleCalendarComponent implements OnInit {
+  enabled:boolean;
   daysWithEvents: Array<Day>;
   private onlineStatus:string;
   lastUpdate:Date;
 
-  constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService) {
+  constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService, private settings: Settings) {
+    this.enabled = settings.googleApiKey != null && settings.googleClientId != null;
   }
 
   ngOnInit() {
-    if(this.onlineStatus == "online" && gapi !== undefined){
+    if(this.enabled && this.onlineStatus == "online" && gapi !== undefined){
       this.refreshEvents();
       setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
     }else {
-      this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
-      this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
+      if(this.cookieService.get('calendar.savedAt') !== undefined){
+        this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
+        this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
+      }
     }
   }
+
   dateString(date:Date): string{
     return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
   }
+  
   rowClass(day:Day):string{
     var today = new Date();
     var tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDay()+1)
@@ -73,7 +80,11 @@ export class GoogleCalendarComponent implements OnInit {
         if(eventList[i].start != undefined){
           var hasTime = eventList[i].start.dateTime !== undefined;
           var date = hasTime ? eventList[i].start.dateTime : eventList[i].start.date;
-          var event = new Event(new Date(date), eventList[i].summary, hasTime, eventList[i].creator.displayName)
+          var displayName = eventList[i].creator.displayName;
+          if(displayName.includes('webcal')){
+            displayName = null;
+          }
+          var event = new Event(new Date(date), eventList[i].summary, hasTime, displayName)
           events.push(event);
         }
       };
@@ -81,6 +92,9 @@ export class GoogleCalendarComponent implements OnInit {
       var days:Array<Day> = [];
       for(var i=0;i<events.length; i++){
         var day : Day = days.find(day => (this.dateString(day.date) == this.dateString(events[i].date)));
+        console.log(events[i].summary);
+        console.log(events[i].date);
+        console.log(this.dateString(events[i].date));
         if(day == null){
           day = new Day();
           day.date = events[i].date;
