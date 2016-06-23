@@ -3,7 +3,7 @@
   <div class="panel-body">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let weatherInfo of weatherInfos">
-        {{weatherInfo.date | amDateFormat: 'LT'}} <i class="{{weatherInfo.getIconClass()}}"></i> {{weatherInfo.temp}}° C
+        {{weatherInfo.date | amDateFormat: 'LT'}} <i class="{{getIconClass(weatherInfo)}}"></i> {{weatherInfo.temp}}° C
       </li>
     </ul>
   </div>

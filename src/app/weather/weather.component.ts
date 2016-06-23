@@ -6,30 +6,6 @@ import {Settings} from '../shared/settings';
 
 class WeatherInfo{
   constructor(public date: Date, public icon: string, public temp: number, public summary: string) {}
-  //  fog, cloudy, partly-cloudy-day, or partly-cloudy-night
-  getIconClass():string{
-    switch(this.icon){
-      case 'clear-day':
-        return 'icon-sun-inv';
-      case 'clear-night':
-        return 'icon-moon-inv';
-      case 'rain':
-        return 'icon-rain-inv';
-      case 'sleet':
-      case 'snow':
-        return 'icon-snow-heavy-inv';
-      case 'wind':
-        return 'icon-windy-inv';
-      case 'fog':
-        return 'icon-fog';
-      case 'cloudy':
-        return 'icon-cloud-inv';
-      case 'partly-cloudy-day':
-        return 'icon-cloud-sun-inv';
-      case 'partly-cloudy-night':
-        return 'icon-cloud-moon-inv';
-    }
-  }
 }
 
 @Component({
@@ -61,6 +37,29 @@ export class WeatherComponent implements OnInit {
     }else {
       this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
       this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));
+    }
+  }
+  getIconClass(weatherInfo: WeatherInfo):string{
+    switch(weatherInfo.icon){
+      case 'clear-day':
+        return 'icon-sun-inv';
+      case 'clear-night':
+        return 'icon-moon-inv';
+      case 'rain':
+        return 'icon-rain-inv';
+      case 'sleet':
+      case 'snow':
+        return 'icon-snow-heavy-inv';
+      case 'wind':
+        return 'icon-windy-inv';
+      case 'fog':
+        return 'icon-fog';
+      case 'cloudy':
+        return 'icon-cloud-inv';
+      case 'partly-cloudy-day':
+        return 'icon-cloud-sun-inv';
+      case 'partly-cloudy-night':
+        return 'icon-cloud-moon-inv';
     }
   }
 
