@@ -19,7 +19,6 @@ module.exports = function(defaults) {
       'angular2-cookie/**/*.js',
       'angular2-moment/*.+(js|map)',
       'bootstrap/dist/**/*.+(css|js|js.map)',
-      'jquery/dist/jquery.min.+(js|map)',
       'moment/min/moment-with-locales.min.js',
       'moment/moment.js',
       'moment/locale/de.js',
