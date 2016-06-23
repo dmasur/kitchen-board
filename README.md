@@ -34,7 +34,6 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - Settingspage
   - Google api
   - Schedule
-- IndexedDB instead of cookies
 - Daily Quote: http://spruchsammlung.com/content/rssquotes
 - Schedule shows actual class
 - Icons on Iceweasel
