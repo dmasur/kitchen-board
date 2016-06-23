@@ -5,7 +5,13 @@ import {DateFormatPipe, TimeAgoPipe} from 'angular2-moment';
 import {Settings} from '../shared/settings';
 
 class WeatherInfo{
-  constructor(public date: Date, public icon: string, public temp: number, public summary: string) {}
+  constructor(
+    public date: Date,
+    public icon: string,
+    public temp: number,
+    public summary: string,
+    public precipProbability: number
+  ) {}
 }
 
 @Component({
@@ -72,7 +78,8 @@ export class WeatherComponent implements OnInit {
         if((index % 3) != 1) return;
         var temp = Math.round((parseFloat(entry.temperature) -32) * 5 / 9);
         var date = new Date(entry.time*1000);
-        var weatherInfo= new WeatherInfo(date, entry.icon, temp, entry.summary);
+        var precipProbability = Math.round(parseFloat(entry.precipProbability));
+        var weatherInfo = new WeatherInfo(date, entry.icon, temp, entry.summary, precipProbability);
         this.weatherInfos.push(weatherInfo);
       })
       this.lastUpdate = new Date();
