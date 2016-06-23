@@ -35,7 +35,7 @@ export class GoogleCalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.onlineStatus == "online"){
+    if(this.onlineStatus == "online" && gapi !== undefined){
       this.refreshEvents();
       setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
     }else {
@@ -65,22 +65,23 @@ export class GoogleCalendarComponent implements OnInit {
           events.push(event);
         }
       };
-      events = events.sort((a,b) => a.date.getTime() - b.date.getTime()).slice(0,5);
+      events = events.sort((a,b) => a.date.getTime() - b.date.getTime());
+      var days:Array<Day> = [];
       for(var i=0;i<events.length; i++){
-        var daystring = events[i].date.getFullYear().toString() + events[i].date.getMonth().toString() + events[i].date.getDay().toString();
-        var day : Day = this.daysWithEvents.find(day => (this.dateString(day.date) == this.dateString(events[i].date)));
+        var day : Day = days.find(day => (this.dateString(day.date) == this.dateString(events[i].date)));
         if(day == null){
           day = new Day();
           day.date = events[i].date;
           day.events = [];
           day.events.push(events[i]);
           if(day.date.toString() != "NaN"){
-            this.daysWithEvents.push(day);
+            days.push(day);
           }
         }else{
           day.events.push(events[i]);
         }
       }
+      this.daysWithEvents = days.slice(0,4);
       this.lastUpdate = new Date();
       this.cookieService.put('calendar.savedAt', JSON.stringify(this.lastUpdate));
       this.cookieService.put('calendar.daysWithEvents', JSON.stringify(this.daysWithEvents));

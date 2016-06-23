@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading"><span class="lead">Nächste Termine</span><span class="small"> ({{lastUpdate | amDateFormat: 'LT'}})</span></div>
   <div class="day row" *ngFor="let day of daysWithEvents">
-    <div class="col-md-3 text-center date">{{day.date | amDateFormat:'dddd'}}<br/>{{day.date | amDateFormat:'D. MMMM'}}<br/>{{day.date | amTimeAgo}}</div>
+    <div class="col-md-3 text-center date">{{day.date | amDateFormat:'dddd'}}<br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}<br/>{{day.date | amTimeAgo}}</div>
     <div class="col-md-9">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let event of day.events">
