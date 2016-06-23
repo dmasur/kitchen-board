@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
-import { AppointmentsService } from '../appointments.service';
+import { AppointmentsService } from '../services/appointments.service';
 import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
 import IEvent = gapi.client.calendar.IEvent;
 import {Observable} from 'rxjs/Rx';

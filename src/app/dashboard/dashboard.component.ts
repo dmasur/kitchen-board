@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../authentication.service';
+import {AuthenticationService} from '../services/authentication.service';
 import { GoogleCalendarComponent } from '../google-calendar/google-calendar.component';
 import { WeatherComponent } from '../weather/weather.component';
 import { NewsComponent } from '../news/news.component';

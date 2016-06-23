@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from './authentication.service';
+import {AuthenticationService} from './services/authentication.service';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import * as moment from 'moment';
 import { ROUTER_DIRECTIVES } from '@angular/router';
