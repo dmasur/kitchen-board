@@ -4,6 +4,7 @@ import { GoogleCalendarComponent } from '../google-calendar/google-calendar.comp
 import { WeatherComponent } from '../weather/weather.component';
 import { NewsComponent } from '../news/news.component';
 import { ScheduleComponent } from '../schedule/schedule.component';
+import { QuoteComponent } from '../quote/quote.component';
 import { ClockComponent } from '../clock/clock.component';
 import { Settings } from '../shared/settings';
 
@@ -12,7 +13,7 @@ import { Settings } from '../shared/settings';
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [GoogleCalendarComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent]
+  directives: [GoogleCalendarComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent, QuoteComponent]
 })
 export class DashboardComponent implements OnInit {
   private onlineStatus: string;

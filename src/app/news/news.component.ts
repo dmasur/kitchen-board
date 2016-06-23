@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService, CookieOptions } from 'angular2-cookie/core';
-import { Http, Response, HTTP_BINDINGS, Headers } from '@angular/http';
+import { CookieService } from 'angular2-cookie/core';
+import { Http} from '@angular/http';
 import {DateFormatPipe} from 'angular2-moment';
 declare var $:any;
 
@@ -55,7 +55,6 @@ export class NewsComponent implements OnInit {
     this.cookieService.put('news.savedAt', JSON.stringify(this.lastUpdate));
     this.cookieService.put('news.items', JSON.stringify(newsItems))
   }
-
 
   refreshNews(){
     let observer = this.http.get('https://crossorigin.me/http://www.spiegel.de/schlagzeilen/tops/index.rss');
