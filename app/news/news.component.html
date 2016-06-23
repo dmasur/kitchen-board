@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><span class="lead">Nachrichten</span><span class="small"> ({{lastUpdate | amDateFormat: 'LT'}})</span></div>
+  <div class="panel-heading"><span class="lead">Nachrichten</span><span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span></div>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let news of newsItems">
       <img *ngIf="news.image" src="{{news.image}}" />

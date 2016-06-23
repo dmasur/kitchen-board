@@ -4,6 +4,11 @@ img {
   float: left;
   margin: 0 5px 5px 0;
 }
+
 li {
   min-height:70px
+}
+
+.last-update{
+  float:right;
 }

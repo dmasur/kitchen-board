@@ -1,6 +1,10 @@
 i{
   font-size: 2em;
 }
-.list-group-item{
-      padding: 2px 15px;
+.time, .temp, .precip{
+  font-size: 1.9vw;
+  vertical-align: center;
+}
+.last-update{
+  float:right;
 }
