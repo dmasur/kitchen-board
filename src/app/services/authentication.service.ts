@@ -3,6 +3,9 @@ import { Settings } from '../shared/settings';
 
 @Injectable()
 export class AuthenticationService {
+  static clientId = '1078497277864-qqbub1tptpk82t6n79of58t4san95sng.apps.googleusercontent.com';
+  static apiKey = 'AIzaSyDqnBamyp-2_KLiekRLSkq4dtYVOnM0dbA';
+
   static scopes = ['https://www.googleapis.com/auth/plus.me','https://www.googleapis.com/auth/calendar.readonly'];
   /*
    * global application state, so it's OK to keep it as field value of a singleton. alternative would be a
@@ -17,8 +20,6 @@ export class AuthenticationService {
   constructor(private settings: Settings){
     // check the authentication silently
     this.internalAuthenticate(true);
-    this.clientId = settings.googleClientId;
-    this.apiKey = settings.googleApiKey
   }
 
   login() {
