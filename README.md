@@ -35,4 +35,3 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
   - Schedule
 - Schedule shows actual class
 - Icons on Iceweasel
-- jQuery fest einbinden

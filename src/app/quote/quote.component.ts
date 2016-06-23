@@ -20,7 +20,7 @@ class Quote {
 
 export class QuoteComponent implements OnInit {
   onlineStatus:string;
-  quote:Quote;
+  quote:Quote = new Quote("", "");
   lastUpdate:Date;
 
   constructor(private cookieService:CookieService, private http:Http) {}
