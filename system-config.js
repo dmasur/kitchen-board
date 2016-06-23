@@ -10,6 +10,7 @@ var map = {
     'angular2-cookie': 'vendor/angular2-cookie',
     'angular2-moment': 'vendor/angular2-moment',
     'moment': 'vendor/moment/min',
+    'jquery': 'vendor/jquery'
 };
 /** User packages configuration. */
 var packages = {
