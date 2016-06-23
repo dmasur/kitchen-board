@@ -23,7 +23,8 @@ module.exports = function(defaults) {
       'moment/moment.js',
       'moment/locale/de.js',
       'underscore/underscore.js',
-      'rss-feed-emitter/dist/rss-feed-emitter.js'
+      'rss-feed-emitter/dist/rss-feed-emitter.js',
+      'jquery/'
     ]
   });
 };
