@@ -5,7 +5,7 @@
     <div class="col-md-9">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let event of day.events">
-          <span *ngIf="event.hasTime">{{day.date | amDateFormat:'LT'}} | </span>{{event.summary}} | {{event.person}}
+          <span *ngIf="event.hasTime">{{event.date | amDateFormat:'LT'}} | </span>{{event.summary}} | {{event.person}}
         </li>
       </ul>
     </div>
