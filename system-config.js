@@ -46,6 +46,7 @@ var barrels = [
     'app/settings',
     'app/dashboard',
     'app/quote',
+    'app/calendar',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
