@@ -50,10 +50,10 @@ export class AuthenticationService {
   private proceedAuthentication(immediate:boolean){
     return new Promise((resolve, reject) => {
       console.log('proceed authentication - immediate: ' + immediate);
-      gapi.client.setApiKey(this.apiKey);
+      gapi.client.setApiKey(AuthenticationService.apiKey);
       var authorisationRequestData =
       {
-        client_id: this.clientId,
+        client_id: AuthenticationService.clientId,
         scope: AuthenticationService.scopes,
         immediate: immediate,
         response_type: 'token'
