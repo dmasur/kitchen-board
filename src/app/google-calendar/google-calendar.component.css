@@ -4,13 +4,7 @@
   font-size: 1.2vw;
   border-right: 1px solid;
   border-color: #ddd;
-}
-.day.row{
-  margin-top: 0px;
-}
-hr{
-  margin-top: 0px;
-  margin-bottom: 0px;
+  vertical-align: middle;
 }
 .list-group-item {
   border: none;
@@ -21,4 +15,7 @@ hr{
 }
 .last-update{
   float:right;
+}
+.table li{
+  padding: 2px;
 }

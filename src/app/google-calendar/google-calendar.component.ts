@@ -52,7 +52,7 @@ export class GoogleCalendarComponent implements OnInit {
   dateString(date:Date): string{
     return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
   }
-  
+
   rowClass(day:Day):string{
     var today = new Date();
     var tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDay()+1)
@@ -92,9 +92,6 @@ export class GoogleCalendarComponent implements OnInit {
       var days:Array<Day> = [];
       for(var i=0;i<events.length; i++){
         var day : Day = days.find(day => (this.dateString(day.date) == this.dateString(events[i].date)));
-        console.log(events[i].summary);
-        console.log(events[i].date);
-        console.log(this.dateString(events[i].date));
         if(day == null){
           day = new Day();
           day.date = events[i].date;
