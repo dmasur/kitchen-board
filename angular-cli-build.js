@@ -24,7 +24,7 @@ module.exports = function(defaults) {
       'moment/locale/de.js',
       'underscore/underscore.js',
       'rss-feed-emitter/dist/rss-feed-emitter.js',
-      'jquery/'
+      'jquery/**/*.js'
     ]
   });
 };
