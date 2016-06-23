@@ -51,6 +51,7 @@ const barrels: string[] = [
   'app/settings',
   'app/dashboard',
   'app/quote',
+  'app/calendar',
   /** @cli-barrel */
 ];
 

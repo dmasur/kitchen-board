@@ -25,7 +25,7 @@ export class ScheduleComponent implements OnInit {
     ["Erdkunde", "Deutsch", "Englisch", "Biologie", "Sport"],
     []
   ]
-  times = ["8:00 - 9:00", "9:05 - 10:05", "10:20 - 11:20", "11:25 - 12:25", "12:50 - 13:50"]
+  times = ["8:00 - 9:00", "9:10 - 10:10", "10:25 - 11:25", "11:35 - 12:35", "12:50 - 13:50"]
   timeTable = []
   displayedDate:Date = new Date();
   constructor() {

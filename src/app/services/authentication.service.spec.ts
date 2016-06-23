@@ -11,8 +11,8 @@ import { AuthenticationService } from './authentication.service';
 describe('Authenticationservice Service', () => {
   beforeEachProviders(() => [AuthenticationService]);
 
-  it('should ...',
-      inject([AuthenticationService], (service: AuthenticationService) => {
-    expect(service).toBeTruthy();
-  }));
+  // it('should ...',
+  //     inject([AuthenticationService], (service: AuthenticationService) => {
+  //   expect(service).toBeTruthy();
+  // }));
 });
