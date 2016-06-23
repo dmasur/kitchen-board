@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import {DateFormatPipe, TimeAgoPipe} from 'angular2-moment';
+import {Settings} from '../shared/settings';
 
 class WeatherInfo{
   constructor(public date: Date, public icon: string, public temp: number, public summary: string) {}
@@ -47,7 +48,7 @@ export class WeatherComponent implements OnInit {
   onlineStatus: string;
   lastUpdate:Date;
 
-  constructor(private cookieService: CookieService, private http: Http) {}
+  constructor(private cookieService: CookieService, private http: Http, private settings: Settings) {}
 
   ngOnInit() {
     this.loadWeather();
@@ -64,7 +65,7 @@ export class WeatherComponent implements OnInit {
   }
 
   refreshEvents(){
-    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/b7b2a91c78b9c2045bd83550affe1daa/"+this.longitude+","+this.latitude;
+    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/"+this.settings.forecastIoApiKey+"/"+this.longitude+","+this.latitude;
     this.http.get(requestString).subscribe(data => {
       this.weatherInfos = [];
       var json = data.json()
