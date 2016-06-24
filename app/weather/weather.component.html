@@ -6,6 +6,9 @@
       <td class="temp">{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
     </tr>
     <tr>
+      <td colspan="2" class="rain">Regen {{dailyWeatherInfo.precipAt | amTimeAgo}} mit {{dailyWeatherInfo.precipProbability}}%</td>
+    </tr>
+    <tr>
       <td colspan="2">{{dailyWeatherInfo.summary}}</td>
     </tr>
   </table>

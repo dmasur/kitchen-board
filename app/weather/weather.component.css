@@ -12,3 +12,8 @@ i{
 .last-update{
   float:right;
 }
+
+.rain{
+  font-size: 1.5vw;
+  text-align: center;
+}
