@@ -1,9 +1,13 @@
 i{
   font-size: 2em;
 }
+.icon{
+  text-align: center;
+}
 .time, .temp, .precip{
   font-size: 1.9vw;
   vertical-align: center;
+  text-align: center;
 }
 .last-update{
   float:right;
