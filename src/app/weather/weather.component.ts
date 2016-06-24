@@ -4,6 +4,14 @@ import { Http } from '@angular/http';
 import {DateFormatPipe, TimeAgoPipe} from 'angular2-moment';
 import {Settings} from '../shared/settings';
 
+class DailyWeatherInfo{
+  constructor(
+    public icon: string,
+    public summary: string,
+    public minTemp: number,
+    public maxTemp: number
+  ) {}
+}
 class WeatherInfo{
   constructor(
     public date: Date,
@@ -30,6 +38,7 @@ export class WeatherComponent implements OnInit {
   onlineStatus: string;
   lastUpdate:Date;
   enabled: boolean;
+  dailyWeatherInfo: DailyWeatherInfo;
 
   constructor(private cookieService: CookieService, private http: Http, private settings: Settings) {
     this.enabled = settings.forecastIoApiKey !== undefined;
@@ -50,8 +59,8 @@ export class WeatherComponent implements OnInit {
       }
     }
   }
-  getIconClass(weatherInfo: WeatherInfo):string{
-    switch(weatherInfo.icon){
+  getIconClass(icon: string):string{
+    switch(icon){
       case 'clear-day':
         return 'icon-sun-inv';
       case 'clear-night':
@@ -75,16 +84,21 @@ export class WeatherComponent implements OnInit {
   }
 
   refreshEvents(){
-    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/"+this.settings.forecastIoApiKey+"/"+this.longitude+","+this.latitude;
+    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/"+this.settings.forecastIoApiKey+"/"+this.longitude+","+this.latitude+"?units=si&lang=de";
     this.http.get(requestString).subscribe(data => {
       this.weatherInfos = [];
       var json = data.json()
+      var daily = json.daily;
+      var maxTemp = Math.round(parseFloat(daily.data[0].temperatureMax));
+      var minTemp = Math.round(parseFloat(daily.data[0].temperatureMin));
+      this.dailyWeatherInfo = new DailyWeatherInfo(daily.icon, daily.summary, maxTemp, minTemp);
       json.hourly.data.slice(0,12).forEach((entry, index) => {
         if((index % 3) != 1) return;
-        var temp = Math.round((parseFloat(entry.temperature) -32) * 5 / 9);
+        var temp = Math.round(parseFloat(entry.temperature));
         var date = new Date(entry.time*1000);
-        var precipProbability = Math.round(parseFloat(entry.precipProbability));
+        var precipProbability = Math.round(parseFloat(entry.precipProbability)*100);
         var weatherInfo = new WeatherInfo(date, entry.icon, temp, entry.summary, precipProbability);
+
         this.weatherInfos.push(weatherInfo);
       })
       this.lastUpdate = new Date();
