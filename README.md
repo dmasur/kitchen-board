@@ -34,3 +34,7 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - Settingspage
   - Schedule
 - Schedule shows actual class
+- write readme
+- Add Spinner
+- Add Errormessages
+- Refactor panels

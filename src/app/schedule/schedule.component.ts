@@ -36,12 +36,21 @@ export class ScheduleComponent implements OnInit {
     setInterval(() => this.updateTimeTable(), 10 * 60 * 1000)
   }
 
+  scheduleHasClasses(date:Date):boolean{
+    return this.schedule[date.getDay()].length > 0
+  }
+
   getDisplayedDate(currentDate: Date):Date{
+    var displayedDay:Date;
     if(currentDate.getHours() >= 12){
-      return new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+      displayedDay = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
     }else{
-      return currentDate;
+      displayedDay = currentDate;
     }
+    while(!this.scheduleHasClasses(displayedDay)){
+      displayedDay = new Date(displayedDay.getTime() + 24 * 60 * 60 * 1000);
+    }
+    return displayedDay;
   }
 
   generateTimeTable(schedule:any, displayedDate:Date){
