@@ -34,7 +34,12 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - Settingspage
   - Schedule
 - Schedule shows actual class
-- write readme
-- Add Spinner
+- write ReadMe
 - Add Errormessages
-- Refactor panels
+- Use BasePanel:
+  - Clock
+  - GoogleCalendar
+  - News
+  - Schedule
+- Rename GoogleCalendar to NextEvents
+- Add logs

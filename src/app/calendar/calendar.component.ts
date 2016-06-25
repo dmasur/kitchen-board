@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DateFormatPipe } from 'angular2-moment';
+import { BasePanel } from '../shared/basePanel';
+import { CookieService } from 'angular2-cookie/core';
 
 @Component({
   moduleId: module.id,
@@ -9,18 +11,28 @@ import { DateFormatPipe } from 'angular2-moment';
   inputs: ['dateString'],
   pipes: [DateFormatPipe]
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent extends BasePanel {
   dateString:string;
   date:Date;
   dayCountOfMonth:number;
   days:Array<Array<number>>;
 
-  constructor() {}
+  constructor(protected cookieService:CookieService) {
+    super('calendar', 60 * 60, cookieService);
+  }
 
-  ngOnInit() {
+  ngOnInit(){
     this.date = new Date(Date.parse(this.dateString));
-    this.refresh();
-    setInterval(() => this.refresh(), 10 * 60 * 1000)
+    super.ngOnInit()
+  }
+
+  refreshData(){
+      this.days = this.getDaysArray(this.date);
+      this.saveData(this.days);
+  }
+
+  loadSavedData(){
+    this.days = super.loadSavedData();
   }
 
   getDayCountOfMonth(date:Date):number{
@@ -44,7 +56,7 @@ export class CalendarComponent implements OnInit {
     if(day === undefined) return "";
     var today = new Date();
     if(day.getDate() == today.getDate() && day.getMonth() == today.getMonth()){
-      return "success";
+      return "danger";
     }
     var weekday = day.getDay();
     if(weekday == 0 || weekday == 6){
@@ -68,8 +80,7 @@ export class CalendarComponent implements OnInit {
     return days;
   }
 
-  refresh(){
-    this.days = this.getDaysArray(this.date);
+  enabled() {
+    return true;
   }
-
 }
