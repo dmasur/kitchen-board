@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
+import { BasePanel } from '../shared/basePanel';
 
 declare var $:any;
 
@@ -18,25 +19,12 @@ class Quote {
   pipes: [DateFormatPipe]
 })
 
-export class QuoteComponent implements OnInit {
-  onlineStatus:string;
-  quote:Quote = new Quote("", "");
-  lastUpdate:Date;
+export class QuoteComponent extends BasePanel {
+  public quote:Quote = new Quote("", "");
+  private onlineStatus:string
 
-  constructor(private cookieService:CookieService, private http:Http) {}
-
-  ngOnInit() {
-    this.loadQuote()
-  }
-
-  loadQuote(){
-    if(this.onlineStatus == "online"){
-      this.refreshQuote();
-      setInterval(() => this.refreshQuote(), 10 * 60 * 1000)
-    }else {
-      this.quote = JSON.parse(this.cookieService.get('quote.quote'));
-      this.lastUpdate = JSON.parse(this.cookieService.get('quote.savedAt'));
-    }
+  constructor(protected cookieService:CookieService, private http:Http) {
+    super('quote', 60 * 60, cookieService); // every Hour
   }
 
   parse(data) {
@@ -45,12 +33,10 @@ export class QuoteComponent implements OnInit {
       el.find("item description").text(),
       el.find("author").text()
     );
-    this.lastUpdate = new Date();
-    this.cookieService.put('quote.savedAt', JSON.stringify(this.lastUpdate));
-    this.cookieService.put('quote.quote', JSON.stringify(this.quote))
+    this.saveData(this.quote);
   }
 
-  refreshQuote(){
+  refreshData(){
     let observer = this.http.get('https://crossorigin.me/http://spruchsammlung.com/content/rssquotes');
     observer.subscribe(
       data => this.parse(data),
@@ -59,4 +45,11 @@ export class QuoteComponent implements OnInit {
     );
   }
 
+  loadSavedData(){
+    this.quote = super.loadSavedData() as Quote;
+  }
+
+  enabled(): boolean{
+    return this.onlineStatus == "online"
+  }
 }
