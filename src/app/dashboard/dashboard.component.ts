@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../services/authentication.service';
-import { GoogleCalendarComponent } from '../google-calendar/google-calendar.component';
+import { AuthenticationService } from '../services/authentication.service';
+import { NextEventsComponent } from '../next-events/next-events.component';
 import { WeatherComponent } from '../weather/weather.component';
 import { NewsComponent } from '../news/news.component';
 import { ScheduleComponent } from '../schedule/schedule.component';
@@ -14,7 +14,7 @@ import { Settings } from '../shared/settings';
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [GoogleCalendarComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent, QuoteComponent, CalendarComponent]
+  directives: [NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent, QuoteComponent, CalendarComponent]
 })
 export class DashboardComponent implements OnInit {
   private onlineStatus: string;

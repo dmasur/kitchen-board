@@ -21,14 +21,14 @@ class Event{
 
 @Component({
   moduleId: module.id,
-  selector: 'app-google-calendar',
+  selector: 'app-next-events',
   pipes: [TimeAgoPipe, DateFormatPipe],
-  templateUrl: 'google-calendar.component.html',
-  styleUrls: ['google-calendar.component.css'],
+  templateUrl: 'next-events.component.html',
+  styleUrls: ['next-events.component.css'],
   providers: [AppointmentsService],
   inputs: ['onlineStatus']
 })
-export class GoogleCalendarComponent extends BasePanel {
+export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
   private onlineStatus:string;
   lastUpdate:Date;

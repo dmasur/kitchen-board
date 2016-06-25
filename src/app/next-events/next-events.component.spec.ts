@@ -10,7 +10,7 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { GoogleCalendarComponent } from './google-calendar.component';
+import { NextEventsComponent } from './next-events.component';
 
 // describe('Component: GoogleCalendar', () => {
 //   it('should create an instance', () => {
