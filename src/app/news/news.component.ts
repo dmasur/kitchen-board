@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { Http} from '@angular/http';
-import {DateFormatPipe} from 'angular2-moment';
+import { Http } from '@angular/http';
+import { DateFormatPipe } from 'angular2-moment';
+import { BasePanel } from '../shared/basePanel';
 declare var $:any;
 
 class News {
@@ -16,26 +17,20 @@ class News {
   inputs:['onlineStatus'],
   pipes: [DateFormatPipe]
 })
-export class NewsComponent implements OnInit {
-  newsItems: Array<News>;
+export class NewsComponent extends BasePanel {
+  newsItems: Array<News> = [];
   onlineStatus: string;
-  lastUpdate:Date;
 
-  constructor(private cookieService: CookieService, private http: Http) {}
-
-  ngOnInit() {
-    this.newsItems = [];
-    this.loadNews()
+  constructor(protected cookieService: CookieService, private http: Http) {
+    super("news", 15 * 60, cookieService);
   }
 
-  loadNews(){
-    if(this.onlineStatus == "online"){
-      this.refreshNews();
-      setInterval(() => this.refreshNews(), 10 * 60 * 1000)
-    }else {
-      this.newsItems = JSON.parse(this.cookieService.get('news.items'));
-      this.lastUpdate = JSON.parse(this.cookieService.get('news.savedAt'));
-    }
+  loadSavedData(){
+    this.newsItems = super.loadSavedData() as Array<News>;
+  }
+
+  enabled():boolean{
+    return this.onlineStatus == "online"
   }
 
   parse(data) {
@@ -51,12 +46,10 @@ export class NewsComponent implements OnInit {
         ));
     }
     this.newsItems = newsItems;
-    this.lastUpdate = new Date();
-    this.cookieService.put('news.savedAt', JSON.stringify(this.lastUpdate));
-    this.cookieService.put('news.items', JSON.stringify(newsItems))
+    this.saveData(newsItems);
   }
 
-  refreshNews(){
+  refreshData(){
     let observer = this.http.get('https://crossorigin.me/http://www.spiegel.de/schlagzeilen/tops/index.rss');
     observer.subscribe(
       data => this.parse(data),
