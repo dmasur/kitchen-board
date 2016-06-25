@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
-import {DateFormatPipe} from 'angular2-moment';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { DateFormatPipe } from 'angular2-moment';
 import * as moment from 'moment';
+import { BasePanel } from '../shared/basePanel';
+import { CookieService } from 'angular2-cookie/core';
 
 class ClassInfo{
   constructor(public time:string, public subject:string) {}
+}
+class Schedule{
+  constructor(public displayedDate:Date, public classInfos:Array<ClassInfo>) {}
 }
 
 @Component({
@@ -14,9 +19,8 @@ class ClassInfo{
   styleUrls: ['schedule.component.css'],
   pipes: [DateFormatPipe]
 })
-
-export class ScheduleComponent implements OnInit {
-  schedule = [
+export class ScheduleComponent extends BasePanel {
+  timeTable = [
     [],
     ["Mathe", "Sport", "Religon", "Englisch"],
     ["Biologie", "Deutsch", "SoWi", "Musik", "Kunst"],
@@ -26,40 +30,46 @@ export class ScheduleComponent implements OnInit {
     []
   ]
   times = ["8:00 - 9:00", "9:10 - 10:10", "10:25 - 11:25", "11:35 - 12:35", "12:50 - 13:50"]
-  timeTable = []
-  displayedDate:Date = new Date();
-  constructor() {
+  schedule:Schedule;
+
+  constructor(protected cookieService: CookieService) {
+    super("schedule", 5 * 60, cookieService);
   }
 
-  ngOnInit() {
-    this.updateTimeTable();
-    setInterval(() => this.updateTimeTable(), 10 * 60 * 1000)
+  enabled():boolean{
+    return true;
   }
 
-  scheduleHasClasses(date:Date):boolean{
-    return this.schedule[date.getDay()].length > 0
+  timeTableHasClasses(date:Date):boolean{
+    return this.timeTable[date.getDay()].length > 0
+  }
+
+  getNextDay(day:Date):Date{
+    return new Date(day.getTime() + 24 * 60 * 60 * 1000);
   }
 
   getDisplayedDate(currentDate: Date):Date{
     var displayedDay:Date;
     if(currentDate.getHours() >= 12){
-      displayedDay = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+      displayedDay = this.getNextDay(currentDate);
     }else{
       displayedDay = currentDate;
     }
-    while(!this.scheduleHasClasses(displayedDay)){
-      displayedDay = new Date(displayedDay.getTime() + 24 * 60 * 60 * 1000);
+    while(!this.timeTableHasClasses(displayedDay)){
+      displayedDay = this.getNextDay(displayedDay);
     }
     return displayedDay;
   }
 
-  generateTimeTable(schedule:any, displayedDate:Date){
-    return this.times.map((e, i) => new ClassInfo(e, schedule[displayedDate.getDay()][i]));
+  getClassInfos(times, timeTable, date){
+    return times.map((e, i) => new ClassInfo(e, timeTable[date.getDay()][i]));
   }
 
-  updateTimeTable = () => {
-    this.displayedDate = this.getDisplayedDate(new Date());
-    this.timeTable = this.generateTimeTable(this.schedule, this.displayedDate);
+  refreshData() {
+    var displayedDay = this.getDisplayedDate(new Date());
+    var classInfos = this.getClassInfos(this.times, this.timeTable, displayedDay);
+    this.schedule = new Schedule(displayedDay, classInfos);
+    this.saveData(this.schedule);
   };
 
 }

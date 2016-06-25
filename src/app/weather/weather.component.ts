@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
-import {DateFormatPipe, TimeAgoPipe} from 'angular2-moment';
-import {Settings} from '../shared/settings';
+import { DateFormatPipe, TimeAgoPipe } from 'angular2-moment';
+import { Settings } from '../shared/settings';
+import { BasePanel } from '../shared/basePanel';
 
 class DailyWeatherInfo{
-public precipProbability: number;
-public precipAt:Date;
+  public precipProbability: number;
+  public precipAt:Date;
   constructor(
     public icon: string,
     public summary: string,
@@ -32,36 +33,26 @@ class WeatherInfo{
   styleUrls: ['weather.component.css', 'kitchenboardweather.css'],
   pipes: [DateFormatPipe, TimeAgoPipe]
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent extends BasePanel {
   weatherInfos: Array<WeatherInfo>;
   city: string;
   longitude: string;
   latitude: string;
   onlineStatus: string;
-  lastUpdate:Date;
-  enabled: boolean;
   dailyWeatherInfo: DailyWeatherInfo;
 
-  constructor(private cookieService: CookieService, private http: Http, private settings: Settings) {
-    this.enabled = settings.forecastIoApiKey !== undefined;
+  constructor(protected cookieService: CookieService, private http: Http, private settings: Settings) {
+    super("weather", 30 * 6, cookieService);
   }
 
-  ngOnInit() {
-    this.loadWeather();
+  enabled(){
+    return this.onlineStatus == "online" && this.settings.forecastIoApiKey !== undefined;
   }
 
-  loadWeather(){
-    if(true || this.enabled && this.onlineStatus == "online"){
-      this.refreshEvents();
-      setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
-    }else {
-      if(this.cookieService.get('weather.savedAt') != undefined){
-        this.weatherInfos = JSON.parse(this.cookieService.get('weather.weatherInfos'));
-        this.dailyWeatherInfo = JSON.parse(this.cookieService.get('weather.dailyWeatherInfo'));
-        this.lastUpdate = JSON.parse(this.cookieService.get('weather.savedAt'));
-      }
-    }
+  loadSavedData(){
+    this.dailyWeatherInfo = super.loadSavedData() as DailyWeatherInfo;
   }
+
   getIconClass(icon: string):string{
     switch(icon){
       case 'clear-day':
@@ -86,7 +77,7 @@ export class WeatherComponent implements OnInit {
     }
   }
 
-  refreshEvents(){
+  refreshData(){
     var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/"+this.settings.forecastIoApiKey+"/"+this.longitude+","+this.latitude+"?units=si&lang=de";
     this.http.get(requestString).subscribe(data => {
       this.weatherInfos = [];
@@ -104,10 +95,7 @@ export class WeatherComponent implements OnInit {
           }
         }
       })
-      this.lastUpdate = new Date();
-      this.cookieService.put('weather.savedAt', JSON.stringify(this.lastUpdate));
-      this.cookieService.put('weather.dailyWeatherInfo', JSON.stringify(this.dailyWeatherInfo));
-      this.cookieService.put('weather.weatherInfos', JSON.stringify(this.weatherInfos));
+      super.saveData(this.dailyWeatherInfo);
     })
   }
 }

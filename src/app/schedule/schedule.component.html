@@ -1,8 +1,8 @@
 <div class="panel panel-default">
-  <div class="panel-heading lead">Stundenplan {{displayedDate | amDateFormat:'dddd'}}</div>
+  <div class="panel-heading lead">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}</div>
   <table class="table table-striped">
     <tbody>
-    <tr *ngFor="let classInfo of timeTable">
+    <tr *ngFor="let classInfo of schedule.classInfos">
       <td>
         {{classInfo.time}}
       </td>
