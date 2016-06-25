@@ -62,7 +62,7 @@ export class ScheduleComponent extends BasePanel {
   }
 
   getClassInfos(times, timeTable, date){
-    return times.map((e, i) => new ClassInfo(e, timeTable[date.getDay()][i]));
+    return timeTable[date.getDay()].map((e, i) => new ClassInfo(times[i], e));
   }
 
   refreshData() {
