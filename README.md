@@ -37,8 +37,6 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - write ReadMe
 - Add Errormessages
 - Use BasePanel:
-  - Clock
-  - GoogleCalendar
   - News
   - Schedule
 - Rename GoogleCalendar to NextEvents

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {CookieService} from 'angular2-cookie/core';
+import { Component } from '@angular/core';
+import { CookieService } from 'angular2-cookie/core';
 import { AppointmentsService } from '../services/appointments.service';
-import {TimeAgoPipe, DateFormatPipe} from 'angular2-moment';
-import {Observable} from 'rxjs/Rx';
-import {Settings} from '../shared/settings';
+import { TimeAgoPipe, DateFormatPipe } from 'angular2-moment';
+import { Observable } from 'rxjs/Rx';
+import { Settings } from '../shared/settings';
+import { BasePanel } from '../shared/basePanel';
 import IEvent = gapi.client.calendar.IEvent;
 
 class Day{
@@ -27,26 +28,24 @@ class Event{
   providers: [AppointmentsService],
   inputs: ['onlineStatus']
 })
-export class GoogleCalendarComponent implements OnInit {
-  enabled:boolean;
+export class GoogleCalendarComponent extends BasePanel {
   daysWithEvents: Array<Day>;
   private onlineStatus:string;
   lastUpdate:Date;
 
-  constructor(private appointmentsService: AppointmentsService, private cookieService: CookieService, private settings: Settings) {
-    this.enabled = settings.googleApiKey != null && settings.googleClientId != null;
+  constructor(private appointmentsService: AppointmentsService, protected cookieService: CookieService, private settings: Settings) {
+    super('nextEvents', 10 * 60, cookieService);
   }
 
-  ngOnInit() {
-    if(this.enabled && this.onlineStatus == "online" && gapi !== undefined){
-      this.refreshEvents();
-      setInterval(() => this.refreshEvents(), 10 * 60 * 1000)
-    }else {
-      if(this.cookieService.get('calendar.savedAt') !== undefined){
-        this.daysWithEvents = JSON.parse(this.cookieService.get('calendar.daysWithEvents'));
-        this.lastUpdate = JSON.parse(this.cookieService.get('calendar.savedAt'));
-      }
-    }
+  enabled():boolean{
+    return this.settings.googleApiKey != null &&
+    this.settings.googleClientId != null &&
+    this.onlineStatus == "online" &&
+    gapi !== undefined
+  }
+
+  loadSavedData(){
+    this.daysWithEvents = super.loadSavedData() as Array<Day>;
   }
 
   dateString(date:Date): string{
@@ -54,6 +53,9 @@ export class GoogleCalendarComponent implements OnInit {
   }
 
   rowClass(day:Day):string{
+    if(day === undefined){
+      return "";
+    }
     var today = new Date();
     var tomorrow = new Date(today.getFullYear(), today.getMonth()+1, today.getDay()+1)
     var dateString = this.dateString(new Date(day.date.toString()));
@@ -65,7 +67,8 @@ export class GoogleCalendarComponent implements OnInit {
       return "";
     }
   }
-  refreshEvents() {
+
+  refreshData() {
     /*
      * loading the appointments is done asychronously. the service's loadAppointments() method
      * returns a Promise that provides access to the newly loaded set of appointments. Updating
@@ -105,9 +108,7 @@ export class GoogleCalendarComponent implements OnInit {
         }
       }
       this.daysWithEvents = days.slice(0,4);
-      this.lastUpdate = new Date();
-      this.cookieService.put('calendar.savedAt', JSON.stringify(this.lastUpdate));
-      this.cookieService.put('calendar.daysWithEvents', JSON.stringify(this.daysWithEvents));
+      this.saveData(this.daysWithEvents);
     });
   }
 }

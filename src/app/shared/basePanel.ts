@@ -19,7 +19,7 @@ export abstract class BasePanel implements OnInit {
 
   loadSavedData(){
     var rawSavedAt = this.cookieService.get(this.name+'.savedAt');
-    var rawData = this.cookieService.get(name+'.data');
+    var rawData = this.cookieService.get(this.name+'.data');
     if(rawSavedAt !== undefined && rawData !== undefined){
       this.lastUpdate = JSON.parse(rawSavedAt);
       return JSON.parse(rawData);
@@ -28,8 +28,8 @@ export abstract class BasePanel implements OnInit {
 
   saveData(data:any){
     this.lastUpdate = new Date();
-    this.cookieService.put(name + '.data', JSON.stringify(data));
-    this.cookieService.put(name + '.savedAt', JSON.stringify(this.lastUpdate));
+    this.cookieService.put(this.name + '.data', JSON.stringify(data));
+    this.cookieService.put(this.name + '.savedAt', JSON.stringify(this.lastUpdate));
   }
 
   abstract enabled():boolean
