@@ -11,3 +11,4 @@ This project was generated with [angular-cli](https://github.com/angular/angular
   - Schedule
 - Add logs
 - Invalidate old Keys
+- Add Error Handling to Promises

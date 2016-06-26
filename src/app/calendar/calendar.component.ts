@@ -14,7 +14,6 @@ import { CookieService } from 'angular2-cookie/core';
 export class CalendarComponent extends BasePanel {
   dateString:string;
   date:Date;
-  dayCountOfMonth:number;
   days:Array<Array<number>>;
 
   constructor(protected cookieService:CookieService) {
