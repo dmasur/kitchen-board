@@ -4,7 +4,7 @@ i{
 .icon{
   text-align: center;
 }
-.time, .temp, .precip{
+.time, .temp, .precip, .day{
   font-size: 1.9vw;
   vertical-align: center;
   text-align: center;

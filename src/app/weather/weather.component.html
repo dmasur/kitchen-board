@@ -1,31 +1,16 @@
 <div class="panel panel-default">
   <div class="panel-heading"><span class="lead">{{city}}</span><span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span></div>
-  <table *ngIf="dailyWeatherInfo" class="table">
-    <tr>
+  <table class="table">
+    <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
+      <td class="day">{{dailyWeatherInfo.date | amDateFormat: 'dd'}}</td>
       <td class="icon"><i class="{{getIconClass(dailyWeatherInfo.icon)}}"></i></td>
-      <td class="temp">{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
+      <td class="temp" colspan=2>{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
     </tr>
     <tr>
-      <td colspan="2" class="rain">Regen {{dailyWeatherInfo.precipAt | amTimeAgo}} mit {{dailyWeatherInfo.precipProbability}}%</td>
+      <td colspan="4" class="rain">Regen {{weatherForcast.precipAt | amTimeAgo}} mit {{weatherForcast.precipProbability}}%</td>
     </tr>
     <tr>
-      <td colspan="2">{{dailyWeatherInfo.summary}}</td>
-    </tr>
-  </table>
-  <table class="table table-striped text-center hidden">
-    <tr *ngFor="let weatherInfo of weatherInfos">
-      <td class="time">
-        {{weatherInfo.date | amDateFormat: 'LT'}}
-      </td>
-      <td>
-        <i class="{{getIconClass(weatherInfo.icon)}}"></i>
-      </td>
-      <td class="temp">
-        {{weatherInfo.temp}}°C
-      </td>
-      <td class="precip">
-        {{weatherInfo.precipProbability}}%
-      </td>
+      <td colspan="4">{{weatherForcast.summary}}</td>
     </tr>
   </table>
 </div>

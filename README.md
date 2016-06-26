@@ -36,3 +36,4 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 - write ReadMe
 - Add Errormessages
 - Add logs
+- Schedule shows actual class
