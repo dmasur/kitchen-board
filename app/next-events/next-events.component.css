@@ -1,0 +1,24 @@
+.date{
+  padding: 5px;
+  font-size: 1em;
+  font-size: 1.2vw;
+  border-right: 1px solid;
+  border-color: #ddd;
+}
+.list-group-item {
+  border: none;
+  background-color: transparent;
+}
+.list-group{
+  margin-bottom: 0px;
+}
+.last-update{
+  float:right;
+}
+.table li{
+  padding: 2px;
+}
+
+.table>tbody>tr>td{
+  vertical-align: middle;
+}

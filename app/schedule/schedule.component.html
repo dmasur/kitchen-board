@@ -2,9 +2,9 @@
   <div class="panel-heading lead">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}</div>
   <table class="table table-striped">
     <tbody>
-    <tr *ngFor="let classInfo of schedule.classInfos">
+    <tr *ngFor="let classInfo of schedule.classInfos" class="{{getClassInfoClass(classInfo.classDuration)}}">
       <td class="time">
-        {{classInfo.time}}
+        {{classInfo.classDuration.from | amDateFormat:'LT'}} - {{classInfo.classDuration.to | amDateFormat:'LT'}}
       </td>
       <td>
         {{classInfo.subject}}
