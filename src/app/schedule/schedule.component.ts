@@ -6,10 +6,20 @@ import { BasePanel } from '../shared/basePanel';
 import { CookieService } from 'angular2-cookie/core';
 
 class ClassInfo{
-  constructor(public time:string, public subject:string) {}
+  constructor(public classDuration:ClassDuration, public subject:string) {}
 }
+
 class Schedule{
   constructor(public displayedDate:Date, public classInfos:Array<ClassInfo>) {}
+}
+
+class ClassDuration{
+  constructor(public from:Date, public to:Date) {}
+}
+
+function dateFromHourAndMinute(hour:number, minute:number):Date{
+  var today = new Date();
+  return new Date(today.getFullYear(), today.getMonth(), today.getDate(), hour, minute);
 }
 
 @Component({
@@ -29,7 +39,13 @@ export class ScheduleComponent extends BasePanel {
     ["Erdkunde", "Deutsch", "Englisch", "Biologie", "Sport"],
     []
   ]
-  times = ["8:00 - 9:00", "9:10 - 10:10", "10:25 - 11:25", "11:35 - 12:35", "12:50 - 13:50"]
+  classDurations = [
+    new ClassDuration(dateFromHourAndMinute(8,0), dateFromHourAndMinute(9,0)),
+    new ClassDuration(dateFromHourAndMinute(9,10), dateFromHourAndMinute(10,10)),
+    new ClassDuration(dateFromHourAndMinute(10,25), dateFromHourAndMinute(11,25)),
+    new ClassDuration(dateFromHourAndMinute(11,35), dateFromHourAndMinute(12,35)),
+    new ClassDuration(dateFromHourAndMinute(12,50), dateFromHourAndMinute(13,50))
+  ]
   schedule:Schedule;
 
   constructor(protected cookieService: CookieService) {
@@ -61,15 +77,24 @@ export class ScheduleComponent extends BasePanel {
     return displayedDay;
   }
 
-  getClassInfos(times, timeTable, date){
-    return timeTable[date.getDay()].map((e, i) => new ClassInfo(times[i], e));
+  getClassInfos(classDurations, timeTable, date){
+    return timeTable[date.getDay()].map((e, i) => new ClassInfo(classDurations[i], e));
   }
 
   refreshData() {
     var displayedDay = this.getDisplayedDate(new Date());
-    var classInfos = this.getClassInfos(this.times, this.timeTable, displayedDay);
+    var classInfos = this.getClassInfos(this.classDurations, this.timeTable, displayedDay);
     this.schedule = new Schedule(displayedDay, classInfos);
     this.saveData(this.schedule);
-  };
+  }
+
+  getClassInfoClass(classDuration: ClassDuration):string {
+    var currentTime = new Date();
+    if(currentTime > classDuration.from && currentTime < classDuration.to){
+      return "info"
+    }else{
+      return "";
+    }
+  }
 
 }
