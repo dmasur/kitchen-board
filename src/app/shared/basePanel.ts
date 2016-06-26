@@ -4,18 +4,31 @@ import { CookieService } from 'angular2-cookie/core';
 export abstract class BasePanel implements OnInit {
   public loaded:boolean=true;
   public lastUpdate:Date;
+  public errorMessage:string;
 
   constructor(protected name:string, private refreshAfter:number, protected cookieService:CookieService){}
 
   ngOnInit() {
     this.loadSavedData();
     if(this.enabled()){
-      this.refreshData();
-      setInterval(() => this.refreshData(), this.refreshAfter * 1000)
+      this._refreshData();
+      setInterval(() => this._refreshData(), this.refreshAfter * 1000)
     }
   }
 
   abstract refreshData()
+
+  _refreshData(){
+    try{
+      this.refreshData();
+    }catch(e){
+      if(e instanceof String){
+        this.errorMessage = e;
+      }else{
+        this.errorMessage = e.message;
+      }
+    }
+  }
 
   loadSavedData(){
     var rawSavedAt = this.cookieService.get(this.name+'.savedAt');

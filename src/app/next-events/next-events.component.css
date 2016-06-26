@@ -15,6 +15,9 @@
 .last-update{
   float:right;
 }
+.error-message{
+  color: red;
+}
 .table li{
   padding: 2px;
 }
@@ -22,3 +25,4 @@
 .table>tbody>tr>td{
   vertical-align: middle;
 }
+
