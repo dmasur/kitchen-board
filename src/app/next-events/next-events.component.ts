@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { AppointmentsService } from '../services/appointments.service';
+import { AppointmentsService } from '../services';
 import { TimeAgoPipe, DateFormatPipe } from 'angular2-moment';
 import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
@@ -32,7 +32,6 @@ class Event {
 export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
   private onlineStatus: string;
-  lastUpdate: Date;
 
   constructor(private appointmentsService: AppointmentsService, protected cookieService: CookieService, private settings: Settings) {
     super('nextEvents', 10 * 60, cookieService);

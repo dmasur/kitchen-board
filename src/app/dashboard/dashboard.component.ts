@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
-import { NextEventsComponent } from '../next-events/next-events.component';
-import { WeatherComponent } from '../weather/weather.component';
-import { NewsComponent } from '../news/news.component';
-import { ScheduleComponent } from '../schedule/schedule.component';
-import { QuoteComponent } from '../quote/quote.component';
-import { ClockComponent } from '../clock/clock.component';
-import { CalendarComponent } from '../calendar/calendar.component';
+import { AuthenticationService } from '../services';
+import { NextEventsComponent } from '../next-events/index';
+import { WeatherComponent } from '../weather';
+import { NewsComponent } from '../news';
+import { ScheduleComponent } from '../schedule';
+import { QuoteComponent } from '../quote';
+import { ClockComponent } from '../clock';
+import { CalendarComponent } from '../calendar';
 import { Settings } from '../shared/settings';
 
 @Component({
