@@ -9,7 +9,6 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## ToDo:
 - Settingspage
   - Schedule
-- Add logs
 - Invalidate old Keys
 - Add Error Handling to Promises
 - Add Links to ApiKeys in Readme
