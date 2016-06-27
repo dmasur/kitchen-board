@@ -66,7 +66,7 @@ export class ScheduleComponent extends BasePanel {
 
   getDisplayedDate(currentDate: Date): Date {
     var displayedDay: Date;
-    if (currentDate.getHours() >= 12) {
+    if (currentDate > this.classDurations[this.classDurations.length-1].to) {
       displayedDay = this.getNextDay(currentDate);
     } else {
       displayedDay = currentDate;
