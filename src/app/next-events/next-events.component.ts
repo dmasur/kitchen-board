@@ -49,7 +49,7 @@ export class NextEventsComponent extends BasePanel {
   }
 
   dateString(date: Date): string {
-    return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
+    return date.getFullYear().toString() + date.getMonth().toString() + date.getDate().toString();
   }
 
   rowClass(day: Day): string {
@@ -57,7 +57,7 @@ export class NextEventsComponent extends BasePanel {
       return "";
     }
     var today = new Date();
-    var tomorrow = new Date(today.getFullYear(), today.getMonth() + 1, today.getDay() + 1)
+    var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
     var dateString = this.dateString(new Date(day.date.toString()));
     if (dateString == this.dateString(today)) {
       return "success";
