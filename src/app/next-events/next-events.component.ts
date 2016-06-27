@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { AppointmentsService } from '../services';
+import { AppointmentsService } from '../services/index';
 import { TimeAgoPipe, DateFormatPipe } from 'angular2-moment';
 import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
