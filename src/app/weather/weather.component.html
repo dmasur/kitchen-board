@@ -10,7 +10,8 @@
       <td class="temp" colspan=2>{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
     </tr>
     <tr>
-      <td colspan="4" class="rain">Regen {{weatherForcast.precipAt | amTimeAgo}} mit {{weatherForcast.precipProbability}}%</td>
+      <td *ngIf="!isCurrentyRaining && weatherForcast.precipAt" colspan="4" class="rain">Regen {{weatherForcast.precipAt | amTimeAgo}} mit {{weatherForcast.precipProbability}}%</td>
+      <td *ngIf="isCurrentyRaining && this.weatherForcast.precipStopAt" colspan="4" class="rain">Regenende {{weatherForcast.precipStopAt | amTimeAgo}}</td>
     </tr>
     <tr>
       <td colspan="4">{{weatherForcast.summary}}</td>

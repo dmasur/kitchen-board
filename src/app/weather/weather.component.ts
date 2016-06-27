@@ -18,6 +18,8 @@ class WeatherForcast {
   dailyWeatherInfos: Array<DailyWeatherInfo>;
   public precipProbability: number;
   public precipAt: Date;
+  public precipStopAt: Date;
+  public isCurrentyRaining: boolean;
   constructor(public summary: string) {
     this.dailyWeatherInfos = [];
   }
@@ -88,12 +90,19 @@ export class WeatherComponent extends BasePanel {
         var dailyWeatherInfo = new DailyWeatherInfo(date, daily.icon, maxTemp, minTemp);
         this.weatherForcast.dailyWeatherInfos.push(dailyWeatherInfo);
       })
+      this.weatherForcast.isCurrentyRaining = json.hourly[0].icon == "rain":
       json.hourly.data.slice(1).forEach((entry, index) => {
         if (this.weatherForcast.precipAt == null) {
           var precipProbability = Math.round(entry.precipProbability * 100);
           if (precipProbability > 20) {
             this.weatherForcast.precipProbability = precipProbability;
             this.weatherForcast.precipAt = new Date(entry.time * 1000);
+          }
+        }
+        if (this.weatherForcast.precipStopAt == null) {
+          var precipProbability = Math.round(entry.precipProbability * 100);
+          if (precipProbability < 20) {
+            this.weatherForcast.precipStopAt = new Date(entry.time * 1000);
           }
         }
       })
