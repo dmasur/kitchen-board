@@ -6,7 +6,7 @@ export class AuthenticationService {
   static clientId = '1078497277864-qqbub1tptpk82t6n79of58t4san95sng.apps.googleusercontent.com';
   static apiKey = 'AIzaSyDqnBamyp-2_KLiekRLSkq4dtYVOnM0dbA';
 
-  static scopes = ['https://www.googleapis.com/auth/plus.me','https://www.googleapis.com/auth/calendar.readonly'];
+  static scopes = ['https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/calendar.readonly'];
   /*
    * global application state, so it's OK to keep it as field value of a singleton. alternative would be a
    * buitl-in global value store.
@@ -17,7 +17,7 @@ export class AuthenticationService {
   private clientId: string;
   private apiKey: string;
 
-  constructor(private settings: Settings){
+  constructor(private settings: Settings) {
     // check the authentication silently
     this.internalAuthenticate(true);
   }
@@ -27,7 +27,7 @@ export class AuthenticationService {
     this.internalAuthenticate(false);
   }
 
-  private internalAuthenticate(immediate: boolean){
+  private internalAuthenticate(immediate: boolean) {
     /* heavily use promises here for 2 reasons:
      *
      * nr1: readability (image callback syntax here :( )
@@ -43,31 +43,31 @@ export class AuthenticationService {
       .then(() => this.initializeGooglePlusAPI())
       .then(() => this.initializeGoogleCalendarAPI())
       .then(() => this.loadGooglePlusUserData())
-      .then((response:any) => this.setUserData(response.result.displayName, response.result.image.url))
-      .catch((error:any) => {console.log('authentication failed: ' + error)});
+      .then((response: any) => this.setUserData(response.result.displayName, response.result.image.url))
+      .catch((error: any) => { console.log('authentication failed: ' + error) });
   }
 
-  private proceedAuthentication(immediate:boolean){
+  private proceedAuthentication(immediate: boolean) {
     return new Promise((resolve, reject) => {
       console.log('proceed authentication - immediate: ' + immediate);
       gapi.client.setApiKey(AuthenticationService.apiKey);
       var authorisationRequestData =
-      {
-        client_id: AuthenticationService.clientId,
-        scope: AuthenticationService.scopes,
-        immediate: immediate,
-        response_type: 'token'
-      }
+        {
+          client_id: AuthenticationService.clientId,
+          scope: AuthenticationService.scopes,
+          immediate: immediate,
+          response_type: 'token'
+        }
       gapi.auth.authorize(authorisationRequestData,
         (authenticationResult) => {
-          if(authenticationResult && !authenticationResult.error){
+          if (authenticationResult && !authenticationResult.error) {
             this.isAuthenticated = true
             this.setUserData('unknown', '');
             resolve()
           }
           else {
             this.isAuthenticated = false
-            this.setUserData('','');
+            this.setUserData('', '');
             reject();
           }
         }
@@ -75,14 +75,14 @@ export class AuthenticationService {
     });
   }
 
-  private initializeGooglePlusAPI(){
+  private initializeGooglePlusAPI() {
     return new Promise((resolve, reject) => {
       console.log('initialize Google Plus API');
       resolve(gapi.client.load('plus', 'v1'));
     });
   }
 
-  private initializeGoogleCalendarAPI(){
+  private initializeGoogleCalendarAPI() {
     return new Promise((resolve, reject) => {
       console.log('initialize Google Calendar API');
       resolve(gapi.client.load('calendar', 'v3'));
@@ -92,11 +92,11 @@ export class AuthenticationService {
   private loadGooglePlusUserData() {
     return new Promise((resolve, reject) => {
       console.log('load Google Plus data');
-      resolve(gapi.client.plus.people.get({'userId': 'me'}));
+      resolve(gapi.client.plus.people.get({ 'userId': 'me' }));
     });
   }
 
-  private setUserData(userName: string, userImageUrl: string){
+  private setUserData(userName: string, userImageUrl: string) {
     this.userName = userName;
     this.userImageUrl = userImageUrl;
     console.log('user: ' + this.userName + ', image: ' + this.userImageUrl);

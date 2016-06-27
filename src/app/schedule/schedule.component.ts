@@ -5,19 +5,19 @@ import * as moment from 'moment';
 import { BasePanel } from '../shared/basePanel';
 import { CookieService } from 'angular2-cookie/core';
 
-class ClassInfo{
-  constructor(public classDuration:ClassDuration, public subject:string) {}
+class ClassInfo {
+  constructor(public classDuration: ClassDuration, public subject: string) { }
 }
 
-class Schedule{
-  constructor(public displayedDate:Date, public classInfos:Array<ClassInfo>) {}
+class Schedule {
+  constructor(public displayedDate: Date, public classInfos: Array<ClassInfo>) { }
 }
 
-class ClassDuration{
-  constructor(public from:Date, public to:Date) {}
+class ClassDuration {
+  constructor(public from: Date, public to: Date) { }
 }
 
-function dateFromHourAndMinute(hour:number, minute:number):Date{
+function dateFromHourAndMinute(hour: number, minute: number): Date {
   var today = new Date();
   return new Date(today.getFullYear(), today.getMonth(), today.getDate(), hour, minute);
 }
@@ -40,44 +40,44 @@ export class ScheduleComponent extends BasePanel {
     []
   ]
   classDurations = [
-    new ClassDuration(dateFromHourAndMinute(8,0), dateFromHourAndMinute(9,0)),
-    new ClassDuration(dateFromHourAndMinute(9,10), dateFromHourAndMinute(10,10)),
-    new ClassDuration(dateFromHourAndMinute(10,25), dateFromHourAndMinute(11,25)),
-    new ClassDuration(dateFromHourAndMinute(11,35), dateFromHourAndMinute(12,35)),
-    new ClassDuration(dateFromHourAndMinute(12,50), dateFromHourAndMinute(13,50))
+    new ClassDuration(dateFromHourAndMinute(8, 0), dateFromHourAndMinute(9, 0)),
+    new ClassDuration(dateFromHourAndMinute(9, 10), dateFromHourAndMinute(10, 10)),
+    new ClassDuration(dateFromHourAndMinute(10, 25), dateFromHourAndMinute(11, 25)),
+    new ClassDuration(dateFromHourAndMinute(11, 35), dateFromHourAndMinute(12, 35)),
+    new ClassDuration(dateFromHourAndMinute(12, 50), dateFromHourAndMinute(13, 50))
   ]
-  schedule:Schedule;
+  schedule: Schedule;
 
   constructor(protected cookieService: CookieService) {
     super("schedule", 5 * 60, cookieService);
   }
 
-  enabled():boolean{
+  enabled(): boolean {
     return true;
   }
 
-  timeTableHasClasses(date:Date):boolean{
+  timeTableHasClasses(date: Date): boolean {
     return this.timeTable[date.getDay()].length > 0
   }
 
-  getNextDay(day:Date):Date{
+  getNextDay(day: Date): Date {
     return new Date(day.getTime() + 24 * 60 * 60 * 1000);
   }
 
-  getDisplayedDate(currentDate: Date):Date{
-    var displayedDay:Date;
-    if(currentDate.getHours() >= 12){
+  getDisplayedDate(currentDate: Date): Date {
+    var displayedDay: Date;
+    if (currentDate.getHours() >= 12) {
       displayedDay = this.getNextDay(currentDate);
-    }else{
+    } else {
       displayedDay = currentDate;
     }
-    while(!this.timeTableHasClasses(displayedDay)){
+    while (!this.timeTableHasClasses(displayedDay)) {
       displayedDay = this.getNextDay(displayedDay);
     }
     return displayedDay;
   }
 
-  getClassInfos(classDurations, timeTable, date){
+  getClassInfos(classDurations, timeTable, date) {
     return timeTable[date.getDay()].map((e, i) => new ClassInfo(classDurations[i], e));
   }
 
@@ -88,11 +88,11 @@ export class ScheduleComponent extends BasePanel {
     this.saveData(this.schedule);
   }
 
-  getClassInfoClass(classDuration: ClassDuration):string {
+  getClassInfoClass(classDuration: ClassDuration): string {
     var currentTime = new Date();
-    if(currentTime > classDuration.from && currentTime < classDuration.to){
+    if (currentTime > classDuration.from && currentTime < classDuration.to) {
       return "info"
-    }else{
+    } else {
       return "";
     }
   }

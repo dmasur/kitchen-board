@@ -1,4 +1,4 @@
-.date{
+.date {
   padding: 5px;
   font-size: 1em;
   font-size: 1.2vw;
@@ -9,20 +9,18 @@
   border: none;
   background-color: transparent;
 }
-.list-group{
+.list-group {
   margin-bottom: 0px;
 }
-.last-update{
-  float:right;
+.last-update {
+  float: right;
 }
-.error-message{
+.error-message {
   color: red;
 }
-.table li{
+.table li {
   padding: 2px;
 }
-
-.table>tbody>tr>td{
+.table>tbody>tr>td {
   vertical-align: middle;
 }
-

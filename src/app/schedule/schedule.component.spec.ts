@@ -20,7 +20,7 @@ describe('Component: Schedule', () => {
 
   it('should display today before 12 o\'clock', () => {
     let component = new ScheduleComponent(null);
-    var date = new Date(2000,1,1,8);
+    var date = new Date(2000, 1, 1, 8);
     var displayedDate = component.getDisplayedDate(date);
     expect(displayedDate).toBe(date);
     expect(component).toBeTruthy();
@@ -28,9 +28,9 @@ describe('Component: Schedule', () => {
 
   it('should display today after 12 o\'clock', () => {
     let component = new ScheduleComponent(null);
-    var date = new Date(2000,1,1,15);
+    var date = new Date(2000, 1, 1, 15);
     var displayedDate = component.getDisplayedDate(date);
-    expect(displayedDate.getTime()).toBe(new Date(2000,1,2,15).getTime());
+    expect(displayedDate.getTime()).toBe(new Date(2000, 1, 2, 15).getTime());
     expect(component).toBeTruthy();
   });
 });

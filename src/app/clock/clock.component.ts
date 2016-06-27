@@ -11,13 +11,13 @@ import {DateFormatPipe} from 'angular2-moment';
 })
 export class ClockComponent implements OnInit {
   dateTime: Date;
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     setInterval(() => this.updateTime(), 1000)
   }
 
-  updateTime(){
+  updateTime() {
     this.dateTime = new Date();
   }
 

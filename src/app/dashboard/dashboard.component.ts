@@ -18,9 +18,9 @@ import { Settings } from '../shared/settings';
 })
 export class DashboardComponent implements OnInit {
   private onlineStatus: string;
-  private enabled:boolean;
-  private thisMonth:Date;
-  private nextMonth:Date;
+  private enabled: boolean;
+  private thisMonth: Date;
+  private nextMonth: Date;
 
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
     this.enabled = settings.googleApiKey !== undefined && settings.googleClientId !== undefined;
@@ -29,13 +29,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     var today = new Date();
     this.thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-    this.nextMonth = new Date(today.getFullYear(), today.getMonth()+1, 1);
-    if(window.navigator.onLine){
+    this.nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    if (window.navigator.onLine) {
       this.onlineStatus = "online"
-    }else{
+    } else {
       this.onlineStatus = "offline"
     }
-    if(this.enabled && !this.authenticationService.isAuthenticated){
+    if (this.enabled && !this.authenticationService.isAuthenticated) {
       this.authenticationService.login();
     }
   }

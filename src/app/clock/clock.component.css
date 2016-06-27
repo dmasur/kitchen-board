@@ -1,12 +1,12 @@
-.clock .time{
-    font-size: 4.5em;
-    font-size: 4.5vw;
+.clock .time {
+  font-size: 4.5em;
+  font-size: 4.5vw;
 }
-.clock .date{
-    font-size: 3em;
-    font-size: 3vw;
+.clock .date {
+  font-size: 3em;
+  font-size: 3vw;
 }
-.clock .day{
-    font-size: 3em;
-    font-size: 3vw;
+.clock .day {
+  font-size: 3em;
+  font-size: 3vw;
 }

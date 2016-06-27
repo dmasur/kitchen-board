@@ -16,11 +16,11 @@ const map: any = {
 
 /** User packages configuration. */
 const packages: any = {
-  'angular2-cookie': { main: 'core.js',  defaultExtension: 'js' },
-  'moment': { main: 'moment-with-locales.min.js',  defaultExtension: 'js' },
-  'rss-feed-emitter': { main: 'rss-feed-emitter.js',  defaultExtension: 'js' },
-  'angular2-moment': { main: 'index.js',  defaultExtension: 'js' },
-  'jquery': { main: 'jquery.min.js',  defaultExtension: 'js' },
+  'angular2-cookie': { main: 'core.js', defaultExtension: 'js' },
+  'moment': { main: 'moment-with-locales.min.js', defaultExtension: 'js' },
+  'rss-feed-emitter': { main: 'rss-feed-emitter.js', defaultExtension: 'js' },
+  'angular2-moment': { main: 'index.js', defaultExtension: 'js' },
+  'jquery': { main: 'jquery.min.js', defaultExtension: 'js' },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

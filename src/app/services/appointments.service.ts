@@ -8,14 +8,14 @@ export class AppointmentsService {
   constructor() {
   }
 
-  getAllCalendars(){
+  getAllCalendars() {
     return new Promise((resolve, reject) => {
       gapi.client.load('calendar', 'v3', function() {
         var request2 = gapi.client.calendar.calendarList.list({});
         request2.execute((data) => {
-          if(!data.error){
+          if (!data.error) {
             resolve(data.result.items);
-          }else{
+          } else {
             reject(data.error);
           }
         });
@@ -23,7 +23,7 @@ export class AppointmentsService {
     });
   }
 
-  getEvents(calendar){
+  getEvents(calendar) {
     return new Promise((resolve, reject) => {
       var request = gapi.client.calendar.events.list({
         'calendarId': calendar.id,
@@ -58,10 +58,10 @@ export class AppointmentsService {
       this.getAllCalendars().then(calendars => {
         var eventCalls = [];
 
-        for(var i = 0; i < (calendars as Array<ICalendarListEntry>).length; i++) {
+        for (var i = 0; i < (calendars as Array<ICalendarListEntry>).length; i++) {
           eventCalls.push(this.getEvents(calendars[i]));
         }
-        Promise.all(eventCalls).then(function(result){
+        Promise.all(eventCalls).then(function(result) {
           resolve([].concat.apply([], result));
         });
       });

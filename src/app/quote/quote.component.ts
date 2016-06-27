@@ -4,10 +4,10 @@ import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
 
-declare var $:any;
+declare var $: any;
 
 class Quote {
-  constructor(public text:string, public author:string) {}
+  constructor(public text: string, public author: string) { }
 }
 
 @Component({
@@ -20,10 +20,10 @@ class Quote {
 })
 
 export class QuoteComponent extends BasePanel {
-  public quote:Quote = new Quote("", "");
-  private onlineStatus:string
+  public quote: Quote = new Quote("", "");
+  private onlineStatus: string
 
-  constructor(protected cookieService:CookieService, private http:Http) {
+  constructor(protected cookieService: CookieService, private http: Http) {
     super('quote', 60 * 60, cookieService); // every Hour
   }
 
@@ -36,7 +36,7 @@ export class QuoteComponent extends BasePanel {
     this.saveData(this.quote);
   }
 
-  refreshData(){
+  refreshData() {
     let observer = this.http.get('https://crossorigin.me/http://spruchsammlung.com/content/rssquotes');
     observer.subscribe(
       data => this.parse(data),
@@ -45,11 +45,11 @@ export class QuoteComponent extends BasePanel {
     );
   }
 
-  loadSavedData(){
+  loadSavedData() {
     this.quote = super.loadSavedData() as Quote;
   }
 
-  enabled(): boolean{
+  enabled(): boolean {
     return this.onlineStatus == "online"
   }
 }

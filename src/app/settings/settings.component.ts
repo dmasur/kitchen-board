@@ -10,13 +10,13 @@ import { Settings } from '../shared/settings';
   styleUrls: ['settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  constructor(private cookieService:CookieService, private settings:Settings) {}
+  constructor(private cookieService: CookieService, private settings: Settings) { }
 
   ngOnInit() {
     this.settings = this.settings || new Settings();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.cookieService.putObject('settings', this.settings);
   }
 

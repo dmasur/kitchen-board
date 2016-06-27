@@ -5,20 +5,20 @@ import { DateFormatPipe, TimeAgoPipe } from 'angular2-moment';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
 
-class DailyWeatherInfo{
+class DailyWeatherInfo {
   constructor(
     public date: Date,
     public icon: string,
     public minTemp: number,
     public maxTemp: number
-  ) {}
+  ) { }
 }
 
-class WeatherForcast{
+class WeatherForcast {
   dailyWeatherInfos: Array<DailyWeatherInfo>;
   public precipProbability: number;
-  public precipAt:Date;
-  constructor(public summary:string){
+  public precipAt: Date;
+  constructor(public summary: string) {
     this.dailyWeatherInfos = [];
   }
 }
@@ -42,16 +42,16 @@ export class WeatherComponent extends BasePanel {
     super("weather", 30 * 6, cookieService);
   }
 
-  enabled(){
+  enabled() {
     return this.onlineStatus == "online" && this.settings.forecastIoApiKey !== undefined;
   }
 
-  loadSavedData(){
+  loadSavedData() {
     this.weatherForcast = super.loadSavedData() as WeatherForcast;
   }
 
-  getIconClass(icon: string):string{
-    switch(icon){
+  getIconClass(icon: string): string {
+    switch (icon) {
       case 'clear-day':
         return 'icon-sun-inv';
       case 'clear-night':
@@ -74,14 +74,14 @@ export class WeatherComponent extends BasePanel {
     }
   }
 
-  refreshData(){
-    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/"+this.settings.forecastIoApiKey+"/"+this.longitude+","+this.latitude+"?units=si&lang=de";
+  refreshData() {
+    var requestString = "https://crossorigin.me/https://api.forecast.io/forecast/" + this.settings.forecastIoApiKey + "/" + this.longitude + "," + this.latitude + "?units=si&lang=de";
     this.http.get(requestString).subscribe(data => {
       var dailyWeatherInfos = [];
       var json = data.json()
       var daily = json.daily;
       this.weatherForcast = new WeatherForcast(daily.summary);
-      daily.data.slice(0,2).forEach(data => {
+      daily.data.slice(0, 2).forEach(data => {
         var maxTemp = Math.round(parseFloat(data.temperatureMax));
         var minTemp = Math.round(parseFloat(data.temperatureMin));
         var date = new Date(data.time * 1000);
@@ -89,11 +89,11 @@ export class WeatherComponent extends BasePanel {
         this.weatherForcast.dailyWeatherInfos.push(dailyWeatherInfo);
       })
       json.hourly.data.slice(1).forEach((entry, index) => {
-        if(this.weatherForcast.precipAt == null){
+        if (this.weatherForcast.precipAt == null) {
           var precipProbability = Math.round(entry.precipProbability * 100);
-          if(precipProbability > 20){
+          if (precipProbability > 20) {
             this.weatherForcast.precipProbability = precipProbability;
-            this.weatherForcast.precipAt = new Date(entry.time*1000);
+            this.weatherForcast.precipAt = new Date(entry.time * 1000);
           }
         }
       })

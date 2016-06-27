@@ -1,8 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading"><span class="lead">Zitat des Tages</span>
-  <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
-  <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
-</div>
+    <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
+    <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
+  </div>
   <blockquote *ngIf="quote">
     <p>{{quote.text}}</p>
     <footer>{{quote.author}}</footer>
