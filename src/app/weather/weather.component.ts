@@ -90,7 +90,7 @@ export class WeatherComponent extends BasePanel {
         var dailyWeatherInfo = new DailyWeatherInfo(date, daily.icon, maxTemp, minTemp);
         this.weatherForcast.dailyWeatherInfos.push(dailyWeatherInfo);
       })
-      this.weatherForcast.isCurrentyRaining = json.hourly[0].icon == "rain":
+      this.weatherForcast.isCurrentyRaining = json.hourly.data[0].icon == "rain";
       json.hourly.data.slice(1).forEach((entry, index) => {
         if (this.weatherForcast.precipAt == null) {
           var precipProbability = Math.round(entry.precipProbability * 100);
