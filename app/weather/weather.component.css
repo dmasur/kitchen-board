@@ -1,19 +1,18 @@
-i{
+i {
   font-size: 2em;
 }
-.icon{
+.icon {
   text-align: center;
 }
-.time, .temp, .precip, .day{
+.time, .temp, .precip, .day {
   font-size: 1.9vw;
   vertical-align: center;
   text-align: center;
 }
-.last-update{
-  float:right;
+.last-update {
+  float: right;
 }
-
-.rain{
+.rain {
   font-size: 1.5vw;
   text-align: center;
 }

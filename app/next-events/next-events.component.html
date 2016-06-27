@@ -6,7 +6,9 @@
   </div>
   <table class="table">
     <tr class="day row {{rowClass(day)}}" *ngFor="let day of daysWithEvents">
-      <td class="text-center date">{{day.date | amDateFormat:'dddd'}}<br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}<br/>{{day.date | amTimeAgo}}</td>
+      <td class="text-center date">{{day.date | amDateFormat:'dddd'}}
+        <br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}
+        <br/>{{day.date | amTimeAgo}}</td>
       <td>
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let event of day.events">
