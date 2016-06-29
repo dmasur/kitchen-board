@@ -1,5 +1,11 @@
 export class ClassDuration {
-  constructor(public from: Date, public to: Date) { }
+  public from: Date;
+  public to: Date;
+
+  constructor(classDurationNumbers:Array<Array<number>>) {
+    this.from = ClassDuration.dateFromHourAndMinute(classDurationNumbers[0][0], classDurationNumbers[0][1]);
+    this.to = ClassDuration.dateFromHourAndMinute(classDurationNumbers[1][0], classDurationNumbers[1][1]);
+  }
 
   static dateFromHourAndMinute(hour: number, minute: number): Date {
     var today = new Date();
@@ -9,11 +15,7 @@ export class ClassDuration {
   static importFromClassDurationNumbers(classDurationNumbers: Array<Array<Array<number>>>):Array<ClassDuration>{
     var classDurations:Array<ClassDuration> = [];
     for(var i:number=0; i<classDurationNumbers.length;i++){
-      var classDuration = new ClassDuration(
-        ClassDuration.dateFromHourAndMinute(classDurationNumbers[i][0][0], classDurationNumbers[i][0][1]),
-        ClassDuration.dateFromHourAndMinute(classDurationNumbers[i][1][0], classDurationNumbers[i][1][1])
-      );
-      classDurations.push(classDuration);
+      classDurations.push(new ClassDuration(classDurationNumbers[i]));
     }
     return classDurations;
   }
