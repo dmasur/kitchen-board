@@ -8,7 +8,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## ToDo:
 - Settingspage
-  - Schedule
+  - Button: Add Schoolhour
 - Invalidate old Keys
 - Add Error Handling to Promises
 - Add Links to ApiKeys in Readme
