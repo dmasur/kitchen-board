@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { AppointmentsService, NextEventService } from '../services/index';
+import { AppointmentsService, NextEventsService } from '../services/index';
 import { TimeAgoPipe, DateFormatPipe } from 'angular2-moment';
 import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
@@ -21,7 +21,7 @@ export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
   private onlineStatus: string;
 
-  constructor(private appointmentsService: AppointmentsService, protected cookieService: CookieService, private settings: Settings, private nextEventsService:NextEventService) {
+  constructor(private appointmentsService: AppointmentsService, protected cookieService: CookieService, private settings: Settings, private nextEventsService:NextEventsService) {
     super('nextEvents', 10 * 60, cookieService);
   }
 
@@ -42,10 +42,10 @@ export class NextEventsComponent extends BasePanel {
     }
     var today = new Date();
     var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
-    var dateString = NextEventService.dateString(new Date(day.date.toString()));
-    if (dateString == NextEventService.dateString(today)) {
+    var dateString = NextEventsService.dateString(new Date(day.date.toString()));
+    if (dateString == NextEventsService.dateString(today)) {
       return "success";
-    } else if (dateString == NextEventService.dateString(tomorrow)) {
+    } else if (dateString == NextEventsService.dateString(tomorrow)) {
       return "info";
     } else {
       return "";
@@ -54,8 +54,7 @@ export class NextEventsComponent extends BasePanel {
 
   refreshData() {
     this.appointmentsService.loadAppointments().then(appointments => {
-      var nextEventService = new NextEventService();
-      this.daysWithEvents = nextEventService.getDays(appointments).slice(0, 4);
+      this.daysWithEvents = this.nextEventsService.getDays(appointments).slice(0, 4);
       this.saveData(this.daysWithEvents);
     });
   }

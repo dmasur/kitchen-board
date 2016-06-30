@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
-import { CalendarService } from '../services/calendar.service';
+import { CalendarService } from '../services/index';
 import { CookieService } from 'angular2-cookie/core';
+import { Calendar, CalendarDay } from './shared/calendar';
 
 @Component({
   moduleId: module.id,
@@ -15,9 +16,9 @@ import { CookieService } from 'angular2-cookie/core';
 export class CalendarComponent extends BasePanel {
   dateString: string;
   date: Date;
-  days: Array<Array<number>>;
+  calendar: Calendar;
 
-  constructor(protected cookieService: CookieService) {
+  constructor(protected cookieService: CookieService, private calendarService: CalendarService) {
     super('calendar', 60 * 60, cookieService);
   }
 
@@ -27,22 +28,22 @@ export class CalendarComponent extends BasePanel {
   }
 
   refreshData() {
-    this.days = CalendarService.getDaysArray(this.date);
-    this.saveData(this.days);
+    this.calendar = this.calendarService.getCalendar(this.date);
+    this.saveData(this.calendar);
   }
 
   loadSavedData() {
-    this.days = super.loadSavedData();
+    this.calendar = super.loadSavedData();
   }
 
-  getDayClass(day: any): string {
+  getDayClass(day: CalendarDay): string {
     if (day === undefined) {
       return "";
     }
-    if (CalendarService.isToday(day)) {
+    if (CalendarService.isToday(day.date)) {
       return "danger";
     }
-    if (CalendarService.isWeekend(day)) {
+    if (CalendarService.isWeekend(day.date)) {
       return "info";
     }
     return "";

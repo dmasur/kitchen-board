@@ -1,8 +1,10 @@
 import { Event } from '../next-events/shared/event'
 import { Day } from '../next-events/shared/day'
+import { Injectable } from '@angular/core';
 import IEvent = gapi.client.calendar.IEvent;
 
-export class NextEventService{
+@Injectable()
+export class NextEventsService{
     static dateString(date: Date): string {
       return date.getFullYear().toString() + date.getMonth().toString() + date.getDate().toString();
     }
@@ -29,7 +31,7 @@ export class NextEventService{
       var events:Array<Event> = this.getEvents(appointments);
       var days: Array<Day> = [];
       for (var i = 0; i < events.length; i++) {
-        var day: Day = days.find(day => (NextEventService.dateString(day.date) == NextEventService.dateString(events[i].date)));
+        var day: Day = days.find(day => (NextEventsService.dateString(day.date) == NextEventsService.dateString(events[i].date)));
         if (day == null) {
           day = new Day();
           day.date = events[i].date;
