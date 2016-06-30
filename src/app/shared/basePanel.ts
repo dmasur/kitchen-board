@@ -54,6 +54,6 @@ export abstract class BasePanel implements OnInit {
   abstract enabled(): boolean
 
   log(message:string){
-    console.log(`${new Date()} ${name}: ${message}`);
+    console.log(`${new Date()} ${this.name}: ${message}`);
   }
 }
