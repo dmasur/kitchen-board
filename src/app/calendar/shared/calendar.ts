@@ -5,5 +5,5 @@ export class CalendarDay {
 
 export class Calendar {
   date: Date;
-  days: Array<Array<CalendarDay>>;
+  days: Array<Array<CalendarDay>> = [];
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
-import { CalendarService } from '../services/index';
+import { CalendarService, AppointmentsService, NextEventsService } from '../services/index';
 import { CookieService } from 'angular2-cookie/core';
 import { Calendar, CalendarDay } from './shared/calendar';
+import { Event } from '../next-events/shared/event'
 
 @Component({
   moduleId: module.id,
@@ -16,9 +17,12 @@ import { Calendar, CalendarDay } from './shared/calendar';
 export class CalendarComponent extends BasePanel {
   dateString: string;
   date: Date;
-  calendar: Calendar;
+  calendar: Calendar = new Calendar();
 
-  constructor(protected cookieService: CookieService, private calendarService: CalendarService) {
+  constructor(protected cookieService: CookieService,
+    private calendarService: CalendarService,
+    private appointmentsService: AppointmentsService,
+    private nextEventsService: NextEventsService) {
     super('calendar', 60 * 60, cookieService);
   }
 
@@ -28,17 +32,34 @@ export class CalendarComponent extends BasePanel {
   }
 
   refreshData() {
-    this.calendar = this.calendarService.getCalendar(this.date);
+    this.calendar = this.calendarService.getCalendar(this.date, []);
     this.saveData(this.calendar);
+    this.appointmentsService.loadAppointments().then(appointments => {
+      this.calendar = this.calendarService.getCalendar(this.date, this.nextEventsService.getEvents(appointments));
+      this.saveData(this.calendar);
+    });
   }
 
   loadSavedData() {
     this.calendar = super.loadSavedData();
   }
 
+  getTextClass(day: CalendarDay): string {
+    if (day === undefined) {
+      return "";
+    }
+    if (day.hasEvents) {
+      return "label label-default";
+    }
+    return "";
+  }
+
   getDayClass(day: CalendarDay): string {
     if (day === undefined) {
       return "";
+    }
+    if (day.hasEvents) {
+      return "warning";
     }
     if (CalendarService.isToday(day.date)) {
       return "danger";

@@ -1,10 +1,9 @@
 import { Calendar, CalendarDay } from '../calendar/shared/calendar';
-import { NextEventsService } from './next-events.service'
 import { Injectable } from '@angular/core';
+import { Event } from '../next-events/shared/event'
 
 @Injectable()
 export class CalendarService {
-  constructor(nextEventsService:NextEventsService) {}
 
   static getDayCountOfMonth(date: Date): number {
     return new Date(date.getFullYear(), date.getMonth(), 0).getDate();
@@ -20,7 +19,10 @@ export class CalendarService {
   }
 
   static getDateString(date: Date): string {
-    return date.getFullYear().toString() + date.getMonth().toString() + date.getDay().toString();
+    var mm = date.getMonth() + 1; // getMonth() is zero-based
+    var dd = date.getDate();
+
+    return [date.getFullYear(), !mm[1] && '0', mm, !dd[1] && '0', dd].join(''); // padding
   }
 
   static isToday(date: Date){
@@ -33,27 +35,30 @@ export class CalendarService {
     return weekday == 0 || weekday == 6;
   }
 
-  getCalendarDaysArray(date: Date):Array<Array<CalendarDay>> {
+  getCalendarDaysArray(date: Date, events: Array<Event>):Array<Array<CalendarDay>> {
     var days:Array<Array<CalendarDay>> = [];
     var year = date.getFullYear();
     var month = date.getMonth();
     var dayCountOfMonth = CalendarService.getDayCountOfMonth(date);
     var firstDayNumber = CalendarService.getFirstDayNumber(date);
     var offset = firstDayNumber;
+    var eventDates = events.map(event => CalendarService.getDateString(event.date));
     for (var i = 0 + offset; i < dayCountOfMonth + offset - 1; i++) {
       var row = Math.floor(i / 7);
       days[row] = days[row] || [];
+      var date = new Date(year, month, i - offset + 1);
       var calendarDay = new CalendarDay();
-      calendarDay.date = new Date(year, month, i - offset + 1)
+      calendarDay.date = date;
+      calendarDay.hasEvents = eventDates.indexOf(CalendarService.getDateString(date)) != -1;
       days[row][i % 7] = calendarDay;
     }
     return days;
   }
 
-  getCalendar(date: Date):Calendar {
+  getCalendar(date: Date, events: Array<Event>):Calendar {
     var calendar = new Calendar();
     calendar.date = date;
-    calendar.days = this.getCalendarDaysArray(date);
+    calendar.days = this.getCalendarDaysArray(date, events);
     return calendar;
   }
 }
