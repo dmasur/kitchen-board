@@ -38,9 +38,13 @@ export class NewsComponent extends BasePanel {
     var items = $(data.text()).find("item").slice(0, 6);
     for (var i = 0, l = items.length; i < l; i++) {
       var el = $(items[i]);
+      var image = el.find("enclosure").attr("url");
+      if(image){
+        image = image.replace("http:", "https:");
+      }
       newsItems.push(new News(
         el.find("title").text(),
-        el.find("enclosure").attr("url"),
+        image,
         el.find("description").text(),
         new Date(el.find("pubDate").text())
       ));
