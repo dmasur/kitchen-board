@@ -78,9 +78,6 @@ export class CalendarComponent extends BasePanel {
       this.settings.googleClientId != null &&
       this.onlineStatus == "online" &&
       typeof(gapi) !== 'undefined'
-    if(!enabled){
-
-    }
     return enabled;
   }
 }
