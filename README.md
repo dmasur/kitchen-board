@@ -12,7 +12,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 - Invalidate old Keys
 - Add Error Handling to Promises
 - Add Links to ApiKeys in Readme
-- Login Link in Next Events
+- Settings save reloads page
 
 ## Maybe:
 - Base Panel Dependecy Constant
