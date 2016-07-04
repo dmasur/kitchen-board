@@ -73,11 +73,24 @@ export class CalendarComponent extends BasePanel {
     return "";
   }
 
-  enabled() {
-    var enabled = this.settings.googleApiKey != null &&
-      this.settings.googleClientId != null &&
-      this.onlineStatus == "online" &&
-      typeof(gapi) !== 'undefined'
-    return enabled;
+  enableConditions():{}{
+    return {
+      googleApiKey: this.settings.googleApiKey != null,
+      googleClientId: this.settings.googleClientId != null,
+      onlineStatus: this.onlineStatus == "online",
+      gapi: typeof(gapi) !== 'undefined'
+    }
+  }
+
+  enabled(conditions={}):boolean{
+    var valid = true;
+    var conditions = this.enableConditions();
+    for(var condition in conditions){
+      if(conditions[condition] == false){
+        valid = false;
+        console.log('ValidationError: '+condition);
+      }
+    }
+    return valid;
   }
 }
