@@ -44,7 +44,7 @@ export class CalendarComponent extends BasePanel {
   }
 
   loadSavedData() {
-    this.calendar = super.loadSavedData();
+    this.calendar = this.calendarService.getCalendar(this.date, []);
   }
 
   getTextClass(day: CalendarDay): string {
