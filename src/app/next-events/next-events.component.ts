@@ -29,7 +29,7 @@ export class NextEventsComponent extends BasePanel {
     return this.settings.googleApiKey != null &&
       this.settings.googleClientId != null &&
       this.onlineStatus == "online" &&
-      gapi !== undefined
+      typeof(gapi) !== 'undefined'
   }
 
   loadSavedData():void {

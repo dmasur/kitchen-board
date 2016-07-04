@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
     this.enabled = settings.googleApiKey !== undefined &&
     settings.googleClientId !== undefined &&
-    gapi !== undefined
+    typeof(gapi) !== 'undefined'
   }
 
   setDates():void{

@@ -71,6 +71,6 @@ export class CalendarComponent extends BasePanel {
   }
 
   enabled() {
-    return true;
+    return typeof(gapi) !== 'undefined';
   }
 }
