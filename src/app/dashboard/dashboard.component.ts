@@ -23,20 +23,34 @@ export class DashboardComponent implements OnInit {
   private nextMonth: Date;
 
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
-    this.enabled = settings.googleApiKey !== undefined && settings.googleClientId !== undefined;
+    this.enabled = settings.googleApiKey !== undefined &&
+    settings.googleClientId !== undefined &&
+    gapi !== undefined
   }
 
-  ngOnInit() {
+  setDates():void{
     var today = new Date();
     this.thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     this.nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  }
+
+  setOnlineStatus():void{
     if (window.navigator.onLine) {
       this.onlineStatus = "online"
     } else {
       this.onlineStatus = "offline"
     }
+  }
+
+  loginToGoogle():void{
     if (this.enabled && !this.authenticationService.isAuthenticated) {
       this.authenticationService.login();
     }
+  }
+
+  ngOnInit() {
+    this.setDates();
+    this.setOnlineStatus();
+    this.loginToGoogle();
   }
 }

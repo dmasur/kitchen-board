@@ -3,7 +3,7 @@
     <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
     <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
   </div>
-  <table class="table">
+  <table class="table" *ngIf="weatherForcast">
     <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
       <td class="day">{{dailyWeatherInfo.date | amDateFormat: 'dd'}}</td>
       <td class="icon"><i class="{{getIconClass(dailyWeatherInfo.icon)}}"></i></td>

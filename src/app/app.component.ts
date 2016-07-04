@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService, NextEventsService, CalendarService, AppointmentsService } from './services/index';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import * as moment from 'moment';
@@ -14,12 +14,9 @@ import { CookieService } from 'angular2-cookie/core';
   providers: [Http, HTTP_PROVIDERS, AuthenticationService, CookieService, NextEventsService, CalendarService, AppointmentsService]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent{
 
   constructor(private authenticationService: AuthenticationService) {
     moment.locale('de');
-  }
-
-  ngOnInit() {
   }
 }

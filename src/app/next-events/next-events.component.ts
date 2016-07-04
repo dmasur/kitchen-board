@@ -32,7 +32,7 @@ export class NextEventsComponent extends BasePanel {
       gapi !== undefined
   }
 
-  loadSavedData() {
+  loadSavedData():void {
     this.daysWithEvents = super.loadSavedData() as Array<Day>;
   }
 
@@ -52,7 +52,7 @@ export class NextEventsComponent extends BasePanel {
     }
   }
 
-  refreshData() {
+  refreshData():void {
     this.appointmentsService.loadAppointments().then(appointments => {
       this.daysWithEvents = this.nextEventsService.getDays(appointments).slice(0, 4);
       this.saveData(this.daysWithEvents);

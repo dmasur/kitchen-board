@@ -12,10 +12,10 @@ if (environment.production) {
   enableProdMode();
 }
 
-class MyOptions extends BaseCookieOptions {
+class MyCookieOptions extends BaseCookieOptions {
   expires : string = 'Fri, 31 Dec 9999 23:59:59 GMT';
 }
 
 bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS, provide(Settings, {useValue: settings}), provide(CookieOptions, {useClass: MyOptions})
+  APP_ROUTER_PROVIDERS, provide(Settings, {useValue: settings}), provide(CookieOptions, {useClass: MyCookieOptions})
 ]);
