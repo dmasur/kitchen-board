@@ -5,24 +5,27 @@ import { CalendarService, AppointmentsService, NextEventsService } from '../serv
 import { CookieService } from 'angular2-cookie/core';
 import { Calendar, CalendarDay } from './shared/calendar';
 import { Event } from '../next-events/shared/event'
+import { Settings } from '../shared/settings';
 
 @Component({
   moduleId: module.id,
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
   styleUrls: ['calendar.component.css'],
-  inputs: ['dateString'],
+  inputs: ['dateString', 'onlineStatus'],
   pipes: [DateFormatPipe]
 })
 export class CalendarComponent extends BasePanel {
   dateString: string;
   date: Date;
   calendar: Calendar = new Calendar();
+  private onlineStatus: string;
 
   constructor(protected cookieService: CookieService,
     private calendarService: CalendarService,
     private appointmentsService: AppointmentsService,
-    private nextEventsService: NextEventsService) {
+    private nextEventsService: NextEventsService,
+    private settings: Settings) {
     super('calendar', 60 * 60, cookieService);
   }
 
@@ -71,6 +74,13 @@ export class CalendarComponent extends BasePanel {
   }
 
   enabled() {
-    return typeof(gapi) !== 'undefined';
+    var enabled = this.settings.googleApiKey != null &&
+      this.settings.googleClientId != null &&
+      this.onlineStatus == "online" &&
+      typeof(gapi) !== 'undefined'
+    if(!enabled){
+
+    }
+    return enabled;
   }
 }

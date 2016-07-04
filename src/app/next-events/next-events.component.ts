@@ -26,10 +26,14 @@ export class NextEventsComponent extends BasePanel {
   }
 
   enabled(): boolean {
-    return this.settings.googleApiKey != null &&
+    var enabled = this.settings.googleApiKey != null &&
       this.settings.googleClientId != null &&
       this.onlineStatus == "online" &&
       typeof(gapi) !== 'undefined'
+    if(!enabled){
+
+    }
+    return enabled;
   }
 
   loadSavedData():void {
