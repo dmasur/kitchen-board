@@ -44,8 +44,11 @@ export class WeatherComponent extends BasePanel {
     super("weather", 30 * 6, cookieService);
   }
 
-  enabled() {
-    return this.onlineStatus == "online" && this.settings.forecastIoApiKey !== undefined;
+  enableConditions():{}{
+    return {
+      forecastIoApiKey: this.settings.forecastIoApiKey !== undefined,
+      onlineStatus: this.onlineStatus == "online",
+    }
   }
 
   loadSavedData() {

@@ -25,15 +25,13 @@ export class NextEventsComponent extends BasePanel {
     super('nextEvents', 10 * 60, cookieService);
   }
 
-  enabled(): boolean {
-    var enabled = this.settings.googleApiKey != null &&
-      this.settings.googleClientId != null &&
-      this.onlineStatus == "online" &&
-      typeof(gapi) !== 'undefined'
-    if(!enabled){
-
+  enableConditions():{}{
+    return {
+      googleApiKey: this.settings.googleApiKey != null,
+      googleClientId: this.settings.googleClientId != null,
+      onlineStatus: this.onlineStatus == "online",
+      gapi: typeof(gapi) !== 'undefined'
     }
-    return enabled;
   }
 
   loadSavedData():void {

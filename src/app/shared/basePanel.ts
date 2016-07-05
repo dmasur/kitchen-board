@@ -33,6 +33,20 @@ export abstract class BasePanel implements OnInit {
     }
   }
 
+  abstract enableConditions():{}
+
+  enabled(conditions={}):boolean{
+    var valid = true;
+    var conditions = this.enableConditions();
+    for(var condition in conditions){
+      if(conditions[condition] == false){
+        valid = false;
+        console.log('ValidationError: '+condition);
+      }
+    }
+    return valid;
+  }
+
   loadSavedData() {
     this.log('loadSavedData started');
     var rawSavedAt = this.cookieService.get(`${this.name}.savedAt`);
@@ -50,8 +64,6 @@ export abstract class BasePanel implements OnInit {
     this.cookieService.put(`${this.name}.data`, JSON.stringify(data));
     this.cookieService.put(`${this.name}.savedAt`, JSON.stringify(this.lastUpdate));
   }
-
-  abstract enabled(): boolean
 
   log(message:string){
     //console.log(`${new Date()} ${this.name}: ${message}`);

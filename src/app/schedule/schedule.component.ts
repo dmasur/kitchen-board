@@ -31,8 +31,8 @@ export class ScheduleComponent extends BasePanel {
     this.classDurations = ClassDuration.importFromClassDurationNumbers(settings.classDurationNumbers);
   }
 
-  enabled(): boolean {
-    return true;
+  enableConditions():{}{
+    return {};
   }
 
   timeTableHasClasses(date: Date): boolean {

@@ -49,7 +49,9 @@ export class QuoteComponent extends BasePanel {
     this.quote = super.loadSavedData() as Quote;
   }
 
-  enabled(): boolean {
-    return this.onlineStatus == "online"
+  enableConditions():{}{
+    return {
+      onlineStatus: this.onlineStatus == "online"
+    }
   }
 }

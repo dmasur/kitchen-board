@@ -81,16 +81,4 @@ export class CalendarComponent extends BasePanel {
       gapi: typeof(gapi) !== 'undefined'
     }
   }
-
-  enabled(conditions={}):boolean{
-    var valid = true;
-    var conditions = this.enableConditions();
-    for(var condition in conditions){
-      if(conditions[condition] == false){
-        valid = false;
-        console.log('ValidationError: '+condition);
-      }
-    }
-    return valid;
-  }
 }

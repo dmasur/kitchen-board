@@ -29,8 +29,10 @@ export class NewsComponent extends BasePanel {
     this.newsItems = super.loadSavedData() as Array<News>;
   }
 
-  enabled(): boolean {
-    return this.onlineStatus == "online"
+  enableConditions():{}{
+    return {
+      onlineStatus: this.onlineStatus == "online"
+    }
   }
 
   parse(data) {
