@@ -9,10 +9,10 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## ToDo:
 - Settingspage
   - Button: Add Schoolhour
-- Invalidate old Keys
-- Add Error Handling to Promises
-- Add Links to ApiKeys in Readme
-- Settings save reloads page
+- When online:
+  - Invalidate old Keys
+  - Add Error Handling to Promises
+  - Add Links to ApiKeys in Readme
 
 ## Maybe:
 - Base Panel Dependecy Constant
