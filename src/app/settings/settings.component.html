@@ -27,27 +27,18 @@
               <th>Mittwoch</th>
               <th>Donnerstag</th>
               <th>Freitag</th>
-              <th>Samstag</th>
-              <th>Sonntag</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let i of [0,1,2,3,4]">
-              <td><input [(ngModel)]="settings.classDurationNumbers[i][0][0]" class="classDurationColumn"/></td>
-              <td class="classDurationSpacer">:</td>
-              <td><input [(ngModel)]="settings.classDurationNumbers[i][0][1]" class="classDurationColumn"/></td>
-              <td><input [(ngModel)]="settings.classDurationNumbers[i][1][0]" class="classDurationColumn"/></td>
-              <td class="classDurationSpacer">:</td>
-              <td><input [(ngModel)]="settings.classDurationNumbers[i][1][1]" class="classDurationColumn"/></td>
-              <td><input [(ngModel)]="settings.timeTable[1][i]"/></td>
-              <td><input [(ngModel)]="settings.timeTable[2][i]"/></td>
-              <td><input [(ngModel)]="settings.timeTable[3][i]"/></td>
-              <td><input [(ngModel)]="settings.timeTable[4][i]"/></td>
-              <td><input [(ngModel)]="settings.timeTable[5][i]"/></td>
-              <!-- <template ngFor [ngForOf]=[0,1,2,3,4,5,6] let-t="classNumber2" let-i="classNumber">
-                <td><input [(ngModel)]="settings.timeTable[i]"/></td>
-                  <td>{{classNumber2}}</td>
-              </template> -->
+              <template ngFor [ngForOf]=[0,1] let-j>
+                <td><input [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
+                <td class="classDurationSpacer">:</td>
+                <td><input [(ngModel)]="settings.classDurationNumbers[i][j][1]" class="classDurationColumn"/></td>
+              </template>
+              <template ngFor [ngForOf]=[1,2,3,4,5] let-j>
+                <td><input [(ngModel)]="settings.timeTable[j][i]"/></td>
+              </template>
             </tr>
           </tbody>
         </table>

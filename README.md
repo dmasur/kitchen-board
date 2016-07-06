@@ -16,7 +16,6 @@ You need the following Api keys:
   - Button:
     - Add Schoolhour
     - Remove Schoolhour
-- Settings as input, so it detect changes
 - Add Link to Forecase.io
 
 - When online:
