@@ -16,3 +16,8 @@ i {
   font-size: 1.5vw;
   text-align: center;
 }
+.dailyInfos{
+  width: 100%;
+  vertical-align: center;
+  text-align: center;
+}
