@@ -5,7 +5,18 @@ import { DateFormatPipe, TimeAgoPipe } from 'angular2-moment';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
 
+class Weather {
+  constructor(
+    public averageTemp: number,
+    public icon: string
+  ) {}
+}
+
 class DailyWeatherInfo {
+  public morning: Weather;
+  public midday: Weather;
+  public afternoon: Weather;
+  public evening: Weather;
   constructor(
     public date: Date,
     public icon: string,
@@ -94,18 +105,36 @@ export class WeatherComponent extends BasePanel {
         this.weatherForcast.dailyWeatherInfos.push(dailyWeatherInfo);
       })
       this.weatherForcast.isCurrentyRaining = json.hourly.data[0].icon == "rain";
+      var today = new Date();
       json.hourly.data.slice(1).forEach((entry, index) => {
+        var date = new Date(entry.time * 1000);
+        var dailyWeatherInfo = this.weatherForcast.dailyWeatherInfos[date.getDate() - today.getDate()];
+        if(dailyWeatherInfo){
+          var weather = new Weather(Math.round(entry.temperature), entry.icon);
+          if(date.getHours() == 8){
+            dailyWeatherInfo.morning = weather;
+          }
+          if(date.getHours() == 13){
+            dailyWeatherInfo.midday = weather;
+          }
+          if(date.getHours() == 17){
+            dailyWeatherInfo.afternoon = weather;
+          }
+          if(date.getHours() == 20){
+            dailyWeatherInfo.evening = weather;
+          }
+        }
         if (this.weatherForcast.precipAt == null) {
           var precipProbability = Math.round(entry.precipProbability * 100);
           if (precipProbability > 20) {
             this.weatherForcast.precipProbability = precipProbability;
-            this.weatherForcast.precipAt = new Date(entry.time * 1000);
+            this.weatherForcast.precipAt = date;
           }
         }
         if (this.weatherForcast.precipStopAt == null) {
           var precipProbability = Math.round(entry.precipProbability * 100);
           if (precipProbability < 20) {
-            this.weatherForcast.precipStopAt = new Date(entry.time * 1000);
+            this.weatherForcast.precipStopAt = date;
           }
         }
       })
@@ -113,3 +142,4 @@ export class WeatherComponent extends BasePanel {
     })
   }
 }
+// 7-10 11-14 15-18

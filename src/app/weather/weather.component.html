@@ -11,8 +11,36 @@
       <td class="temp" colspan=2>{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
     </tr>
     <tr>
+      <td colspan="4">
+        <table class="dailyInfos">
+          <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
+            <td>
+              <span *ngIf="dailyWeatherInfo.morning">
+                <i class="{{getIconClass(dailyWeatherInfo.morning.icon)}}"></i><br/>{{dailyWeatherInfo.morning.averageTemp}}°C
+              </span>
+            </td>
+            <td>
+              <span *ngIf="dailyWeatherInfo.midday">
+                <i class="{{getIconClass(dailyWeatherInfo.midday.icon)}}"></i><br/>{{dailyWeatherInfo.midday.averageTemp}}°C
+              </span>
+            </td>
+            <td>
+              <span *ngIf="dailyWeatherInfo.afternoon">
+                <i class="{{getIconClass(dailyWeatherInfo.afternoon.icon)}}"></i><br/>{{dailyWeatherInfo.afternoon.averageTemp}}°C
+              </span>
+            </td>
+            <td>
+              <span *ngIf="dailyWeatherInfo.evening">
+                <i class="{{getIconClass(dailyWeatherInfo.evening.icon)}}"></i><br/>{{dailyWeatherInfo.evening.averageTemp}}°C
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
       <td *ngIf="!isCurrentyRaining && weatherForcast.precipAt" colspan="4" class="rain">Regen {{weatherForcast.precipAt | amTimeAgo}} mit {{weatherForcast.precipProbability}}%</td>
-      <td *ngIf="isCurrentyRaining && this.weatherForcast.precipStopAt" colspan="4" class="rain">Regenende {{weatherForcast.precipStopAt | amTimeAgo}}</td>
+      <td *ngIf="isCurrentyRaining && weatherForcast.precipStopAt" colspan="4" class="rain">Regenende {{weatherForcast.precipStopAt | amTimeAgo}}</td>
     </tr>
     <tr>
       <td colspan="4">{{weatherForcast.summary}}</td>

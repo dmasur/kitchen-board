@@ -62,7 +62,7 @@ export class CalendarComponent extends BasePanel {
       return "";
     }
     if (day.hasEvents) {
-      return "warning";
+      return "success";
     }
     if (CalendarService.isToday(day.date)) {
       return "danger";
