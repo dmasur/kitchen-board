@@ -12,15 +12,12 @@ You need the following Api keys:
 - Forecase.IO Api Key: https://developer.forecast.io/
 
 ## ToDo:
-- Settingspage
-  - Button:
-    - Add Schoolhour
-    - Remove Schoolhour
 - Add Link to Forecase.io
+- Add Error Handling to Promises
+- Change Colors of calendar events
 
 - When online:
   - Invalidate old Keys
-  - Add Error Handling to Promises
 
 ## Maybe:
 - Base Panel Dependecy Constant

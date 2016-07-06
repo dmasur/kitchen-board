@@ -30,7 +30,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let i of [0,1,2,3,4]">
+            <tr *ngFor="let i of hourArray()">
               <template ngFor [ngForOf]=[0,1] let-j>
                 <td><input [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
                 <td class="classDurationSpacer">:</td>
@@ -42,8 +42,11 @@
             </tr>
           </tbody>
         </table>
+        <a href="#" class="btn btn-default" (click)="addHourToSchedule()">Add hour to schedule</a>
+        <a href="#" class="btn btn-default" (click)="removeHourFromSchedule()">Remove hour from schedule</a>
       </div>
     </div>
+    <hr/>
     <div class="row">
       <div class="col-md-12">
         <button type="submit" class="btn btn-default">Speichern</button>

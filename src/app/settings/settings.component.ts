@@ -11,10 +11,25 @@ declare var window: any;
   styleUrls: ['settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  constructor(private cookieService: CookieService, private settings: Settings) { }
+  constructor(private cookieService: CookieService, private settings: Settings) {
+  }
 
   ngOnInit() {
     this.settings = this.settings || new Settings();
+  }
+
+  addHourToSchedule(){
+    this.settings.classDurationNumbers.push([[0, 0], [0, 0]])
+    event.preventDefault();
+  }
+
+  removeHourFromSchedule(){
+    this.settings.classDurationNumbers.pop()
+    event.preventDefault();
+  }
+
+  hourArray():Array<number>{
+    return this.settings.classDurationNumbers.map((_,i) => i)
   }
 
   onSubmit() {
