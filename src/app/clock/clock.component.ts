@@ -6,8 +6,7 @@ import {DateFormatPipe} from 'angular2-moment';
   moduleId: module.id,
   selector: 'app-clock',
   templateUrl: 'clock.component.html',
-  styleUrls: ['clock.component.css'],
-  pipes: [DateFormatPipe]
+  styleUrls: ['clock.component.css']
 })
 export class ClockComponent implements OnInit {
   dateTime: Date;

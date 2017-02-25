@@ -1,7 +1,9 @@
+/// <reference path="../../../typings/globals/gapi/index.d.ts" />
+/// <reference path="../../../typings/globals/gapi.client/gapi.client.calendar.d.ts" />
+
 import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { AppointmentsService, NextEventsService } from '../services/index';
-import { TimeAgoPipe, DateFormatPipe } from 'angular2-moment';
 import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
@@ -11,7 +13,6 @@ import IEvent = gapi.client.calendar.IEvent;
 @Component({
   moduleId: module.id,
   selector: 'app-next-events',
-  pipes: [TimeAgoPipe, DateFormatPipe],
   templateUrl: 'next-events.component.html',
   styleUrls: ['next-events.component.css'],
   providers: [AppointmentsService],
@@ -40,17 +41,17 @@ export class NextEventsComponent extends BasePanel {
 
   rowClass(day: Day): string {
     if (day === undefined) {
-      return "";
+      return '';
     }
-    var today = new Date();
-    var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
-    var dateString = NextEventsService.dateString(new Date(day.date.toString()));
-    if (dateString == NextEventsService.dateString(today)) {
-      return "success";
-    } else if (dateString == NextEventsService.dateString(tomorrow)) {
-      return "info";
+    const today = new Date();
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
+    const dateString = NextEventsService.dateString(new Date(day.date.toString()));
+    if (dateString === NextEventsService.dateString(today)) {
+      return 'success';
+    } else if (dateString === NextEventsService.dateString(tomorrow)) {
+      return 'info';
     } else {
-      return "";
+      return '';
     }
   }
 

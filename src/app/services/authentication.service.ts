@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/globals/gapi.client/gapi.client.plus.d.ts" />
+
 import { Injectable } from '@angular/core';
 import { Settings } from '../shared/settings';
 

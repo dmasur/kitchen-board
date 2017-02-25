@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="weather panel panel-default">
   <div class="panel-heading"><span class="lead">{{city}}</span>
     <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
     <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
@@ -37,10 +37,6 @@
           </tr>
         </table>
       </td>
-    </tr>
-    <tr>
-      <td *ngIf="!isCurrentyRaining && weatherForcast.precipAt" colspan="4" class="rain">Regen {{weatherForcast.precipAt | amTimeAgo}} mit {{weatherForcast.precipProbability}}%</td>
-      <td *ngIf="isCurrentyRaining && weatherForcast.precipStopAt" colspan="4" class="rain">Regenende {{weatherForcast.precipStopAt | amTimeAgo}}</td>
     </tr>
     <tr>
       <td colspan="4">{{weatherForcast.summary}}</td>

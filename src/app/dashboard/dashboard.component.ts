@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/index';
-import { NextEventsComponent } from '../next-events/index';
-import { WeatherComponent } from '../weather';
-import { NewsComponent } from '../news';
-import { ScheduleComponent } from '../schedule';
-import { QuoteComponent } from '../quote';
-import { ClockComponent } from '../clock';
-import { CalendarComponent } from '../calendar';
+
 import { Settings } from '../shared/settings';
 
 @Component({
@@ -14,7 +8,6 @@ import { Settings } from '../shared/settings';
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent, QuoteComponent, CalendarComponent]
 })
 export class DashboardComponent implements OnInit {
   private onlineStatus: string;

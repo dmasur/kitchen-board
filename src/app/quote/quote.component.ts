@@ -15,13 +15,12 @@ class Quote {
   selector: 'app-quote',
   templateUrl: 'quote.component.html',
   styleUrls: ['quote.component.css'],
-  inputs: ['onlineStatus'],
-  pipes: [DateFormatPipe]
+  inputs: ['onlineStatus']
 })
 
 export class QuoteComponent extends BasePanel {
   public quote: Quote = new Quote("", "");
-  private onlineStatus: string
+  private onlineStatus: string;
 
   constructor(protected cookieService: CookieService, private http: Http) {
     super('quote', 60 * 60, cookieService); // every Hour

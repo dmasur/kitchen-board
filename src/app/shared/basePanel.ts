@@ -26,7 +26,7 @@ export abstract class BasePanel implements OnInit {
     } catch (e) {
       this.log('refreshData errored');
       if (e instanceof String) {
-        this.errorMessage = e;
+        this.errorMessage = "Error";
       } else {
         this.errorMessage = e.message;
       }

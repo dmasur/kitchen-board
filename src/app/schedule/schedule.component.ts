@@ -19,12 +19,11 @@ class Schedule {
   moduleId: module.id,
   selector: 'app-schedule',
   templateUrl: 'schedule.component.html',
-  styleUrls: ['schedule.component.css'],
-  pipes: [DateFormatPipe]
+  styleUrls: ['schedule.component.css']
 })
 export class ScheduleComponent extends BasePanel {
   schedule: Schedule;
-  classDurations: Array<ClassDuration>
+  classDurations: Array<ClassDuration>;
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
     super("schedule", 5 * 60, cookieService);

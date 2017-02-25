@@ -1,18 +1,18 @@
-<div class="container">
+<div class="settings container">
   <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label for="forecastIoApiKey">Forecast.io Api Key</label>
-          <input [(ngModel)]="settings.forecastIoApiKey" type="text" class="form-control" id="forecastIoApiKey">
+          <input [(ngModel)]="settings.forecastIoApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="forecastIoApiKey">
         </div>
         <div class="form-group">
           <label for="googleClientId">Google Client ID</label>
-          <input [(ngModel)]="settings.googleClientId" type="text" class="form-control" id="googleClientId">
+          <input [(ngModel)]="settings.googleClientId" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleClientId">
         </div>
         <div class="form-group">
           <label for="googleApiKey">Google Api Key</label>
-          <input [(ngModel)]="settings.googleApiKey" type="text" class="form-control" id="googleApiKey">
+          <input [(ngModel)]="settings.googleApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleApiKey">
         </div>
       </div>
       <div class="col-md-12">
@@ -32,12 +32,12 @@
           <tbody>
             <tr *ngFor="let i of hourArray()">
               <template ngFor [ngForOf]=[0,1] let-j>
-                <td><input [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
+                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
                 <td class="classDurationSpacer">:</td>
-                <td><input [(ngModel)]="settings.classDurationNumbers[i][j][1]" class="classDurationColumn"/></td>
+                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][1]" class="classDurationColumn"/></td>
               </template>
               <template ngFor [ngForOf]=[1,2,3,4,5] let-j>
-                <td><input [(ngModel)]="settings.timeTable[j][i]"/></td>
+                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.timeTable[j][i]"/></td>
               </template>
             </tr>
           </tbody>

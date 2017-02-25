@@ -14,8 +14,7 @@ class News {
   selector: 'app-news',
   templateUrl: 'news.component.html',
   styleUrls: ['news.component.css'],
-  inputs: ['onlineStatus'],
-  pipes: [DateFormatPipe]
+  inputs: ['onlineStatus']
 })
 export class NewsComponent extends BasePanel {
   newsItems: Array<News> = [];

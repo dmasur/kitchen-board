@@ -12,8 +12,7 @@ import { Settings } from '../shared/settings';
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
   styleUrls: ['calendar.component.css'],
-  inputs: ['dateString', 'onlineStatus'],
-  pipes: [DateFormatPipe]
+  inputs: ['dateString', 'onlineStatus']
 })
 export class CalendarComponent extends BasePanel {
   dateString: string;
