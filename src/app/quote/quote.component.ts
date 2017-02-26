@@ -36,7 +36,7 @@ export class QuoteComponent extends BasePanel {
   }
 
   refreshData() {
-    let observer = this.http.get('https://crossorigin.me/http://spruchsammlung.com/content/rssquotes');
+    let observer = this.http.get('https://cors-anywhere.herokuapp.com/http://spruchsammlung.com/content/rssquotes');
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),

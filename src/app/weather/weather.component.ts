@@ -90,7 +90,7 @@ export class WeatherComponent extends BasePanel {
   }
 
   refreshData() {
-    var requestString = "https://crossorigin.me/https://api.darksky.net/forecast/" + this.settings.forecastIoApiKey + "/" + this.longitude + "," + this.latitude + "?units=ca&lang=de";
+    var requestString = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + this.settings.forecastIoApiKey + "/" + this.longitude + "," + this.latitude + "?units=ca&lang=de";
     this.http.get(requestString).subscribe(data => {
       var dailyWeatherInfos = [];
       var json = data.json()

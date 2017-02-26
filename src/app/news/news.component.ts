@@ -55,7 +55,7 @@ export class NewsComponent extends BasePanel {
   }
 
   refreshData() {
-    let observer = this.http.get('https://crossorigin.me/http://www.spiegel.de/schlagzeilen/tops/index.rss');
+    let observer = this.http.get('https://cors-anywhere.herokuapp.com/http://www.spiegel.de/schlagzeilen/tops/index.rss');
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
