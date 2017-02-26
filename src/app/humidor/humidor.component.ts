@@ -28,7 +28,7 @@ export class HumidorComponent extends BasePanel {
 
   parse(data) {
     var el = $($.parseJSON(data.text()));
-    var date = moment(el[0].date, "x", 'de').toDate();
+    var date = moment(el[0].date + '000', "x").toDate();
     this.data = new Data(el[0].humidity, date);
     this.saveData(this.data);
   }
