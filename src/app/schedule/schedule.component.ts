@@ -66,6 +66,8 @@ export class ScheduleComponent extends BasePanel {
   }
 
   getClassInfoClass(classDuration: ClassDuration): string {
+    var date = new Date();
+    if(date != this.getDisplayedDate(date)) return "";
     var currentTime = new Date();
     if (currentTime > classDuration.from && currentTime < classDuration.to) {
       return "info"
