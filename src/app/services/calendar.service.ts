@@ -13,7 +13,7 @@ export class CalendarService {
     var firstDayNumber = date.getDay() - 1;
 
     if (firstDayNumber == -1) {
-      firstDayNumber == 7;
+      firstDayNumber = 7;
     }
     return firstDayNumber;
   }
