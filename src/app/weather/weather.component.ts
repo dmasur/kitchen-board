@@ -37,7 +37,6 @@ class WeatherForcast {
 }
 
 @Component({
-  moduleId: module.id,
   inputs: ['city', 'longitude', 'latitude', 'onlineStatus'],
   selector: 'app-weather',
   templateUrl: 'weather.component.html',

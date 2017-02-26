@@ -4,7 +4,6 @@ import { AuthenticationService } from '../services/index';
 import { Settings } from '../shared/settings';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],

@@ -5,7 +5,6 @@ import { ClassDuration } from '../schedule/shared/classDuration';
 declare var window: any;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-settings',
   templateUrl: 'settings.component.html',
   styleUrls: ['settings.component.css']

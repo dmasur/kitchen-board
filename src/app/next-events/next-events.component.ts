@@ -11,7 +11,6 @@ import { Day } from './shared/day'
 import IEvent = gapi.client.calendar.IEvent;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-next-events',
   templateUrl: 'next-events.component.html',
   styleUrls: ['next-events.component.css'],

@@ -12,6 +12,7 @@ import { NewsComponent } from './news';
 import { ScheduleComponent } from './schedule';
 import { QuoteComponent } from './quote';
 import { ClockComponent } from './clock';
+import { HumidorComponent } from './humidor';
 import { CalendarComponent } from './calendar';
 import {CookieService, CookieOptions} from 'angular2-cookie/core';
 import {Settings} from './shared/settings';
@@ -31,7 +32,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, DashboardComponent, SettingsComponent,
+    AppComponent, DashboardComponent, SettingsComponent, HumidorComponent,
     NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent, ClockComponent, QuoteComponent, CalendarComponent
   ],
   imports: [

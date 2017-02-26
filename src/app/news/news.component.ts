@@ -10,7 +10,6 @@ class News {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'app-news',
   templateUrl: 'news.component.html',
   styleUrls: ['news.component.css'],

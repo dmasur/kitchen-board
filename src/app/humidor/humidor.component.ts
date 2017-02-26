@@ -6,36 +6,35 @@ import { BasePanel } from '../shared/basePanel';
 
 declare var $: any;
 
-class Quote {
-  constructor(public text: string, public author: string) { }
+class Data {
+  constructor(public humidity: string, public time: string) { }
 }
 
 @Component({
-  selector: 'app-quote',
-  templateUrl: 'quote.component.html',
-  styleUrls: ['quote.component.css'],
+  selector: 'app-humidor',
+  templateUrl: 'humidor.component.html',
+  styleUrls: ['humidor.component.css'],
   inputs: ['onlineStatus']
 })
 
-export class QuoteComponent extends BasePanel {
-  public quote: Quote = new Quote("", "");
+export class HumidorComponent extends BasePanel {
+  public data: Data = new Data("N/A", "N/A");
   private onlineStatus: string;
 
   constructor(protected cookieService: CookieService, private http: Http) {
-    super('quote', 60 * 60, cookieService); // every Hour
+    super('humidor', 60, cookieService); // every Hour
   }
 
   parse(data) {
-    var el = $($.parseXML(data.text()));
-    this.quote = new Quote(
-      el.find("item description").text(),
-      el.find("author").text()
+    var el = $($.parseJSON(data.text()));
+
+    this.data = new Data(el[0].humidity,""
     );
-    this.saveData(this.quote);
+    this.saveData(this.data);
   }
 
   refreshData() {
-    let observer = this.http.get('https://cors-anywhere.herokuapp.com/http://spruchsammlung.com/content/rssquotes');
+    let observer = this.http.get('https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json');
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
@@ -44,7 +43,7 @@ export class QuoteComponent extends BasePanel {
   }
 
   loadSavedData() {
-    this.quote = super.loadSavedData() as Quote;
+    this.data = super.loadSavedData() as Data;
   }
 
   enableConditions():{}{
