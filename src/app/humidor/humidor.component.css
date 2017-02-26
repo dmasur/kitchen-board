@@ -1,5 +1,9 @@
 .humidity{
-  margin: 15px auto;
+  margin-top: 5px;
   text-align: center;
-  font-size: 2.3em;
+  font-size: 1.9em;
+}
+.date{
+  margin: 0 5px 5px 0;
+  text-align: right;
 }

@@ -4,6 +4,6 @@
   </div>
   <div *ngIf="data">
     <p class="humidity">{{data.humidity}} %</p>
-    <footer>{{data.time}}</footer>
+    <footer class="date">{{data.time | amTimeAgo}}</footer>
   </div>
 </div>

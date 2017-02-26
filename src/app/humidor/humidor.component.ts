@@ -3,11 +3,12 @@ import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
+import * as moment from 'moment';
 
 declare var $: any;
 
 class Data {
-  constructor(public humidity: string, public time: string) { }
+  constructor(public humidity: string, public time: Date) { }
 }
 
 @Component({
@@ -18,7 +19,7 @@ class Data {
 })
 
 export class HumidorComponent extends BasePanel {
-  public data: Data = new Data("N/A", "N/A");
+  public data: Data = new Data("N/A", new Date());
   private onlineStatus: string;
 
   constructor(protected cookieService: CookieService, private http: Http) {
@@ -27,9 +28,8 @@ export class HumidorComponent extends BasePanel {
 
   parse(data) {
     var el = $($.parseJSON(data.text()));
-
-    this.data = new Data(el[0].humidity,""
-    );
+    var date = moment(el[0].date, "x", 'de').toDate();
+    this.data = new Data(el[0].humidity, date);
     this.saveData(this.data);
   }
 
