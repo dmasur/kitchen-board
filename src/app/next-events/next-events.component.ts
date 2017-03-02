@@ -44,10 +44,10 @@ export class NextEventsComponent extends BasePanel {
     }
     const today = new Date();
     const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
-    const dateString = NextEventsService.dateString(new Date(day.date.toString()));
-    if (dateString === NextEventsService.dateString(today)) {
+    const dateString = NextEventsService.dateToString(new Date(day.date.toString()));
+    if (dateString === NextEventsService.dateToString(today)) {
       return 'success';
-    } else if (dateString === NextEventsService.dateString(tomorrow)) {
+    } else if (dateString === NextEventsService.dateToString(tomorrow)) {
       return 'info';
     } else {
       return '';
@@ -56,7 +56,7 @@ export class NextEventsComponent extends BasePanel {
 
   refreshData():void {
     this.appointmentsService.loadAppointments().then(appointments => {
-      this.daysWithEvents = this.nextEventsService.getDays(appointments).slice(0, 4);
+      this.daysWithEvents = this.nextEventsService.getDaysWithEvents(appointments).slice(0, 4);
       this.saveData(this.daysWithEvents);
     });
   }
