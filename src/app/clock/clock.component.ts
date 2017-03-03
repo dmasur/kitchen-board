@@ -19,5 +19,4 @@ export class ClockComponent implements OnInit {
   updateTime() {
     this.dateTime = new Date();
   }
-
 }

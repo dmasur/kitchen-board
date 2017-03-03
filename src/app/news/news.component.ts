@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
@@ -12,41 +12,40 @@ class News {
 @Component({
   selector: 'app-news',
   templateUrl: 'news.component.html',
-  styleUrls: ['news.component.css'],
-  inputs: ['onlineStatus']
+  styleUrls: ['news.component.css']
 })
 export class NewsComponent extends BasePanel {
   newsItems: Array<News> = [];
-  onlineStatus: string;
+  @Input() private onlineStatus: string;
 
   constructor(protected cookieService: CookieService, private http: Http) {
-    super("news", 15 * 60, cookieService);
+    super('news', 15 * 60, cookieService);
   }
 
   loadSavedData() {
     this.newsItems = super.loadSavedData() as Array<News>;
   }
 
-  enableConditions():{}{
+  enableConditions(): {} {
     return {
-      onlineStatus: this.onlineStatus == "online"
+      onlineStatus: this.onlineStatus === 'online'
     }
   }
 
   parse(data) {
-    var newsItems = [];
-    var items = $(data.text()).find("item").slice(0, 6);
-    for (var i = 0, l = items.length; i < l; i++) {
-      var el = $(items[i]);
-      var image = el.find("enclosure").attr("url");
-      if(image){
-        image = image.replace("http:", "https:");
+    const newsItems = [];
+    const items = $(data.text()).find('item').slice(0, 6);
+    for (let i = 0; i < items.length; i++) {
+      const el = $(items[i]);
+      let image = el.find('enclosure').attr('url');
+      if (image) {
+        image = image.replace('http:', 'https:');
       }
       newsItems.push(new News(
-        el.find("title").text(),
+        el.find('title').text(),
         image,
-        el.find("description").text(),
-        new Date(el.find("pubDate").text())
+        el.find('description').text(),
+        new Date(el.find('pubDate').text())
       ));
     }
     this.newsItems = newsItems;
@@ -54,7 +53,7 @@ export class NewsComponent extends BasePanel {
   }
 
   refreshData() {
-    let observer = this.http.get('https://cors-anywhere.herokuapp.com/http://www.spiegel.de/schlagzeilen/tops/index.rss');
+    const observer = this.http.get('https://crossorigin.me/http://www.spiegel.de/schlagzeilen/tops/index.rss');
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),

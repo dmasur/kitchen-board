@@ -16,25 +16,25 @@ export class DashboardComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
     this.enabled = settings.googleApiKey !== undefined &&
-    settings.googleClientId !== undefined &&
-    typeof(gapi) !== 'undefined'
+      settings.googleClientId !== undefined &&
+      typeof (gapi) !== 'undefined';
   }
 
-  setDates():void{
-    var today = new Date();
+  setDates(): void {
+    const today = new Date();
     this.thisMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     this.nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
   }
 
-  setOnlineStatus():void{
+  setOnlineStatus(): void {
     if (window.navigator.onLine) {
-      this.onlineStatus = "online"
+      this.onlineStatus = 'online';
     } else {
-      this.onlineStatus = "offline"
+      this.onlineStatus = 'offline';
     }
   }
 
-  loginToGoogle():void{
+  loginToGoogle(): void {
     if (this.enabled && !this.authenticationService.isAuthenticated) {
       this.authenticationService.login();
     }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
 import { CalendarService, AppointmentsService, NextEventsService } from '../services/index';
@@ -11,14 +11,13 @@ import { Settings } from '../shared/settings';
   moduleId: module.id,
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
-  styleUrls: ['calendar.component.css'],
-  inputs: ['dateString', 'onlineStatus']
+  styleUrls: ['calendar.component.css']
 })
-export class CalendarComponent extends BasePanel {
-  dateString: string;
+export class CalendarComponent extends BasePanel implements OnInit {
+  @Input() private dateString: string;
   date: Date;
   calendar: Calendar = new Calendar();
-  private onlineStatus: string;
+  @Input() private onlineStatus: string;
 
   constructor(protected cookieService: CookieService,
     private calendarService: CalendarService,
@@ -30,7 +29,7 @@ export class CalendarComponent extends BasePanel {
 
   ngOnInit() {
     this.date = new Date(Date.parse(this.dateString));
-    super.ngOnInit()
+    super.ngOnInit();
   }
 
   refreshData() {
@@ -48,35 +47,35 @@ export class CalendarComponent extends BasePanel {
 
   getTextClass(day: CalendarDay): string {
     if (day === undefined) {
-      return "";
+      return '';
     }
     if (day.hasEvents) {
-      return "label label-default";
+      return 'label label-default';
     }
-    return "";
+    return '';
   }
 
   getDayClass(day: CalendarDay): string {
     if (day === undefined) {
-      return "";
+      return '';
     }
     if (day.hasEvents) {
-      return "success";
+      return 'success';
     }
     if (CalendarService.isToday(day.date)) {
-      return "danger";
+      return 'danger';
     }
     if (CalendarService.isWeekend(day.date)) {
-      return "info";
+      return 'info';
     }
-    return "";
+    return '';
   }
 
   enableConditions():{}{
     return {
       googleApiKey: this.settings.googleApiKey != null,
       googleClientId: this.settings.googleClientId != null,
-      onlineStatus: this.onlineStatus == "online",
+      onlineStatus: this.onlineStatus === 'online',
       gapi: typeof(gapi) !== 'undefined'
     }
   }

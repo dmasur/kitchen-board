@@ -25,16 +25,16 @@ export class ScheduleComponent extends BasePanel {
   classDurations: Array<ClassDuration>;
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
-    super("schedule", 5 * 60, cookieService);
+    super('schedule', 5 * 60, cookieService);
     this.classDurations = ClassDuration.importFromClassDurationNumbers(settings.classDurationNumbers);
   }
 
-  enableConditions():{}{
+  enableConditions(): {} {
     return {};
   }
 
   timeTableHasClasses(date: Date): boolean {
-    return this.settings.timeTable[date.getDay()].length > 0
+    return this.settings.timeTable[date.getDay()].length > 0;
   }
 
   getNextDay(day: Date): Date {
@@ -42,8 +42,8 @@ export class ScheduleComponent extends BasePanel {
   }
 
   getDisplayedDate(currentDate: Date): Date {
-    var displayedDay: Date;
-    if (currentDate > this.classDurations[this.classDurations.length-1].to) {
+    let displayedDay: Date;
+    if (currentDate > this.classDurations[this.classDurations.length - 1].to) {
       displayedDay = this.getNextDay(currentDate);
     } else {
       displayedDay = currentDate;
@@ -59,21 +59,22 @@ export class ScheduleComponent extends BasePanel {
   }
 
   refreshData() {
-    var displayedDay = this.getDisplayedDate(new Date());
-    var classInfos = this.getClassInfos(this.classDurations, this.settings.timeTable, displayedDay);
+    const displayedDay = this.getDisplayedDate(new Date());
+    const classInfos = this.getClassInfos(this.classDurations, this.settings.timeTable, displayedDay);
     this.schedule = new Schedule(displayedDay, classInfos);
     this.saveData(this.schedule);
   }
 
   getClassInfoClass(classDuration: ClassDuration): string {
-    var date = new Date();
-    if(date != this.getDisplayedDate(date)) return "";
-    var currentTime = new Date();
-    if (currentTime > classDuration.from && currentTime < classDuration.to) {
-      return "info"
+    if (this.isDateInClassDuration(new Date(), classDuration)) {
+      return 'info';
     } else {
-      return "";
+      return '';
     }
+  }
+
+  private isDateInClassDuration(date: Date, classDuration: ClassDuration): boolean {
+    return date === this.getDisplayedDate(date) && date > classDuration.from && date < classDuration.to;
   }
 
 }

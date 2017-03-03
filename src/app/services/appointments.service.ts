@@ -4,10 +4,6 @@ import IEvent = gapi.client.calendar.IEvent;
 
 @Injectable()
 export class AppointmentsService {
-
-  constructor() {
-  }
-
   getAllCalendars() {
     if (gapi.client === undefined) { return; };
     return new Promise((resolve, reject) => {

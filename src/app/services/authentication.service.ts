@@ -13,7 +13,7 @@ export class AuthenticationService {
    * global application state, so it's OK to keep it as field value of a singleton. alternative would be a
    * buitl-in global value store.
    */
-  public isAuthenticated: boolean = false;
+  public isAuthenticated = false;
   public userName: string;
   public userImageUrl: string;
   private clientId: string;

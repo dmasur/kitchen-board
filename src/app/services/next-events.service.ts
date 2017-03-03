@@ -9,18 +9,18 @@ export class NextEventsService {
     return date.getFullYear().toString() + date.getMonth().toString() + date.getDate().toString();
   }
 
-  private getEvents(appointments): Array<Event> {
-    var events = [];
-    var eventList = (appointments as Array<IEvent>);
-    for (var i = 0; i < appointments.length; i++) {
-      if (eventList[i].start != undefined) {
-        var hasTime = eventList[i].start.dateTime !== undefined;
-        var date = hasTime ? eventList[i].start.dateTime : eventList[i].start.date;
-        var displayName = eventList[i].creator.displayName;
+  public getEvents(appointments): Array<Event> {
+    const events = [];
+    const eventList = (appointments as Array<IEvent>);
+    for (let i = 0; i < appointments.length; i++) {
+      if (eventList[i].start !== undefined) {
+        const hasTime = eventList[i].start.dateTime !== undefined;
+        const date = hasTime ? eventList[i].start.dateTime : eventList[i].start.date;
+        let displayName = eventList[i].creator.displayName;
         if (displayName.includes('webcal')) {
           displayName = null;
         }
-        var event = new Event(new Date(date), eventList[i].summary, hasTime, displayName)
+        const event = new Event(new Date(date), eventList[i].summary, hasTime, displayName)
         events.push(event);
       }
     };
@@ -28,8 +28,8 @@ export class NextEventsService {
   }
 
   private addDayToArrayIfNeeded(date: Date, days: Array<Day>): Array<Day> {
-    var newDays: Array<Day> = days;
-    var day: Day = this.findDayForDate(date, days);
+    const newDays: Array<Day> = days;
+    let day: Day = this.findDayForDate(date, days);
     if (day == null) {
       day = new Day();
       day.date = date;
@@ -44,13 +44,13 @@ export class NextEventsService {
   }
 
   public getDaysWithEvents(appointments): Array<Day> {
-    var events: Array<Event> = this.getEvents(appointments);
-    var days: Array<Day> = [];
+    const events: Array<Event> = this.getEvents(appointments);
+    let days: Array<Day> = [];
     events.forEach(event => {
-      var date: Date = event.date;
-      if (date.toString() == "NaN") return;
+      const date: Date = event.date;
+      if (date.toString() === 'NaN') { return; };
       days = this.addDayToArrayIfNeeded(date, days);
-      var day = this.findDayForDate(date, days);
+      const day = this.findDayForDate(date, days);
       day.events.push(event);
     });
     return days;
