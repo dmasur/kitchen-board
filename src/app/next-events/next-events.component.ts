@@ -53,9 +53,9 @@ export class NextEventsComponent extends BasePanel {
   }
 
   refreshData(): void {
-    this.appointmentsService.loadAppointments().then(appointments => {
-      this.daysWithEvents = this.nextEventsService.getDaysWithEvents(appointments).slice(0, 4);
-      this.saveData(this.daysWithEvents);
-    });
+    const saveCallback = (daysWithEvents) => {
+      this.saveData(daysWithEvents);
+    };
+    this.nextEventsService.getDaysWithEvents(4, saveCallback);
   }
 }

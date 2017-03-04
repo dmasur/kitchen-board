@@ -28,11 +28,7 @@ export class DashboardComponent implements OnInit {
   }
 
   setOnlineStatus(): void {
-    if (window.navigator.onLine) {
-      this.onlineStatus = 'online';
-    } else {
-      this.onlineStatus = 'offline';
-    }
+    this.onlineStatus = window.navigator.onLine ? 'online' : 'offline';
   }
 
   loginToGoogle(): void {

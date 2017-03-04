@@ -29,7 +29,7 @@ export class NewsComponent extends BasePanel {
   enableConditions(): {} {
     return {
       onlineStatus: this.onlineStatus === 'online'
-    }
+    };
   }
 
   parse(data) {
