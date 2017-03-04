@@ -106,7 +106,6 @@ export class WeatherComponent extends BasePanel {
   }
 
   private enrichDailyWeatherInfos(hourlyData: any, dailyWeatherInfos: Array<DailyWeatherInfo>): Array<DailyWeatherInfo> {
-    const newDailyWeatherInfos: Array<DailyWeatherInfo> = [];
     hourlyData.slice(1).forEach((entry, index) => {
       const date = new Date(entry.time * 1000);
       const dailyWeatherInfo = dailyWeatherInfos[date.getDate() - (new Date()).getDate()];
@@ -125,9 +124,8 @@ export class WeatherComponent extends BasePanel {
           dailyWeatherInfo.evening = weather;
         }
       }
-      newDailyWeatherInfos.push(dailyWeatherInfo);
     });
-    return newDailyWeatherInfos;
+    return dailyWeatherInfos;
   }
   refreshData() {
     this.http.get(this.darkSkyRequestString()).subscribe(data => {

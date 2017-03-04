@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
+import { AuthenticationService } from './../services/index';
 import ICalendarListEntry = gapi.client.calendar.ICalendarListEntry;
 import IEvent = gapi.client.calendar.IEvent;
 
 @Injectable()
 export class AppointmentsService {
+  constructor(private authenticationService: AuthenticationService) {
+  }
+
   getAllCalendars() {
+    if (!this.authenticationService.isAuthenticated) { return; };
     if (gapi.client === undefined) { return; };
     return new Promise((resolve, reject) => {
       gapi.client.load('calendar', 'v3', function () {
@@ -17,6 +22,8 @@ export class AppointmentsService {
           }
         });
       });
+    }).catch((reason: any) => {
+      console.log('getAllCalendars Error: ' + reason);
     });
   }
 
@@ -42,6 +49,7 @@ export class AppointmentsService {
       const calendarPromise = this.getAllCalendars();
       if (calendarPromise === undefined) { return; }
       calendarPromise.then(calendars => {
+        if (calendars === undefined) { return; }
         const eventPromises = (calendars as Array<ICalendarListEntry>).map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));
