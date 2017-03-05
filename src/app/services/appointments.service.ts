@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthenticationService } from './../services/index';
+import { AuthenticationService, WaitService } from './index';
 import ICalendarListEntry = gapi.client.calendar.ICalendarListEntry;
 import IEvent = gapi.client.calendar.IEvent;
 

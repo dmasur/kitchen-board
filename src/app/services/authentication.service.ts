@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Settings } from '../shared/settings';
+import { WaitService } from './index';
 
 @Injectable()
 export class AuthenticationService {
@@ -29,23 +30,6 @@ export class AuthenticationService {
     this.internalAuthenticate(false);
   }
 
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  waitForIt(objectToObserve, propertyToObserve) {
-    return new Promise(function (resolve, reject) {
-      const checkIt = function (objectToObserve, propertyToObserve) {
-        if (typeof objectToObserve[propertyToObserve] === 'undefined') {
-          console.log('Waiting 0.5 Second for property ' + propertyToObserve + 'on ' + objectToObserve);
-          setTimeout(checkIt, 500, objectToObserve, propertyToObserve)
-        } else {
-          resolve(objectToObserve[propertyToObserve])
-        }
-      };
-      checkIt(objectToObserve, propertyToObserve)
-    });
-  }
   private internalAuthenticate(immediate: boolean) {
     /* heavily use promises here for 2 reasons:
      *
@@ -58,7 +42,7 @@ export class AuthenticationService {
      * The callbacks passed to then() are lambdas to ensure the call applies to the correct
      * scope.
      */
-    return this.waitForIt(gapi, 'client')
+    return WaitService.waitForIt(gapi, 'client')
       .then(() => this.proceedAuthentication(immediate))
       .then(() => this.initializeGooglePlusAPI())
       .then(() => this.initializeGoogleCalendarAPI())

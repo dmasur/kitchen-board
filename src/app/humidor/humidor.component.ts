@@ -48,6 +48,6 @@ export class HumidorComponent extends BasePanel {
   enableConditions(): {} {
     return {
       onlineStatus: this.onlineStatus === 'online'
-    }
+    };
   }
 }

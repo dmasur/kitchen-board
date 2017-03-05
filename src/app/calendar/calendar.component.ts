@@ -15,7 +15,7 @@ import { Settings } from '../shared/settings';
 })
 export class CalendarComponent extends BasePanel implements OnInit {
   @Input() private dateString: string;
-  date: Date;
+  date: Date = new Date();
   calendar: Calendar = new Calendar();
   @Input() private onlineStatus: string;
 
@@ -33,8 +33,6 @@ export class CalendarComponent extends BasePanel implements OnInit {
   }
 
   refreshData() {
-    this.calendar = this.calendarService.getCalendar(this.date, []);
-    this.saveData(this.calendar);
     this.appointmentsService.loadAppointments().then(appointments => {
       this.calendar = this.calendarService.getCalendar(this.date, this.nextEventsService.getEvents(appointments));
       this.saveData(this.calendar);
