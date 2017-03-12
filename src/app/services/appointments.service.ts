@@ -8,10 +8,8 @@ export class AppointmentsService {
   constructor(private authenticationService: AuthenticationService) {
   }
 
-  getAllCalendars() {
-    if (!this.authenticationService.isAuthenticated) { return; };
-    if (gapi.client === undefined) { return; };
-    return new Promise((resolve, reject) => {
+  getAllCalendars(): Promise<Array<ICalendarListEntry>> {
+    const calPromise = new Promise((resolve, reject) => {
       gapi.client.load('calendar', 'v3', function () {
         const request2 = gapi.client.calendar.calendarList.list({});
         request2.execute((data) => {
@@ -23,7 +21,16 @@ export class AppointmentsService {
         });
       });
     }).catch((reason: any) => {
-      console.log('getAllCalendars Error: ' + reason);
+      console.log('getAllCalendars Error: ');
+      console.log(reason);
+    });
+    return WaitService.waitForTrue(this.authenticationService, 'isAuthenticated')
+    .catch((reason: any) => {
+      console.log('waitForTrue Error: ' + reason);
+    })
+    .then(() => {
+      console.log(this.authenticationService.isAuthenticated);
+      return calPromise;
     });
   }
 
@@ -47,10 +54,9 @@ export class AppointmentsService {
   loadAppointments() {
     return new Promise((resolve, reject) => {
       const calendarPromise = this.getAllCalendars();
-      if (calendarPromise === undefined) { return; }
+      if (calendarPromise === undefined) { console.log("no calendarPromise"); return; }
       calendarPromise.then(calendars => {
-        if (calendars === undefined) { return; }
-        const eventPromises = (calendars as Array<ICalendarListEntry>).map(calendar => { return this.getEvents(calendar); });
+        const eventPromises = calendars.map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));
         });
