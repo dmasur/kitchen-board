@@ -7,11 +7,11 @@ export class Settings {
   googleApiKey: string;
   timeTable: Array<Array<string>> = [
     [],
-    ["Mathe", "Sport", "Religon", "Englisch"],
-    ["Biologie", "Deutsch", "SoWi", "Musik", "Kunst"],
-    ["Englisch", "Kunst", "Instrument", "Sport", "Deutsch"],
-    ["MINT", "Musik", "Mathe", "Religion", "Klassenleiterst."],
-    ["Erdkunde", "Deutsch", "Englisch", "Biologie", "Sport"],
+    ['Mathe', 'Sport', 'Religon', 'Englisch'],
+    ['Biologie', 'Deutsch', 'SoWi', 'Musik', 'Kunst'],
+    ['Englisch', 'Kunst', 'Instrument', 'Sport', 'Deutsch'],
+    ['MINT', 'Musik', 'Mathe', 'Religion', 'Klassenleiterst.'],
+    ['Erdkunde', 'Deutsch', 'Englisch', 'Biologie', 'Sport'],
     []
   ];
   classDurationNumbers = [

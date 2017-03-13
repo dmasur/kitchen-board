@@ -66,11 +66,11 @@ export class AuthenticationService {
           if (authenticationResult && !authenticationResult.error) {
             this.isAuthenticated = true;
             this.setUserData('unknown', '');
-            resolve();
+            resolve('authenticated');
           } else {
             this.isAuthenticated = false;
             this.setUserData('', '');
-            reject();
+            reject('not authenticated');
           }
         }
       );

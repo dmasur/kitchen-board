@@ -33,6 +33,6 @@ export class SettingsComponent implements OnInit {
 
   onSubmit() {
     this.cookieService.putObject('settings', this.settings);
-    window.location = "/";
+    window.location = '/';
   }
 }

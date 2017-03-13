@@ -9,29 +9,23 @@ export class AppointmentsService {
   }
 
   getAllCalendars(): Promise<Array<ICalendarListEntry>> {
-    const calPromise = new Promise((resolve, reject) => {
-      gapi.client.load('calendar', 'v3', function () {
-        const request2 = gapi.client.calendar.calendarList.list({});
-        request2.execute((data) => {
-          if (!data.error) {
-            resolve(data.result.items);
-          } else {
-            reject(data.error);
-          }
+    return WaitService.waitForTrue(this.authenticationService, 'isAuthenticated')
+      .then(() => {
+        return new Promise((resolve, reject) => {
+          gapi.client.load('calendar', 'v3', () => {
+            gapi.client.calendar.calendarList.list({}).execute((data) => {
+              if (!data.error) {
+                resolve(data.result.items);
+              } else {
+                reject(data.error);
+              }
+            });
+          });
+        }).catch((reason: any) => {
+          console.log('getAllCalendars Error: ');
+          console.log(reason);
         });
       });
-    }).catch((reason: any) => {
-      console.log('getAllCalendars Error: ');
-      console.log(reason);
-    });
-    return WaitService.waitForTrue(this.authenticationService, 'isAuthenticated')
-    .catch((reason: any) => {
-      console.log('waitForTrue Error: ' + reason);
-    })
-    .then(() => {
-      console.log(this.authenticationService.isAuthenticated);
-      return calPromise;
-    });
   }
 
   getEvents(calendar) {
@@ -53,9 +47,7 @@ export class AppointmentsService {
 
   loadAppointments() {
     return new Promise((resolve, reject) => {
-      const calendarPromise = this.getAllCalendars();
-      if (calendarPromise === undefined) { console.log("no calendarPromise"); return; }
-      calendarPromise.then(calendars => {
+      this.getAllCalendars().then(calendars => {
         const eventPromises = calendars.map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));

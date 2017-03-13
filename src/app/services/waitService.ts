@@ -9,7 +9,7 @@ export class WaitService {
                     console.log('Waiting 0.5 Second for property ' + propertyToObserve + ' on ' + objectToObserve);
                     setTimeout(checkIt, 500, objectToObserve, propertyToObserve)
                 } else {
-                    resolve(objectToObserve[propertyToObserve])
+                    resolve(objectToObserve[propertyToObserve]);
                 }
             };
             checkIt(objectToObserve, propertyToObserve);
@@ -21,8 +21,7 @@ export class WaitService {
             const checkIt = function (objectToObserve, propertyToObserve) {
                 if (objectToObserve[propertyToObserve] === false) {
                     console.log('Waiting 0.5 Second for property ' + propertyToObserve + ' on ' + objectToObserve);
-
-                    setTimeout(checkIt, 500, objectToObserve, propertyToObserve)
+                    setTimeout(checkIt, 500, objectToObserve, propertyToObserve);
                 } else {
                     console.log('Found property ' + propertyToObserve + ' in state ' + objectToObserve[propertyToObserve]);
                     resolve(objectToObserve[propertyToObserve])

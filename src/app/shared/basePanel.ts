@@ -2,17 +2,19 @@ import { OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 
 export abstract class BasePanel implements OnInit {
-  public loaded: boolean = true;
+  public loaded = true;
   public lastUpdate: Date;
   public errorMessage: string;
+  public isEnabled = false;
 
   constructor(protected name: string, private refreshAfter: number, protected cookieService: CookieService) { }
 
   ngOnInit() {
     this.loadSavedData();
-    if (this.enabled()) {
+    this.isEnabled = this.areEnabledConditionsMet();
+    if (this.isEnabled) {
       this._refreshData();
-      setInterval(() => this._refreshData(), this.refreshAfter * 1000)
+      setInterval(() => this._refreshData(), this.refreshAfter * 1000);
     }
   }
 
@@ -26,34 +28,36 @@ export abstract class BasePanel implements OnInit {
     } catch (e) {
       this.log('refreshData errored');
       if (e instanceof String) {
-        this.errorMessage = "Error";
+        this.errorMessage = 'Error';
       } else {
         this.errorMessage = e.message;
       }
     }
   }
 
-  abstract enableConditions():{}
+  abstract enableConditions(): {}
 
-  enabled(conditions={}):boolean{
-    var valid = true;
-    var conditions = this.enableConditions();
-    for(var condition in conditions){
-      if(conditions[condition] == false){
-        valid = false;
-        console.log('ValidationError: '+condition);
+  private areEnabledConditionsMet(): boolean {
+    const conditions = this.enableConditions();
+    const failingConditions = [];
+    for (const conditionName in conditions) {
+      if (conditions[conditionName] === false) {
+        failingConditions.push(conditionName);
       }
     }
-    return valid;
+    if(failingConditions.length > 0) {
+      console.log('ValidationErrors on ' + this.constructor.name + ': ' + failingConditions.toString());
+    }
+    return failingConditions.length === 0;
   }
 
   loadSavedData() {
     this.log('loadSavedData started');
-    var rawSavedAt = this.cookieService.get(`${this.name}.savedAt`);
-    var rawData = this.cookieService.get(`${this.name}.data`);
+    const rawSavedAt = this.cookieService.get(`${this.name}.savedAt`);
+    const rawData = this.cookieService.get(`${this.name}.data`);
     if (rawSavedAt !== undefined && rawData !== undefined) {
       this.lastUpdate = JSON.parse(rawSavedAt);
-        this.log('loadSavedData finished');
+      this.log('loadSavedData finished');
       return JSON.parse(rawData);
     }
     this.log('loadSavedData errored');
@@ -65,7 +69,7 @@ export abstract class BasePanel implements OnInit {
     this.cookieService.put(`${this.name}.savedAt`, JSON.stringify(this.lastUpdate));
   }
 
-  log(message:string){
-    //console.log(`${new Date()} ${this.name}: ${message}`);
+  log(message: string) {
+    // console.log(`${new Date()} ${this.name}: ${message}`);
   }
 }
