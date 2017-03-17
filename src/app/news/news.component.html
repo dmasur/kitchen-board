@@ -7,7 +7,7 @@
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let news of newsItems">
       <img *ngIf="news.image" src="{{news.image}}" />
-      <span class="">{{news.title}}</span>
+      <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>
     </li>
   </ul>
 </div>

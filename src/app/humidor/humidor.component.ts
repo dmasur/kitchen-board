@@ -37,7 +37,7 @@ export class HumidorComponent extends BasePanel {
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
-      () => console.log('Completed!')
+      () => console.log('Received Humidor Data from Firebase')
     );
   }
 

@@ -38,7 +38,7 @@ export class QuoteComponent extends BasePanel {
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
-      () => console.log('Completed!')
+      () => console.log('Received Quote!')
     );
   }
 

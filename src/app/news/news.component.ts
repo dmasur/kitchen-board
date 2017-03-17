@@ -57,7 +57,7 @@ export class NewsComponent extends BasePanel {
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
-      () => console.log('Completed!')
+      () => console.log('Received News Headlines!')
     );
   }
 }
