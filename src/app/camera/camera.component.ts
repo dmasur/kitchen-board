@@ -14,7 +14,7 @@ import { Settings } from '../shared/settings';
 export class CameraComponent extends BasePanel implements OnInit {
   dateTime: Date;
   @Input() private onlineStatus: string;
-  public baseUrl = 'https://192.168.178.21/cgi-bin/CGIProxy.fcgi';
+  public baseUrl = 'https://77.182.189.53:38732/cgi-bin/CGIProxy.fcgi';
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
     super('camera', 5, cookieService);
