@@ -17,7 +17,7 @@ export class CameraComponent extends BasePanel implements OnInit {
   public baseUrl = 'https://77.182.189.53:38732/cgi-bin/CGIProxy.fcgi';
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
-    super('camera', 5, cookieService);
+    super('camera', 20, cookieService);
   }
 
   enableConditions(): {} {

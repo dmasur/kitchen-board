@@ -22,9 +22,12 @@ export class NextEventsService {
   private getDaysWithEventsFromAppointments(appointments): Array<Day> {
     const events: Array<Event> = this.getEvents(appointments);
     const days: Array<Day> = [];
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
     events.forEach(event => {
       const date: Date = event.date;
       if (date.toString() === 'NaN') { return; };
+      if (date < startOfToday) { return; };
       this.addDayToArrayIfNeeded(date, days);
       const day = this.findDayForDate(date, days);
       day.events.push(event);

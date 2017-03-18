@@ -19,7 +19,11 @@ export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
   @Input() onlineStatus: string;
 
-  constructor(private appointmentsService: AppointmentsService, protected cookieService: CookieService, private settings: Settings, private nextEventsService: NextEventsService) {
+  constructor(
+    private appointmentsService: AppointmentsService,
+    protected cookieService: CookieService,
+    private settings: Settings,
+    private nextEventsService: NextEventsService) {
     super('nextEvents', 10 * 60, cookieService);
   }
 
@@ -29,7 +33,7 @@ export class NextEventsComponent extends BasePanel {
       googleClientId: this.settings.googleClientId != null,
       onlineStatus: this.onlineStatus === 'online',
       gapi: typeof (gapi) !== 'undefined'
-    }
+    };
   }
 
   loadSavedData(): void {
