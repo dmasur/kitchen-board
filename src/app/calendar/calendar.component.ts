@@ -4,7 +4,7 @@ import { BasePanel } from '../shared/basePanel';
 import { CalendarService, AppointmentsService, NextEventsService } from '../services/index';
 import { CookieService } from 'angular2-cookie/core';
 import { Calendar, CalendarDay } from './shared/calendar';
-import { Event } from '../next-events/shared/event'
+import { Event } from '../next-events/shared/event';
 import { Settings } from '../shared/settings';
 
 @Component({
@@ -69,12 +69,12 @@ export class CalendarComponent extends BasePanel implements OnInit {
     return '';
   }
 
-  enableConditions():{}{
+  enableConditions(): {} {
     return {
       googleApiKey: this.settings.googleApiKey != null,
       googleClientId: this.settings.googleClientId != null,
       onlineStatus: this.onlineStatus === 'online',
-      gapi: typeof(gapi) !== 'undefined'
-    }
+      gapi: typeof (gapi) !== 'undefined'
+    };
   }
 }

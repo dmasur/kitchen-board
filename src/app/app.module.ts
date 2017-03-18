@@ -10,6 +10,7 @@ import { NextEventsComponent } from './next-events/index';
 import { WeatherComponent } from './weather';
 import { NewsComponent } from './news';
 import { ScheduleComponent } from './schedule';
+import { CameraComponent } from './camera';
 import { QuoteComponent } from './quote';
 import { ClockComponent } from './clock';
 import { HumidorComponent } from './humidor';
@@ -34,7 +35,7 @@ export const appRoutes: Routes = [
   declarations: [
     AppComponent, DashboardComponent, SettingsComponent, HumidorComponent,
     NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent,
-    ClockComponent, QuoteComponent, CalendarComponent
+    ClockComponent, QuoteComponent, CalendarComponent, CameraComponent
   ],
   imports: [
     BrowserModule,

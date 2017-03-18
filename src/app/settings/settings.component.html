@@ -14,6 +14,13 @@
           <label for="googleApiKey">Google Api Key</label>
           <input [(ngModel)]="settings.googleApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleApiKey">
         </div>
+        <div class="form-group">
+          <label for="cameraUsername">Foscam Username</label>
+          <input [(ngModel)]="settings.cameraUsername" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraUsername">
+        
+          <label for="cameraPassword">Foscam Password</label>
+          <input [(ngModel)]="settings.cameraPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraPassword">
+        </div>
       </div>
       <div class="col-md-12">
         <h3>TimeTable</h3>

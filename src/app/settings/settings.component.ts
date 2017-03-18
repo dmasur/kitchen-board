@@ -17,18 +17,18 @@ export class SettingsComponent implements OnInit {
     this.settings = this.settings || new Settings();
   }
 
-  addHourToSchedule(){
+  addHourToSchedule() {
     this.settings.classDurationNumbers.push([[0, 0], [0, 0]])
     event.preventDefault();
   }
 
-  removeHourFromSchedule(){
+  removeHourFromSchedule() {
     this.settings.classDurationNumbers.pop()
     event.preventDefault();
   }
 
-  hourArray():Array<number>{
-    return this.settings.classDurationNumbers.map((_,i) => i)
+  hourArray(): Array<number> {
+    return this.settings.classDurationNumbers.map((_, i) => i)
   }
 
   onSubmit() {
