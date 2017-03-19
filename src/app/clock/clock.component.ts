@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
-import {DateFormatPipe} from 'angular2-moment';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { DateFormatPipe } from 'angular2-moment';
 
 @Component({
   moduleId: module.id,
@@ -8,15 +8,23 @@ import {DateFormatPipe} from 'angular2-moment';
   templateUrl: 'clock.component.html',
   styleUrls: ['clock.component.css']
 })
-export class ClockComponent implements OnInit {
-  dateTime: Date;
-  constructor() { }
+export class ClockComponent implements OnInit, OnDestroy {
+  private dateTime: Date;
+  private timerObserver: any;
+
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
-    setInterval(() => this.updateTime(), 1000);
+    const timer = Observable.timer(0, 1000);
+    this.timerObserver = timer.subscribe(() => this.updateTime());
   }
 
   updateTime() {
     this.dateTime = new Date();
+    this.cdRef.detectChanges();
+  }
+
+  ngOnDestroy() {
+      this.timerObserver.unsubscribe();
   }
 }
