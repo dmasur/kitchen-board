@@ -19,7 +19,6 @@ import { CookieService, CookieOptions } from 'angular2-cookie/core';
 import { Settings } from './shared/settings';
 import { MyCookieOptions } from './cookie-options/my-cookie-options';
 import { MomentModule } from 'angular2-moment';
-import { MaterialModule } from '@angular/material'
 
 export function settingsFactory() {
   return new CookieService(new CookieOptions({})).getObject('settings') || new Settings();
@@ -42,8 +41,7 @@ export const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MomentModule,
-    MaterialModule.forRoot()
+    MomentModule
   ],
   providers: [
     { provide: Settings, useFactory: settingsFactory },
