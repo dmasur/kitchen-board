@@ -45,7 +45,7 @@ export abstract class BasePanel implements OnInit {
         failingConditions.push(conditionName);
       }
     }
-    if(failingConditions.length > 0) {
+    if (failingConditions.length > 0) {
       console.log('ValidationErrors on ' + this.constructor.name + ': ' + failingConditions.toString());
     }
     return failingConditions.length === 0;
