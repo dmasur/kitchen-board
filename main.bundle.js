@@ -123,15 +123,15 @@ var BasePanel = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__(250);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__authentication_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appointments_service__ = __webpack_require__(53);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__appointments_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__next_events_service__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__next_events_service__ = __webpack_require__(252);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__next_events_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_service__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calendar_service__ = __webpack_require__(251);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__calendar_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__waitService__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__waitService__ = __webpack_require__(253);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__waitService__["a"]; });
 
 
@@ -142,7 +142,7 @@ var BasePanel = (function () {
 
 /***/ }),
 
-/***/ 219:
+/***/ 220:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -151,24 +151,24 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 219;
+webpackEmptyContext.id = 220;
 
 
 /***/ }),
 
-/***/ 220:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_zone_js__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_zone_js__ = __webpack_require__(563);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_zone_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_zone_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reflect_metadata__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reflect_metadata__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reflect_metadata___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_reflect_metadata__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_dynamic__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_dynamic__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__(257);
 
 
 
@@ -183,7 +183,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -217,8 +217,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(277),
-        styles: [__webpack_require__(262)],
+        template: __webpack_require__(279),
+        styles: [__webpack_require__(263)],
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_3_angular2_cookie_core__["CookieService"], __WEBPACK_IMPORTED_MODULE_1__services_index__["c" /* NextEventsService */], __WEBPACK_IMPORTED_MODULE_1__services_index__["a" /* CalendarService */], __WEBPACK_IMPORTED_MODULE_1__services_index__["b" /* AppointmentsService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */]) === "function" && _a || Object])
@@ -229,32 +229,32 @@ var _a;
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_cookie_core__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_cookie_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_cookie_core__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_settings__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__cookie_options_my_cookie_options__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__dashboard_dashboard_component__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__settings_settings_component__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__weather__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__news__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__schedule__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__camera__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quote__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__clock__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__humidor__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__next_events__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_moment__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__cookie_options_my_cookie_options__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__dashboard_dashboard_component__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__settings_settings_component__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__weather__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__news__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__schedule__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__camera__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quote__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__clock__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__humidor__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__calendar__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__next_events__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_moment__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_angular2_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_common__ = __webpack_require__(22);
 /* unused harmony export settingsFactory */
@@ -333,7 +333,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 228:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -437,8 +437,8 @@ __decorate([
 CalendarComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-calendar',
-        template: __webpack_require__(278),
-        styles: [__webpack_require__(263)]
+        template: __webpack_require__(280),
+        styles: [__webpack_require__(264)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* CalendarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* CalendarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* AppointmentsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* AppointmentsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* NextEventsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* NextEventsService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared_settings__["a" /* Settings */]) === "function" && _e || Object])
 ], CalendarComponent);
@@ -448,18 +448,18 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ 229:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__calendar_component__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__calendar_component__ = __webpack_require__(229);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__calendar_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 230:
+/***/ 231:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -524,8 +524,8 @@ __decorate([
 CameraComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-camera',
-        template: __webpack_require__(279),
-        styles: [__webpack_require__(264)]
+        template: __webpack_require__(281),
+        styles: [__webpack_require__(265)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */]) === "function" && _b || Object])
 ], CameraComponent);
@@ -535,23 +535,23 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 231:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camera_component__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__camera_component__ = __webpack_require__(231);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__camera_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClockComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -586,8 +586,8 @@ var ClockComponent = (function () {
 ClockComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-clock',
-        template: __webpack_require__(280),
-        styles: [__webpack_require__(265)]
+        template: __webpack_require__(282),
+        styles: [__webpack_require__(266)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _a || Object])
 ], ClockComponent);
@@ -597,18 +597,18 @@ var _a;
 
 /***/ }),
 
-/***/ 233:
+/***/ 234:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clock_component__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clock_component__ = __webpack_require__(233);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__clock_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 234:
+/***/ 235:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -636,7 +636,7 @@ var MyCookieOptions = (function (_super) {
 
 /***/ }),
 
-/***/ 235:
+/***/ 236:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -692,8 +692,8 @@ DashboardComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */]],
         selector: 'app-dashboard',
-        template: __webpack_require__(281),
-        styles: [__webpack_require__(266)],
+        template: __webpack_require__(283),
+        styles: [__webpack_require__(267)],
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_index__["e" /* AuthenticationService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_settings__["a" /* Settings */]) === "function" && _b || Object])
 ], DashboardComponent);
@@ -703,7 +703,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 236:
+/***/ 237:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -778,8 +778,8 @@ __decorate([
 HumidorComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-humidor',
-        template: __webpack_require__(282),
-        styles: [__webpack_require__(267)]
+        template: __webpack_require__(284),
+        styles: [__webpack_require__(268)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], HumidorComponent);
@@ -789,29 +789,29 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 237:
+/***/ 238:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__humidor_component__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__humidor_component__ = __webpack_require__(237);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__humidor_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 238:
+/***/ 239:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__news_component__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__news_component__ = __webpack_require__(240);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__news_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 239:
+/***/ 240:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -893,8 +893,8 @@ __decorate([
 NewsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-news',
-        template: __webpack_require__(283),
-        styles: [__webpack_require__(268)]
+        template: __webpack_require__(285),
+        styles: [__webpack_require__(269)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], NewsComponent);
@@ -904,18 +904,18 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 240:
+/***/ 241:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__next_events_component__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__next_events_component__ = __webpack_require__(242);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__next_events_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 241:
+/***/ 242:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1000,8 +1000,8 @@ __decorate([
 NextEventsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-next-events',
-        template: __webpack_require__(284),
-        styles: [__webpack_require__(269)],
+        template: __webpack_require__(286),
+        styles: [__webpack_require__(270)],
         providers: [__WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* AppointmentsService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* AppointmentsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["b" /* AppointmentsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* NextEventsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["c" /* NextEventsService */]) === "function" && _d || Object])
@@ -1012,7 +1012,7 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1029,7 +1029,7 @@ var Day = (function () {
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1048,18 +1048,18 @@ var Event = (function () {
 
 /***/ }),
 
-/***/ 244:
+/***/ 245:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__quote_component__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__quote_component__ = __webpack_require__(246);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__quote_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 245:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1130,8 +1130,8 @@ __decorate([
 QuoteComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quote',
-        template: __webpack_require__(285),
-        styles: [__webpack_require__(270)]
+        template: __webpack_require__(287),
+        styles: [__webpack_require__(271)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], QuoteComponent);
@@ -1141,18 +1141,18 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 246:
+/***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__schedule_component__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__schedule_component__ = __webpack_require__(248);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__schedule_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 247:
+/***/ 248:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1160,7 +1160,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_basePanel__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_classDuration__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_classDuration__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_settings__ = __webpack_require__(14);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScheduleComponent; });
 var __extends = (this && this.__extends) || function (d, b) {
@@ -1252,8 +1252,8 @@ var ScheduleComponent = (function (_super) {
 ScheduleComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-schedule',
-        template: __webpack_require__(286),
-        styles: [__webpack_require__(271)]
+        template: __webpack_require__(288),
+        styles: [__webpack_require__(272)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_settings__["a" /* Settings */]) === "function" && _b || Object])
 ], ScheduleComponent);
@@ -1263,7 +1263,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 248:
+/***/ 249:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1291,7 +1291,7 @@ var ClassDuration = (function () {
 
 /***/ }),
 
-/***/ 249:
+/***/ 250:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1423,7 +1423,7 @@ var AuthenticationService_1, _a;
 
 /***/ }),
 
-/***/ 250:
+/***/ 251:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1500,12 +1500,12 @@ var CalendarService_1;
 
 /***/ }),
 
-/***/ 251:
+/***/ 252:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__next_events_shared_event__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__next_events_shared_day__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__next_events_shared_event__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__next_events_shared_day__ = __webpack_require__(243);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__appointments_service__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NextEventsService; });
@@ -1596,7 +1596,7 @@ var NextEventsService_1, _a;
 
 /***/ }),
 
-/***/ 252:
+/***/ 253:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1651,7 +1651,7 @@ WaitService = __decorate([
 
 /***/ }),
 
-/***/ 253:
+/***/ 254:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1700,8 +1700,8 @@ var SettingsComponent = (function () {
 SettingsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-settings',
-        template: __webpack_require__(287),
-        styles: [__webpack_require__(272)]
+        template: __webpack_require__(289),
+        styles: [__webpack_require__(273)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_settings__["a" /* Settings */]) === "function" && _b || Object])
 ], SettingsComponent);
@@ -1711,18 +1711,18 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 254:
+/***/ 255:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__weather_component__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__weather_component__ = __webpack_require__(256);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__weather_component__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 255:
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1902,8 +1902,8 @@ __decorate([
 WeatherComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-weather',
-        template: __webpack_require__(288),
-        styles: [__webpack_require__(274), __webpack_require__(273)]
+        template: __webpack_require__(290),
+        styles: [__webpack_require__(275), __webpack_require__(274)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_settings__["a" /* Settings */]) === "function" && _c || Object])
 ], WeatherComponent);
@@ -1914,7 +1914,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 256:
+/***/ 257:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1931,7 +1931,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -1949,7 +1949,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -1967,7 +1967,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 264:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -1985,7 +1985,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 265:
+/***/ 266:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2003,7 +2003,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 266:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2021,7 +2021,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2039,7 +2039,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2057,7 +2057,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2075,7 +2075,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2093,7 +2093,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2111,7 +2111,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2129,7 +2129,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 273:
+/***/ 274:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2137,7 +2137,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "@font-face {\r\n  font-family: 'kitchenboardweather';\r\n  src: url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.eot?21755287');\r\n  src: url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.eot?21755287#iefix') format('embedded-opentype'),\r\n       url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.woff2?21755287') format('woff2'),\r\n       url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.woff?21755287') format('woff'),\r\n       url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.ttf?21755287') format('truetype'),\r\n       url('/https:/dmasur.github.io/kitchen-board/assets/font/kitchenboardweather.svg?21755287#kitchenboardweather') format('svg');\r\n  font-weight: normal;\r\n  font-style: normal;\r\n}\r\n/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */\r\n/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */\r\n/*\r\n@media screen and (-webkit-min-device-pixel-ratio:0) {\r\n  @font-face {\r\n    font-family: 'kitchenboardweather';\r\n    src: url('../font/kitchenboardweather.svg?21755287#kitchenboardweather') format('svg');\r\n  }\r\n}\r\n*/\r\n\r\n [class^=\"icon-\"]:before, [class*=\" icon-\"]:before {\r\n  font-family: \"kitchenboardweather\";\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  speak: none;\r\n\r\n  display: inline-block;\r\n  text-decoration: inherit;\r\n  width: 1em;\r\n  margin-right: .2em;\r\n  text-align: center;\r\n  /* opacity: .8; */\r\n\r\n  /* For safety - reset parent styles, that can break glyph codes*/\r\n  font-variant: normal;\r\n  text-transform: none;\r\n\r\n  /* fix buttons height, for twitter bootstrap */\r\n  line-height: 1em;\r\n\r\n  /* Animation center compensation - margins should be symmetric */\r\n  /* remove if not needed */\r\n  margin-left: .2em;\r\n\r\n  /* you can be more comfortable with increased icons size */\r\n  /* font-size: 120%; */\r\n\r\n  /* Font smoothing. That was taken from TWBS */\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n\r\n  /* Uncomment for 3D effect */\r\n  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */\r\n}\r\n\r\n.icon-sun-inv:before { content: '\\E800'; } /* '' */\r\n.icon-moon-inv:before { content: '\\E801'; } /* '' */\r\n.icon-cloud-sun-inv:before { content: '\\E802'; } /* '' */\r\n.icon-cloud-moon-inv:before { content: '\\E803'; } /* '' */\r\n.icon-rain-inv:before { content: '\\E804'; } /* '' */\r\n.icon-snow-heavy-inv:before { content: '\\E805'; } /* '' */\r\n.icon-windy-inv:before { content: '\\E806'; } /* '' */\r\n.icon-fog:before { content: '\\E807'; } /* '' */\r\n.icon-cloud-inv:before { content: '\\E808'; } /* '' */", ""]);
+exports.push([module.i, "@font-face {\r\n  font-family: 'kitchenboardweather';\r\n  src: url(" + __webpack_require__(66) + ");\r\n  src: url(" + __webpack_require__(66) + "#iefix) format('embedded-opentype'),\r\n       url(" + __webpack_require__(560) + ") format('woff2'),\r\n       url(" + __webpack_require__(561) + ") format('woff'),\r\n       url(" + __webpack_require__(559) + ") format('truetype'),\r\n       url(" + __webpack_require__(277) + "#kitchenboardweather) format('svg');\r\n  font-weight: normal;\r\n  font-style: normal;\r\n}\r\n/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */\r\n/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */\r\n/*\r\n@media screen and (-webkit-min-device-pixel-ratio:0) {\r\n  @font-face {\r\n    font-family: 'kitchenboardweather';\r\n    src: url('../font/kitchenboardweather.svg?21755287#kitchenboardweather') format('svg');\r\n  }\r\n}\r\n*/\r\n\r\n [class^=\"icon-\"]:before, [class*=\" icon-\"]:before {\r\n  font-family: \"kitchenboardweather\";\r\n  font-style: normal;\r\n  font-weight: normal;\r\n  speak: none;\r\n\r\n  display: inline-block;\r\n  text-decoration: inherit;\r\n  width: 1em;\r\n  margin-right: .2em;\r\n  text-align: center;\r\n  /* opacity: .8; */\r\n\r\n  /* For safety - reset parent styles, that can break glyph codes*/\r\n  font-variant: normal;\r\n  text-transform: none;\r\n\r\n  /* fix buttons height, for twitter bootstrap */\r\n  line-height: 1em;\r\n\r\n  /* Animation center compensation - margins should be symmetric */\r\n  /* remove if not needed */\r\n  margin-left: .2em;\r\n\r\n  /* you can be more comfortable with increased icons size */\r\n  /* font-size: 120%; */\r\n\r\n  /* Font smoothing. That was taken from TWBS */\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n\r\n  /* Uncomment for 3D effect */\r\n  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */\r\n}\r\n\r\n.icon-sun-inv:before { content: '\\E800'; } /* '' */\r\n.icon-moon-inv:before { content: '\\E801'; } /* '' */\r\n.icon-cloud-sun-inv:before { content: '\\E802'; } /* '' */\r\n.icon-cloud-moon-inv:before { content: '\\E803'; } /* '' */\r\n.icon-rain-inv:before { content: '\\E804'; } /* '' */\r\n.icon-snow-heavy-inv:before { content: '\\E805'; } /* '' */\r\n.icon-windy-inv:before { content: '\\E806'; } /* '' */\r\n.icon-fog:before { content: '\\E807'; } /* '' */\r\n.icon-cloud-inv:before { content: '\\E808'; } /* '' */", ""]);
 
 // exports
 
@@ -2147,7 +2147,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 274:
+/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2165,240 +2165,247 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 276:
+/***/ 277:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "kitchenboardweather.c6a9ef55b7e64bc2671c.svg";
+
+/***/ }),
+
+/***/ 278:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 66,
-	"./af.js": 66,
-	"./ar": 73,
-	"./ar-dz": 67,
-	"./ar-dz.js": 67,
-	"./ar-kw": 68,
-	"./ar-kw.js": 68,
-	"./ar-ly": 69,
-	"./ar-ly.js": 69,
-	"./ar-ma": 70,
-	"./ar-ma.js": 70,
-	"./ar-sa": 71,
-	"./ar-sa.js": 71,
-	"./ar-tn": 72,
-	"./ar-tn.js": 72,
-	"./ar.js": 73,
-	"./az": 74,
-	"./az.js": 74,
-	"./be": 75,
-	"./be.js": 75,
-	"./bg": 76,
-	"./bg.js": 76,
-	"./bn": 77,
-	"./bn.js": 77,
-	"./bo": 78,
-	"./bo.js": 78,
-	"./br": 79,
-	"./br.js": 79,
-	"./bs": 80,
-	"./bs.js": 80,
-	"./ca": 81,
-	"./ca.js": 81,
-	"./cs": 82,
-	"./cs.js": 82,
-	"./cv": 83,
-	"./cv.js": 83,
-	"./cy": 84,
-	"./cy.js": 84,
-	"./da": 85,
-	"./da.js": 85,
-	"./de": 88,
-	"./de-at": 86,
-	"./de-at.js": 86,
-	"./de-ch": 87,
-	"./de-ch.js": 87,
-	"./de.js": 88,
-	"./dv": 89,
-	"./dv.js": 89,
-	"./el": 90,
-	"./el.js": 90,
-	"./en-au": 91,
-	"./en-au.js": 91,
-	"./en-ca": 92,
-	"./en-ca.js": 92,
-	"./en-gb": 93,
-	"./en-gb.js": 93,
-	"./en-ie": 94,
-	"./en-ie.js": 94,
-	"./en-nz": 95,
-	"./en-nz.js": 95,
-	"./eo": 96,
-	"./eo.js": 96,
-	"./es": 98,
-	"./es-do": 97,
-	"./es-do.js": 97,
-	"./es.js": 98,
-	"./et": 99,
-	"./et.js": 99,
-	"./eu": 100,
-	"./eu.js": 100,
-	"./fa": 101,
-	"./fa.js": 101,
-	"./fi": 102,
-	"./fi.js": 102,
-	"./fo": 103,
-	"./fo.js": 103,
-	"./fr": 106,
-	"./fr-ca": 104,
-	"./fr-ca.js": 104,
-	"./fr-ch": 105,
-	"./fr-ch.js": 105,
-	"./fr.js": 106,
-	"./fy": 107,
-	"./fy.js": 107,
-	"./gd": 108,
-	"./gd.js": 108,
-	"./gl": 109,
-	"./gl.js": 109,
-	"./gom-latn": 110,
-	"./gom-latn.js": 110,
-	"./he": 111,
-	"./he.js": 111,
-	"./hi": 112,
-	"./hi.js": 112,
-	"./hr": 113,
-	"./hr.js": 113,
-	"./hu": 114,
-	"./hu.js": 114,
-	"./hy-am": 115,
-	"./hy-am.js": 115,
-	"./id": 116,
-	"./id.js": 116,
-	"./is": 117,
-	"./is.js": 117,
-	"./it": 118,
-	"./it.js": 118,
-	"./ja": 119,
-	"./ja.js": 119,
-	"./jv": 120,
-	"./jv.js": 120,
-	"./ka": 121,
-	"./ka.js": 121,
-	"./kk": 122,
-	"./kk.js": 122,
-	"./km": 123,
-	"./km.js": 123,
-	"./kn": 124,
-	"./kn.js": 124,
-	"./ko": 125,
-	"./ko.js": 125,
-	"./ky": 126,
-	"./ky.js": 126,
-	"./lb": 127,
-	"./lb.js": 127,
-	"./lo": 128,
-	"./lo.js": 128,
-	"./lt": 129,
-	"./lt.js": 129,
-	"./lv": 130,
-	"./lv.js": 130,
-	"./me": 131,
-	"./me.js": 131,
-	"./mi": 132,
-	"./mi.js": 132,
-	"./mk": 133,
-	"./mk.js": 133,
-	"./ml": 134,
-	"./ml.js": 134,
-	"./mr": 135,
-	"./mr.js": 135,
-	"./ms": 137,
-	"./ms-my": 136,
-	"./ms-my.js": 136,
-	"./ms.js": 137,
-	"./my": 138,
-	"./my.js": 138,
-	"./nb": 139,
-	"./nb.js": 139,
-	"./ne": 140,
-	"./ne.js": 140,
-	"./nl": 142,
-	"./nl-be": 141,
-	"./nl-be.js": 141,
-	"./nl.js": 142,
-	"./nn": 143,
-	"./nn.js": 143,
-	"./pa-in": 144,
-	"./pa-in.js": 144,
-	"./pl": 145,
-	"./pl.js": 145,
-	"./pt": 147,
-	"./pt-br": 146,
-	"./pt-br.js": 146,
-	"./pt.js": 147,
-	"./ro": 148,
-	"./ro.js": 148,
-	"./ru": 149,
-	"./ru.js": 149,
-	"./sd": 150,
-	"./sd.js": 150,
-	"./se": 151,
-	"./se.js": 151,
-	"./si": 152,
-	"./si.js": 152,
-	"./sk": 153,
-	"./sk.js": 153,
-	"./sl": 154,
-	"./sl.js": 154,
-	"./sq": 155,
-	"./sq.js": 155,
-	"./sr": 157,
-	"./sr-cyrl": 156,
-	"./sr-cyrl.js": 156,
-	"./sr.js": 157,
-	"./ss": 158,
-	"./ss.js": 158,
-	"./sv": 159,
-	"./sv.js": 159,
-	"./sw": 160,
-	"./sw.js": 160,
-	"./ta": 161,
-	"./ta.js": 161,
-	"./te": 162,
-	"./te.js": 162,
-	"./tet": 163,
-	"./tet.js": 163,
-	"./th": 164,
-	"./th.js": 164,
-	"./tl-ph": 165,
-	"./tl-ph.js": 165,
-	"./tlh": 166,
-	"./tlh.js": 166,
-	"./tr": 167,
-	"./tr.js": 167,
-	"./tzl": 168,
-	"./tzl.js": 168,
-	"./tzm": 170,
-	"./tzm-latn": 169,
-	"./tzm-latn.js": 169,
-	"./tzm.js": 170,
-	"./uk": 171,
-	"./uk.js": 171,
-	"./ur": 172,
-	"./ur.js": 172,
-	"./uz": 174,
-	"./uz-latn": 173,
-	"./uz-latn.js": 173,
-	"./uz.js": 174,
-	"./vi": 175,
-	"./vi.js": 175,
-	"./x-pseudo": 176,
-	"./x-pseudo.js": 176,
-	"./yo": 177,
-	"./yo.js": 177,
-	"./zh-cn": 178,
-	"./zh-cn.js": 178,
-	"./zh-hk": 179,
-	"./zh-hk.js": 179,
-	"./zh-tw": 180,
-	"./zh-tw.js": 180
+	"./af": 67,
+	"./af.js": 67,
+	"./ar": 74,
+	"./ar-dz": 68,
+	"./ar-dz.js": 68,
+	"./ar-kw": 69,
+	"./ar-kw.js": 69,
+	"./ar-ly": 70,
+	"./ar-ly.js": 70,
+	"./ar-ma": 71,
+	"./ar-ma.js": 71,
+	"./ar-sa": 72,
+	"./ar-sa.js": 72,
+	"./ar-tn": 73,
+	"./ar-tn.js": 73,
+	"./ar.js": 74,
+	"./az": 75,
+	"./az.js": 75,
+	"./be": 76,
+	"./be.js": 76,
+	"./bg": 77,
+	"./bg.js": 77,
+	"./bn": 78,
+	"./bn.js": 78,
+	"./bo": 79,
+	"./bo.js": 79,
+	"./br": 80,
+	"./br.js": 80,
+	"./bs": 81,
+	"./bs.js": 81,
+	"./ca": 82,
+	"./ca.js": 82,
+	"./cs": 83,
+	"./cs.js": 83,
+	"./cv": 84,
+	"./cv.js": 84,
+	"./cy": 85,
+	"./cy.js": 85,
+	"./da": 86,
+	"./da.js": 86,
+	"./de": 89,
+	"./de-at": 87,
+	"./de-at.js": 87,
+	"./de-ch": 88,
+	"./de-ch.js": 88,
+	"./de.js": 89,
+	"./dv": 90,
+	"./dv.js": 90,
+	"./el": 91,
+	"./el.js": 91,
+	"./en-au": 92,
+	"./en-au.js": 92,
+	"./en-ca": 93,
+	"./en-ca.js": 93,
+	"./en-gb": 94,
+	"./en-gb.js": 94,
+	"./en-ie": 95,
+	"./en-ie.js": 95,
+	"./en-nz": 96,
+	"./en-nz.js": 96,
+	"./eo": 97,
+	"./eo.js": 97,
+	"./es": 99,
+	"./es-do": 98,
+	"./es-do.js": 98,
+	"./es.js": 99,
+	"./et": 100,
+	"./et.js": 100,
+	"./eu": 101,
+	"./eu.js": 101,
+	"./fa": 102,
+	"./fa.js": 102,
+	"./fi": 103,
+	"./fi.js": 103,
+	"./fo": 104,
+	"./fo.js": 104,
+	"./fr": 107,
+	"./fr-ca": 105,
+	"./fr-ca.js": 105,
+	"./fr-ch": 106,
+	"./fr-ch.js": 106,
+	"./fr.js": 107,
+	"./fy": 108,
+	"./fy.js": 108,
+	"./gd": 109,
+	"./gd.js": 109,
+	"./gl": 110,
+	"./gl.js": 110,
+	"./gom-latn": 111,
+	"./gom-latn.js": 111,
+	"./he": 112,
+	"./he.js": 112,
+	"./hi": 113,
+	"./hi.js": 113,
+	"./hr": 114,
+	"./hr.js": 114,
+	"./hu": 115,
+	"./hu.js": 115,
+	"./hy-am": 116,
+	"./hy-am.js": 116,
+	"./id": 117,
+	"./id.js": 117,
+	"./is": 118,
+	"./is.js": 118,
+	"./it": 119,
+	"./it.js": 119,
+	"./ja": 120,
+	"./ja.js": 120,
+	"./jv": 121,
+	"./jv.js": 121,
+	"./ka": 122,
+	"./ka.js": 122,
+	"./kk": 123,
+	"./kk.js": 123,
+	"./km": 124,
+	"./km.js": 124,
+	"./kn": 125,
+	"./kn.js": 125,
+	"./ko": 126,
+	"./ko.js": 126,
+	"./ky": 127,
+	"./ky.js": 127,
+	"./lb": 128,
+	"./lb.js": 128,
+	"./lo": 129,
+	"./lo.js": 129,
+	"./lt": 130,
+	"./lt.js": 130,
+	"./lv": 131,
+	"./lv.js": 131,
+	"./me": 132,
+	"./me.js": 132,
+	"./mi": 133,
+	"./mi.js": 133,
+	"./mk": 134,
+	"./mk.js": 134,
+	"./ml": 135,
+	"./ml.js": 135,
+	"./mr": 136,
+	"./mr.js": 136,
+	"./ms": 138,
+	"./ms-my": 137,
+	"./ms-my.js": 137,
+	"./ms.js": 138,
+	"./my": 139,
+	"./my.js": 139,
+	"./nb": 140,
+	"./nb.js": 140,
+	"./ne": 141,
+	"./ne.js": 141,
+	"./nl": 143,
+	"./nl-be": 142,
+	"./nl-be.js": 142,
+	"./nl.js": 143,
+	"./nn": 144,
+	"./nn.js": 144,
+	"./pa-in": 145,
+	"./pa-in.js": 145,
+	"./pl": 146,
+	"./pl.js": 146,
+	"./pt": 148,
+	"./pt-br": 147,
+	"./pt-br.js": 147,
+	"./pt.js": 148,
+	"./ro": 149,
+	"./ro.js": 149,
+	"./ru": 150,
+	"./ru.js": 150,
+	"./sd": 151,
+	"./sd.js": 151,
+	"./se": 152,
+	"./se.js": 152,
+	"./si": 153,
+	"./si.js": 153,
+	"./sk": 154,
+	"./sk.js": 154,
+	"./sl": 155,
+	"./sl.js": 155,
+	"./sq": 156,
+	"./sq.js": 156,
+	"./sr": 158,
+	"./sr-cyrl": 157,
+	"./sr-cyrl.js": 157,
+	"./sr.js": 158,
+	"./ss": 159,
+	"./ss.js": 159,
+	"./sv": 160,
+	"./sv.js": 160,
+	"./sw": 161,
+	"./sw.js": 161,
+	"./ta": 162,
+	"./ta.js": 162,
+	"./te": 163,
+	"./te.js": 163,
+	"./tet": 164,
+	"./tet.js": 164,
+	"./th": 165,
+	"./th.js": 165,
+	"./tl-ph": 166,
+	"./tl-ph.js": 166,
+	"./tlh": 167,
+	"./tlh.js": 167,
+	"./tr": 168,
+	"./tr.js": 168,
+	"./tzl": 169,
+	"./tzl.js": 169,
+	"./tzm": 171,
+	"./tzm-latn": 170,
+	"./tzm-latn.js": 170,
+	"./tzm.js": 171,
+	"./uk": 172,
+	"./uk.js": 172,
+	"./ur": 173,
+	"./ur.js": 173,
+	"./uz": 175,
+	"./uz-latn": 174,
+	"./uz-latn.js": 174,
+	"./uz.js": 175,
+	"./vi": 176,
+	"./vi.js": 176,
+	"./x-pseudo": 177,
+	"./x-pseudo.js": 177,
+	"./yo": 178,
+	"./yo.js": 178,
+	"./zh-cn": 179,
+	"./zh-cn.js": 179,
+	"./zh-hk": 180,
+	"./zh-hk.js": 180,
+	"./zh-tw": 181,
+	"./zh-tw.js": 181
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -2414,89 +2421,89 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 276;
+webpackContext.id = 278;
 
-
-/***/ }),
-
-/***/ 277:
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/dashboard']\">Übersicht<span *ngIf=\"onlineStatus == 'offline'\"> (Offine Mode)</span></a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/settings']\">Einstellungen</a></li>\n        <li *ngIf=\"!authenticationService.isAuthenticated\">\n          <!-- (click) binds the components authenticationService.login() method to the onClick-event -->\n          <button class=\"btn btn-default navbar-btn\" (click)=\"authenticationService.login()\">Login with Google</button>\n        </li>\n        <li *ngIf=\"authenticationService.isAuthenticated\">\n          <p class=\"navbar-text\">{{authenticationService.userName}}</p>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
-
-/***/ }),
-
-/***/ 278:
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\" *ngIf=\"calendar\">{{calendar.date | amDateFormat:'MMMM'}}</span>\r\n    <span *ngIf=\"!isEnabled\" class=\"alert-danger\">Disabled</span>\r\n  </div>\r\n  <table class=\"table calendar\" *ngIf=\"calendar\">\r\n    <thead>\r\n      <tr class=\"days\">\r\n        <th>M</th>\r\n        <th>D</th>\r\n        <th>M</th>\r\n        <th>D</th>\r\n        <th>F</th>\r\n        <th>S</th>\r\n        <th>S</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let week of calendar.days\">\r\n        <td *ngFor=\"let day of week\" class=\"{{getDayClass(day)}}\">\r\n          <span *ngIf=\"day\">{{day.date | amDateFormat:'D'}}</span>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>"
 
 /***/ }),
 
 /***/ 279:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default camera\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Eingang</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <img id=\"cameraImage\" src=\"{{createUrl()}}\" style=\"max-height: 180px\"/>\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/dashboard']\">Übersicht<span *ngIf=\"onlineStatus == 'offline'\"> (Offine Mode)</span></a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/settings']\">Einstellungen</a></li>\n        <li *ngIf=\"!authenticationService.isAuthenticated\">\n          <!-- (click) binds the components authenticationService.login() method to the onClick-event -->\n          <button class=\"btn btn-default navbar-btn\" (click)=\"authenticationService.login()\">Login with Google</button>\n        </li>\n        <li *ngIf=\"authenticationService.isAuthenticated\">\n          <p class=\"navbar-text\">{{authenticationService.userName}}</p>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
 /***/ 280:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"clock well well-lg\">\r\n  <div class=\"time text-center\">{{dateTime | amDateFormat:'LTS'}}</div>\r\n  <div class=\"day text-center\">{{dateTime | amDateFormat:'dddd'}}</div>\r\n  <div class=\"date text-center\">{{dateTime | amDateFormat:'LL'}}</div>\r\n</div>"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\" *ngIf=\"calendar\">{{calendar.date | amDateFormat:'MMMM'}}</span>\r\n    <span *ngIf=\"!isEnabled\" class=\"alert-danger\">Disabled</span>\r\n  </div>\r\n  <table class=\"table calendar\" *ngIf=\"calendar\">\r\n    <thead>\r\n      <tr class=\"days\">\r\n        <th>M</th>\r\n        <th>D</th>\r\n        <th>M</th>\r\n        <th>D</th>\r\n        <th>F</th>\r\n        <th>S</th>\r\n        <th>S</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let week of calendar.days\">\r\n        <td *ngFor=\"let day of week\" class=\"{{getDayClass(day)}}\">\r\n          <span *ngIf=\"day\">{{day.date | amDateFormat:'D'}}</span>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>"
 
 /***/ }),
 
 /***/ 281:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dashboard container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-9\">\r\n          <app-quote onlineStatus={{onlineStatus}}></app-quote>\r\n        </div>\r\n          <div class=\"item col-md-3\">\r\n            <app-humidor onlineStatus={{onlineStatus}}></app-humidor>\r\n          </div>\r\n        <div class=\"item col-md-6\">\r\n          <app-clock></app-clock>\r\n          <app-schedule></app-schedule>\r\n        </div>\r\n        <div class=\"item col-md-6\">\r\n          <app-news onlineStatus={{onlineStatus}}></app-news>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"item col-md-6\">\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-3\">\r\n          <div class=\"row\">\r\n            <div class=\"item col-md-12\">\r\n              <app-calendar dateString={{thisMonth}} onlineStatus={{onlineStatus}}></app-calendar>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"item col-md-12\">\r\n              <app-calendar dateString={{nextMonth}} onlineStatus={{onlineStatus}}></app-calendar>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"item col-md-9\">\r\n          <app-next-events onlineStatus={{onlineStatus}}></app-next-events>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-6\">\r\n          <app-weather city=\"Bottrop\" longitude=\"51.524722\" latitude=\"6.922778\" onlineStatus={{onlineStatus}}></app-weather>\r\n        </div>\r\n        <div class=\"item col-md-6\">\r\n          <!--<app-weather city=\"Düsseldorf\" longitude=\"51.233333\" latitude=\"6.783333\" onlineStatus={{onlineStatus}}></app-weather>-->\r\n          <app-camera onlineStatus={{onlineStatus}}></app-camera>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"panel panel-default camera\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Eingang</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <img id=\"cameraImage\" src=\"{{createUrl()}}\" style=\"max-height: 180px\"/>\r\n</div>"
 
 /***/ }),
 
 /***/ 282:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\"><span class=\"lead\">Humidor</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <div *ngIf=\"data\">\r\n    <p class=\"humidity\">{{data.humidity}} %</p>\r\n    <footer class=\"date\">{{data.time | amTimeAgo}}</footer>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"clock well well-lg\">\r\n  <div class=\"time text-center\">{{dateTime | amDateFormat:'LTS'}}</div>\r\n  <div class=\"day text-center\">{{dateTime | amDateFormat:'dddd'}}</div>\r\n  <div class=\"date text-center\">{{dateTime | amDateFormat:'LL'}}</div>\r\n</div>"
 
 /***/ }),
 
 /***/ 283:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Nachrichten</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <ul class=\"list-group\">\r\n    <li class=\"list-group-item\" *ngFor=\"let news of newsItems\">\r\n      <img *ngIf=\"news.image\" src=\"{{news.image}}\" />\r\n      <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>\r\n    </li>\r\n  </ul>\r\n</div>"
+module.exports = "<div class=\"dashboard container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-9\">\r\n          <app-quote onlineStatus={{onlineStatus}}></app-quote>\r\n        </div>\r\n          <div class=\"item col-md-3\">\r\n            <app-humidor onlineStatus={{onlineStatus}}></app-humidor>\r\n          </div>\r\n        <div class=\"item col-md-6\">\r\n          <app-clock></app-clock>\r\n          <app-schedule></app-schedule>\r\n        </div>\r\n        <div class=\"item col-md-6\">\r\n          <app-news onlineStatus={{onlineStatus}}></app-news>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"item col-md-6\">\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-3\">\r\n          <div class=\"row\">\r\n            <div class=\"item col-md-12\">\r\n              <app-calendar dateString={{thisMonth}} onlineStatus={{onlineStatus}}></app-calendar>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"item col-md-12\">\r\n              <app-calendar dateString={{nextMonth}} onlineStatus={{onlineStatus}}></app-calendar>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"item col-md-9\">\r\n          <app-next-events onlineStatus={{onlineStatus}}></app-next-events>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"item col-md-6\">\r\n          <app-weather city=\"Bottrop\" longitude=\"51.524722\" latitude=\"6.922778\" onlineStatus={{onlineStatus}}></app-weather>\r\n        </div>\r\n        <div class=\"item col-md-6\">\r\n          <!--<app-weather city=\"Düsseldorf\" longitude=\"51.233333\" latitude=\"6.783333\" onlineStatus={{onlineStatus}}></app-weather>-->\r\n          <app-camera onlineStatus={{onlineStatus}}></app-camera>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 284:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Nächste Termine</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n    <span *ngIf=\"!isEnabled\" class=\"alert-danger\">Disabled</span>\r\n  </div>\r\n  <table class=\"table\">\r\n    <tr class=\"day row {{rowClass(day)}}\" *ngFor=\"let day of daysWithEvents\">\r\n      <td class=\"text-center date\">{{day.date | amDateFormat:'dddd'}}\r\n        <br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}\r\n        <br/>{{day.date | amTimeAgo}}</td>\r\n      <td>\r\n        <ul class=\"list-group\">\r\n          <li class=\"list-group-item\" *ngFor=\"let event of day.events\">\r\n            <span *ngIf=\"event.hasTime\">{{event.date | amDateFormat:'LT'}} | </span>{{event.summary}}\r\n            <span *ngIf=\"event.person\"> | {{event.person}}</span>\r\n          </li>\r\n        </ul>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</div>"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\"><span class=\"lead\">Humidor</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <div *ngIf=\"data\">\r\n    <p class=\"humidity\">{{data.humidity}} %</p>\r\n    <footer class=\"date\">{{data.time | amTimeAgo}}</footer>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 285:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\"><span class=\"lead\">Zitat des Tages</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <blockquote *ngIf=\"quote\">\r\n    <p>{{quote.text}}</p>\r\n    <footer>{{quote.author}}</footer>\r\n  </blockquote>\r\n</div>"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Nachrichten</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <ul class=\"list-group\">\r\n    <li class=\"list-group-item\" *ngFor=\"let news of newsItems\">\r\n      <img *ngIf=\"news.image\" src=\"{{news.image}}\" />\r\n      <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>\r\n    </li>\r\n  </ul>\r\n</div>"
 
 /***/ }),
 
 /***/ 286:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\" *ngIf=\"schedule\">\r\n  <div class=\"panel-heading lead\">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}</div>\r\n  <table class=\"table table-striped\">\r\n    <tbody>\r\n      <tr *ngFor=\"let classInfo of schedule.classInfos\" class=\"{{getClassInfoClass(classInfo.classDuration)}}\">\r\n        <td class=\"time\">\r\n          {{classInfo.classDuration.from | amDateFormat:'LT'}} - {{classInfo.classDuration.to | amDateFormat:'LT'}}\r\n        </td>\r\n        <td>\r\n          {{classInfo.subject}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">\r\n    <span class=\"lead\">Nächste Termine</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n    <span *ngIf=\"!isEnabled\" class=\"alert-danger\">Disabled</span>\r\n  </div>\r\n  <table class=\"table\">\r\n    <tr class=\"day row {{rowClass(day)}}\" *ngFor=\"let day of daysWithEvents\">\r\n      <td class=\"text-center date\">{{day.date | amDateFormat:'dddd'}}\r\n        <br/>{{day.events[0].date | amDateFormat:'D. MMMM'}}\r\n        <br/>{{day.date | amTimeAgo}}</td>\r\n      <td>\r\n        <ul class=\"list-group\">\r\n          <li class=\"list-group-item\" *ngFor=\"let event of day.events\">\r\n            <span *ngIf=\"event.hasTime\">{{event.date | amDateFormat:'LT'}} | </span>{{event.summary}}\r\n            <span *ngIf=\"event.person\"> | {{event.person}}</span>\r\n          </li>\r\n        </ul>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</div>"
 
 /***/ }),
 
 /***/ 287:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"settings container\">\r\n  <form (ngSubmit)=\"onSubmit()\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"forecastIoApiKey\">Forecast.io Api Key</label>\r\n          <input [(ngModel)]=\"settings.forecastIoApiKey\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"forecastIoApiKey\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"googleClientId\">Google Client ID</label>\r\n          <input [(ngModel)]=\"settings.googleClientId\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"googleClientId\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"googleApiKey\">Google Api Key</label>\r\n          <input [(ngModel)]=\"settings.googleApiKey\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"googleApiKey\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"cameraUsername\">Foscam Username</label>\r\n          <input [(ngModel)]=\"settings.cameraUsername\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"cameraUsername\">\r\n        \r\n          <label for=\"cameraPassword\">Foscam Password</label>\r\n          <input [(ngModel)]=\"settings.cameraPassword\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"cameraPassword\">\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-12\">\r\n        <h3>TimeTable</h3>\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th colspan=3>Stundenanfang</th>\r\n              <th colspan=3>Stundenende</th>\r\n              <th>Montag</th>\r\n              <th>Dienstag</th>\r\n              <th>Mittwoch</th>\r\n              <th>Donnerstag</th>\r\n              <th>Freitag</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let i of hourArray()\">\r\n              <ng-template ngFor [ngForOf]=[0,1] let-j>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.classDurationNumbers[i][j][0]\" class=\"classDurationColumn\"/></td>\r\n                <td class=\"classDurationSpacer\">:</td>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.classDurationNumbers[i][j][1]\" class=\"classDurationColumn\"/></td>\r\n              </ng-template>\r\n              <ng-template ngFor [ngForOf]=[1,2,3,4,5] let-j>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.timeTable[j][i]\"/></td>\r\n              </ng-template>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        <a href=\"#\" class=\"btn btn-default\" (click)=\"addHourToSchedule()\">Add hour to schedule</a>\r\n        <a href=\"#\" class=\"btn btn-default\" (click)=\"removeHourFromSchedule()\">Remove hour from schedule</a>\r\n      </div>\r\n    </div>\r\n    <hr/>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <button type=\"submit\" class=\"btn btn-default\">Speichern</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</div>"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\"><span class=\"lead\">Zitat des Tages</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n  </div>\r\n  <blockquote *ngIf=\"quote\">\r\n    <p>{{quote.text}}</p>\r\n    <footer>{{quote.author}}</footer>\r\n  </blockquote>\r\n</div>"
 
 /***/ }),
 
 /***/ 288:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"panel panel-default\" *ngIf=\"schedule\">\r\n  <div class=\"panel-heading lead\">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}</div>\r\n  <table class=\"table table-striped\">\r\n    <tbody>\r\n      <tr *ngFor=\"let classInfo of schedule.classInfos\" class=\"{{getClassInfoClass(classInfo.classDuration)}}\">\r\n        <td class=\"time\">\r\n          {{classInfo.classDuration.from | amDateFormat:'LT'}} - {{classInfo.classDuration.to | amDateFormat:'LT'}}\r\n        </td>\r\n        <td>\r\n          {{classInfo.subject}}\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>"
+
+/***/ }),
+
+/***/ 289:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"settings container\">\r\n  <form (ngSubmit)=\"onSubmit()\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"forecastIoApiKey\">Forecast.io Api Key</label>\r\n          <input [(ngModel)]=\"settings.forecastIoApiKey\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"forecastIoApiKey\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"googleClientId\">Google Client ID</label>\r\n          <input [(ngModel)]=\"settings.googleClientId\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"googleClientId\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"googleApiKey\">Google Api Key</label>\r\n          <input [(ngModel)]=\"settings.googleApiKey\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"googleApiKey\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"cameraUsername\">Foscam Username</label>\r\n          <input [(ngModel)]=\"settings.cameraUsername\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"cameraUsername\">\r\n        \r\n          <label for=\"cameraPassword\">Foscam Password</label>\r\n          <input [(ngModel)]=\"settings.cameraPassword\" [ngModelOptions]=\"{standalone: true}\" type=\"text\" class=\"form-control\" id=\"cameraPassword\">\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-12\">\r\n        <h3>TimeTable</h3>\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th colspan=3>Stundenanfang</th>\r\n              <th colspan=3>Stundenende</th>\r\n              <th>Montag</th>\r\n              <th>Dienstag</th>\r\n              <th>Mittwoch</th>\r\n              <th>Donnerstag</th>\r\n              <th>Freitag</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let i of hourArray()\">\r\n              <ng-template ngFor [ngForOf]=[0,1] let-j>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.classDurationNumbers[i][j][0]\" class=\"classDurationColumn\"/></td>\r\n                <td class=\"classDurationSpacer\">:</td>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.classDurationNumbers[i][j][1]\" class=\"classDurationColumn\"/></td>\r\n              </ng-template>\r\n              <ng-template ngFor [ngForOf]=[1,2,3,4,5] let-j>\r\n                <td><input [ngModelOptions]=\"{standalone: true}\" [(ngModel)]=\"settings.timeTable[j][i]\"/></td>\r\n              </ng-template>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        <a href=\"#\" class=\"btn btn-default\" (click)=\"addHourToSchedule()\">Add hour to schedule</a>\r\n        <a href=\"#\" class=\"btn btn-default\" (click)=\"removeHourFromSchedule()\">Remove hour from schedule</a>\r\n      </div>\r\n    </div>\r\n    <hr/>\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <button type=\"submit\" class=\"btn btn-default\">Speichern</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</div>"
+
+/***/ }),
+
+/***/ 290:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"weather panel panel-default\">\r\n  <div class=\"panel-heading\"><span class=\"lead\">{{city}}</span>\r\n    <span class=\"small last-update\">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>\r\n    <span class=\"small error-message\" *ngIf=\"errorMessage\"><br />Fehler: {{errorMessage}}</span>\r\n    <span *ngIf=\"!isEnabled\" class=\"alert-danger\">Disabled</span>\r\n  </div>\r\n  <table class=\"table\" *ngIf=\"weatherForcast\">\r\n    <tr *ngFor=\"let dailyWeatherInfo of weatherForcast.dailyWeatherInfos\">\r\n      <td class=\"day\">{{dailyWeatherInfo.date | amDateFormat: 'dd'}}</td>\r\n      <td class=\"icon\"><i class=\"{{getIconClass(dailyWeatherInfo.icon)}}\"></i></td>\r\n      <td class=\"temp\" colspan=2>{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">\r\n        <table class=\"dailyInfos\">\r\n          <tr *ngFor=\"let dailyWeatherInfo of weatherForcast.dailyWeatherInfos\">\r\n            <td>\r\n              <span *ngIf=\"dailyWeatherInfo.morning\">\r\n                <i class=\"{{getIconClass(dailyWeatherInfo.morning.icon)}}\"></i><br/>{{dailyWeatherInfo.morning.averageTemp}}°C\r\n              </span>\r\n            </td>\r\n            <td>\r\n              <span *ngIf=\"dailyWeatherInfo.midday\">\r\n                <i class=\"{{getIconClass(dailyWeatherInfo.midday.icon)}}\"></i><br/>{{dailyWeatherInfo.midday.averageTemp}}°C\r\n              </span>\r\n            </td>\r\n            <td>\r\n              <span *ngIf=\"dailyWeatherInfo.afternoon\">\r\n                <i class=\"{{getIconClass(dailyWeatherInfo.afternoon.icon)}}\"></i><br/>{{dailyWeatherInfo.afternoon.averageTemp}}°C\r\n              </span>\r\n            </td>\r\n            <td>\r\n              <span *ngIf=\"dailyWeatherInfo.evening\">\r\n                <i class=\"{{getIconClass(dailyWeatherInfo.evening.icon)}}\"></i><br/>{{dailyWeatherInfo.evening.averageTemp}}°C\r\n              </span>\r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"4\">{{weatherForcast.summary}}</td>\r\n    </tr>\r\n  </table>\r\n</div>"
@@ -2612,12 +2619,40 @@ var _a;
 /***/ }),
 
 /***/ 559:
+/***/ (function(module, exports) {
+
+module.exports = "data:application/x-font-ttf;base64,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"
+
+/***/ }),
+
+/***/ 560:
+/***/ (function(module, exports) {
+
+module.exports = "data:application/font-woff2;base64,d09GMgABAAAAAA9QAA8AAAAAHzgAAA73AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDYAggCZZwEQgKlXiSRQE2AiQDKAsWAAQgBYZRB4EXDIEGG2QcIxEmbWlP9hcHPBn6yCGWWBJiwspsPagmBJ0IH+F1nFz/uTfVvx3vFS+EoZTwfK/z89z7SJLtT7y7/kCsJUJtgKnpkbv06TMpVTSpfehWBZYTrc6rnLi9iGeXiSAZLgzsizbVN61J0/0AnlYyONn6S1JoaCc5TXHwALS5c/vvYjiwHg9ktwd0YqEeba9UlAlfs8ozkC5ERn1K2GYpKJmKOkV9XTW6sGnqKLVb/hTfsp2yU6Zs/gA/7afauyuC2xT+gnEjVal27zdp7i6Fn5R++SelwOCXf2tCY5aTcwgFwgE7kBNudsJPTZkJ6wdvu/dyX0rtphGDsdmfrsJZjQgmCsY+em4IkLCREWTbjit3WDMWgwva3LutBGtO2LGUFCHK84QxTS4f40Cf1RPA+55O/mNSFLfGGYwhD904DdlBTh6ZI5WIRynic3MawG4cDDACWJBrxPILVAI24omEVB4wRecWWh5VrA5BFhagVwwWd/0PLxARg3gMUUTE894YciwJgVxCIZcwkEtYyCUc5BIecokAuY1oXrJxYWLd2vKgq4Ab/SdNRRgRHI+jJL39R9Xht/jPp8jMkYEyX6o7HlEt/6NaxNUzO22cg9Ow1YY9wtYcPALKfulR6Fz8uYsNn/qBesLR2Wj/c3Tmmu6UOLQbHWlqxELgXSiTagmtnDOQNiVUMbGxMcGE/mTqgeFdIZJnzBleJvMkIHNoriAnvbUGsZQMDsWLlDwGGgmr5Vw47kacBLyEvhsT4h4LE6mpzqurgojZLYNjRHx0hskdqZTqWv+lZ3Wi3Tuk7vZi3m3KfoqWKGp6EA+8GZCp0748DgSu9qhcmI+vRIIJukNBq0vkizgu9wSoh50KPPtna1dU2UGaU7E9D7XBIvRhWNs6CitO0heIIXlr0sBIYgZbsZo16rrjJMhKstGuyIOUj6SqaYFRK8P6T6XAq9BT4Rzah+V3QsV3CN2hLwyaRXSNubTiPCVUbRRcK0NPFRCXKPKNTn23hEQpgY/gUnNPNUSNPFz6Z2tXu/xgVDGruySqJJinBm8PY7W/YZqj9Lcfnlq83YtvD3KUxh3D6jPWoVK99chSnZGRGKi2BFtRDbVo41JPyMaE0d1YJefCauimFtpskztDYmRtaFDernphaRRsIjqbEAJMUyiTN0QFTxsihLVeJM/TD1CPqYpuP4xUS9CIggQSQTwoI/F3zWyaKraE7lKt6wzz6GpzJ3kaUKlf9TSiioeaiKJmYlALsaiVONRGPGonAXWQCG0gcelGTHGmrRd4E96Iy6CxTgBYFwCsGwDWAwDrBYD1AcD6AWADADgHofW1hIaaZGpcg/bFQN0OcQYXVOMwGDI/m9wzAmkiWTusPLP3qdCpdK1Ue0bV31U2jOTI+t7AjhtTSIB85zj0WMS7mMAUUtR8c8RaBJKDpl8Y3eZs2rM6Xm9c8UyO+VI0EbERtpZnPKcptDfWPdPlNIRnZUeYQdVa07xaTaB7yTa+7t49b60WxffraSZEQj9dl/XVFc8soAmrplzcLTFXL7oxkda7Zo6ZK7Kr3buFlcBQJi49yR3TvfhTb7PlJqOE2bYUgomI6roZ79DGGcvXiDcLsXfxbpT53DAs50WasjQRz28uAdmNxSRssPG8MWtcG6Pqyh1cNGtjtbcx1TJ7Gk6LFbAEbQxGI7QH1LHuvn35dONInvnxW6RKXEAzW3/mWcjTiCSQLWOgJZgpsSgv6L1JmUaOxVbr5pqM+Uhr8pG34jVx3OuP1exJCrpqTbNCxav0LHWex2nh+XM34PDM0+hehqlV2GTj/aj11NbhesOqZyVvl90TrDIGp99+Dcxajbp1MGddq7BQqKBBtEGwbBk2T7q6zIqFhdXatK7WntX1YG9eq1FLwzL8JyYrD/oO7ynKur1t+M51kUvi8S2SMI+dbC1ytjWNIWe4eJu18cm09bwGn8mVlsncs51k3LFWkYYrTEXazjVmXL5LYfqRqdW4E8C0s+1eW4oKuy66PWs9ZPp4LxG0T0iG7YcMfoCOs8hB0PghAPhhAPgR4DRyFMCPAcCPA8BPAGeQkwB+CgB+GgB+BjibnAXwcwDw8wDwC8Dp5CKAXwKAXwag4coa8zLmV2MKy0HYNbwidLCWqIZ3kczfYOQKMoQOAMIAbiiK2uTxXYZIdIBIAUA2aovjXYbIdIA4A6CNG/neYvVbUQ9H01+ar39peg69/CxxjSLIryVWvd8nkTi4oY9+0E/B1AM2EuFGY4wQUKyG7TBSiqO4WIzjUYM82JCTXwMFQ6zb0Y0VbJ/gEuoAKQaF3gxTQppcXRUGmR5zkatFxuB008mAFP0S4+nAVMOJIJxcUFgejAnmRSA5oRhDAZleq10aefbuNYpMLFVpRgnfcXht06slidPJMxZL7sVic8oD+TxILhBTdqnFgverNa4Ki+yBizzugVxw4ObN9yN6L1JsJDr/bWShC66K2N3zOfIHBEia9u1DANmoVo13ZR8bqwBNFyjQY5hbSD9drDPQ2hUWrzRFyfsNgOxBTUej9O4MteAL2Q/mCSVywraKcp4Y6Qkz+zS4iCToBvoYIDshP4VH1146RZBCr/q1x/39SWqQ2oQGaqjMiYM0mgpF/XXbeDwZEqjSYwwebfQQk6nGeHsJlcmoxzXU5HFmknqcqtGhiRr/AQ+tMKDAPjRZs29sFEkYoyWqnmsvlqTkTcX3IjdSQS2WoNSOEzKDjqohjVr9ygk+X6OhMsYP0+kqNFiDqpAAFcDft9XPT4nQxw4wGGqMpjRSg9WgnxZXmTC1vgULSsW+UaUCfWNOgtRQ55K5gK4FOj4Ftxwy18ixG/IyJSOUj91T9RgcLJblXoRKC+M+myjBqxYvhihQGkxheN7NEqzd7jXEtZyjuLkb8RMcX23OHavBLolJ6ZyHBfcPSw+Cw+uOctLgh5y7bHbdJ6ngqXQotixWOsz9JPrXRzV3ruWPdZm7sD2rus2rjhLX8JSZumPSoeiz6V+ikLNKnJ4RcbeYOUiI3tw8wLbNSD+wTuqxTjg4LLAbihCT5CwwMmgjLuJGZp19Tywl52YGcVAqUfyrUhpYVA58DDelsrhnHF2PdcdYl6mHs8Av830ktQqm/Sa8eGeGRDL0vG8WLiM9vPvNT8tyck3dE7nXcpNnK26FHzLTZ96mFVknlkrFAOVuacN6Cstr3b9rVvifqIym1haX1mNR6PUOfk9tahZS1V7Acp4IEGGe9qg2fINzTUMGXNFiv2O7Y0t375q4V3U9vTmTm+316fqME/0f9niKb5roufNX/7nTY2NiX+1OxP3K2BQZ+Uzk/I1+3Uo+A9W1fbspYVn8bjch5ZsT/3isnSWqJFmCLJ/+2qiD+Go3Ifj2xtv/c8voLbhgpaI2qpz99bUbN76cCTvI8/H2PSwqbTx8mfcNEgjHclB2oN03vIXDVwYP+UZG8Q4Oz6/v3fcr+0D3akYnJ9D+L99LB6/0FblH3+09yqn8pBvLruJ38dZkEVmSasHsZ+Df/9y66SFyWx2j9ukd7CBq5NG1Z9c9/OfGvx5CqCtXjHxz7Z/vbnatgylnXsFc9jcPX0EUeSxsGA270rbA1u+9KTAo0DBMucMva2wvtSksuVNUUktraN/e2loFUB5+rrzy0LOivb3i2FmIAkfBD+nRM3UeRaHTBgF0fgNCjUsXyQ1U6dmQ+en6zF209IA8raiElLikAcvPAEbmymUjt3kCbNWrNtGA0/xmI/Y8oTZCayX5VtXkS3dsLqs62Tk6rnYbDeoyfDSjIlaMvU9gH3gQEY65GnIqhD+A7Dv36N7t9bXhod6eznLPVOSahtMOF6tsh3Fjg+cah/d+iQ+dOujeSDT4GSG0NKrB7Ny25yfb2y//45JTsBsNhaPw9MP6Ms+zRJJMX2EC5r4DjQ1ex108Yi/xpYKT+qIEfLhEYEt2d0tilacH/EBQ7sM49+buTnpk21rm6YcHXc+ePLh74fzO1mjPTFddd29DXcltGE6X54UfAW+z3Qi6c6ZJ7XYCbAYTMgOKSoavJd09tTjY39vTVe5yMlxPeqO3Sw1z4q3u3OjZIfG6Q0HEiCBESgMv3nKXxki23KU5yKvv4klxF02hFHa3i/Zic3dDVyzO6vuz+/H7WaN+z64J1Sfrm++GVfH44fWTo5312YnRzk0dkX/phbclNThGZmef56U9uZva5iicurR5682BZ54/O6K2bq8OeM7KTpp8yJiXZ31WAGOEWO4T4NS6S/gY1FwipwvHYMipZKGNurQxNzs9WVvbMD3T09vTXZSkh3mCVXjAipHC2dh7Vh50faKOTqM99WqQnUSYzzJDdmhiMgJ7Q9CU+i5v+qO8e86vfvq1tDrl/6hg8pcD/PMxp9GzVNS3Mb+bIzAiFJjlP8HLmcmfrfz8ajZYkj0GK4uK1Ydk+ks/968/WTMrbQzxWO0bhYcY1XX827R1tmPZYfWJ7J2kBHYxQ4o4yCwirkiOAk8wj4iXpYRhPsOF/n/HIDYG7vAfktAny5JSJZeZQUTGLCK+kBxN8gvzMDchJZyQ55YC09f9WzF75YzSxCe2TvKpicm58pVXHNN/J2NFwkVBGl3OD7hES5AkOFfDNDZU02CrKFxYB0Ea3C1QRSLcNRgs9/xUuUHLF8cmKJ3PgwUnCEIhxslLtUQkuXSY8nPd/xLPHEZQozlNlG3Nj4s1TXYMkvEKh0GhITgDhOEnKTPFBJPMUeYKr/a5GYPeYBEkaH6ZAkLvXTmcVGM39noLASSX6SBzXAVJiTEQNbSeYqn2JnCE1AFEAxi63gJQFCSUI8B+BBjEPac8x4j2YHAmGWOimjhPAQ2y1UCoDvUxyp26xOMPIUcu3EhvxNmhgnLOQ7IaAZdyYk7ReiJji/FHSCrL85/PU8B4D4moGLHixEuQSGJJpEB47Ak7a2zZ3Jyh37pj5T0swtk8a2fCXFDb3HHZkHrofID1WQ2ifPVS0NKLCANvZU2mWjioPiZj7P2Rv4/EryIfnv5S/s5xPPyK+0FvY8j3fpOoRNu4Kox+y8/6J0K8RyGe1FBh21c98vbh/yAa3z71lbm2SV83/6KXEZu+ffVYjsq208bI34sqxaEfvcoG7D74yoZtAAA="
+
+/***/ }),
+
+/***/ 561:
+/***/ (function(module, exports) {
+
+module.exports = "data:application/font-woff;base64,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"
+
+/***/ }),
+
+/***/ 564:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(220);
+module.exports = __webpack_require__(221);
 
+
+/***/ }),
+
+/***/ 66:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "kitchenboardweather.c953f95d99b505247f64.eot";
 
 /***/ })
 
-},[559]);
+},[564]);
 //# sourceMappingURL=main.bundle.js.map
