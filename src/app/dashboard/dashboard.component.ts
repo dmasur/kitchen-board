@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/index';
 
 import { Settings } from '../shared/settings';
@@ -10,7 +10,7 @@ import { Settings } from '../shared/settings';
   styleUrls: ['dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  private onlineStatus: string;
+  @Input() private onlineStatus: string;
   private enabled: boolean;
   private thisMonth: Date;
   private nextMonth: Date;

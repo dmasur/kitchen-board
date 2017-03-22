@@ -38,14 +38,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let i of hourArray()">
-              <template ngFor [ngForOf]=[0,1] let-j>
+              <ng-template ngFor [ngForOf]=[0,1] let-j>
                 <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
                 <td class="classDurationSpacer">:</td>
                 <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][1]" class="classDurationColumn"/></td>
-              </template>
-              <template ngFor [ngForOf]=[1,2,3,4,5] let-j>
+              </ng-template>
+              <ng-template ngFor [ngForOf]=[1,2,3,4,5] let-j>
                 <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.timeTable[j][i]"/></td>
-              </template>
+              </ng-template>
             </tr>
           </tbody>
         </table>

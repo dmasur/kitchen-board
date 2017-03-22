@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/globals/gapi.client/gapi.client.calendar.d.ts" />
+
 import { Injectable } from '@angular/core';
 import { AuthenticationService, WaitService } from './index';
 import ICalendarListEntry = gapi.client.calendar.ICalendarListEntry;

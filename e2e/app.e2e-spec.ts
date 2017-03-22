@@ -1,10 +1,10 @@
-import { KitchenBoard2Page } from './app.po';
+import { KitchenBoardPage } from './app.po';
 
-describe('kitchen-board2 App', function() {
-  let page: KitchenBoard2Page;
+describe('kitchen-board App', () => {
+  let page: KitchenBoardPage;
 
   beforeEach(() => {
-    page = new KitchenBoard2Page();
+    page = new KitchenBoardPage();
   });
 
   it('should display message saying app works', () => {

@@ -18,7 +18,7 @@ export class SettingsComponent implements OnInit {
   }
 
   addHourToSchedule() {
-    this.settings.classDurationNumbers.push([[0, 0], [0, 0]])
+    this.settings.classDurationNumbers.push([[0, 0], [0, 0]]);
     event.preventDefault();
   }
 
@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit {
   }
 
   hourArray(): Array<number> {
-    return this.settings.classDurationNumbers.map((_, i) => i)
+    return this.settings.classDurationNumbers.map((_, i) => i);
   }
 
   onSubmit() {
