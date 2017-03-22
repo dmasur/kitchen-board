@@ -19,10 +19,15 @@ import { HumidorComponent } from './humidor';
 import { CalendarComponent } from './calendar';
 import { NextEventsComponent } from './next-events';
 import { MomentModule } from 'angular2-moment';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 export function settingsFactory() {
   return new CookieService(new CookieOptions({})).getObject('settings') || new Settings();
 };
+
+export function cookieOptionFactory() {
+  return new MyCookieOptions('/');
+}
 
 export const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -44,8 +49,9 @@ export const appRoutes: Routes = [
     MomentModule
   ],
   providers: [
+    Location,
     { provide: Settings, useFactory: settingsFactory },
-    { provide: CookieOptions, useClass: MyCookieOptions }
+    { provide: CookieOptions, useFactory: cookieOptionFactory }
   ],
   bootstrap: [AppComponent]
 })
