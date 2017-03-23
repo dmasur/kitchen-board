@@ -22,14 +22,16 @@ export class AuthenticationService {
 
   constructor(private settings: Settings) {
     // check the authentication silently
-    // this.internalAuthenticate(true);
+    this.internalAuthenticate(true);
     console.log('Init AuthenticationService');
   }
   silentLoginToGoogle(): Promise<void> {
+    if (this.isAuthenticated) { return; };
     // check the authentication and present a dialog on failure
     return this.internalAuthenticate(true);
   }
   login(): Promise<void> {
+    if (this.isAuthenticated) { return; };
     // check the authentication and present a dialog on failure
     return this.internalAuthenticate(false);
   }
