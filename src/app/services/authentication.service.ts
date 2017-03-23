@@ -22,15 +22,19 @@ export class AuthenticationService {
 
   constructor(private settings: Settings) {
     // check the authentication silently
-    this.internalAuthenticate(true);
+    // this.internalAuthenticate(true);
+    console.log('Init AuthenticationService');
   }
-
-  login() {
+  silentLoginToGoogle(): Promise<void> {
     // check the authentication and present a dialog on failure
-    this.internalAuthenticate(false);
+    return this.internalAuthenticate(true);
+  }
+  login(): Promise<void> {
+    // check the authentication and present a dialog on failure
+    return this.internalAuthenticate(false);
   }
 
-  private internalAuthenticate(immediate: boolean) {
+  private internalAuthenticate(immediate: boolean): Promise<void> {
     /* heavily use promises here for 2 reasons:
      *
      * nr1: readability (image callback syntax here :( )
@@ -42,16 +46,15 @@ export class AuthenticationService {
      * The callbacks passed to then() are lambdas to ensure the call applies to the correct
      * scope.
      */
-    return WaitService.waitForIt(gapi, 'client')
-      .then(() => this.proceedAuthentication(immediate))
-      .then(() => this.initializeGooglePlusAPI())
-      .then(() => this.initializeGoogleCalendarAPI())
-      .then(() => this.loadGooglePlusUserData())
-      .then((response: any) => this.setUserData(response.result.displayName, response.result.image.url))
-      .catch((error: any) => { console.log('authentication failed: ' + error) });
+    return WaitService.waitForIt(gapi, 'client').then(() => {
+      this.proceedAuthentication(immediate).then(() => this.initializeGooglePlusAPI())
+        .then(() => this.initializeGoogleCalendarAPI())
+        .then(() => this.loadGooglePlusUserData())
+        .catch((error: any) => { console.log('authentication failed: ' + error) });
+    });
   }
 
-  private proceedAuthentication(immediate: boolean) {
+  private proceedAuthentication(immediate: boolean): Promise<{}> {
     return new Promise((resolve, reject) => {
       console.log('proceed authentication - immediate: ' + immediate);
       gapi.client.setApiKey(AuthenticationService.apiKey);
@@ -63,13 +66,10 @@ export class AuthenticationService {
       };
       gapi.auth.authorize(authorisationRequestData,
         (authenticationResult) => {
-          if (authenticationResult && !authenticationResult.error) {
-            this.isAuthenticated = true;
-            this.setUserData('unknown', '');
+          this.isAuthenticated = authenticationResult && !authenticationResult.error;
+          if (this.isAuthenticated) {
             resolve('authenticated');
           } else {
-            this.isAuthenticated = false;
-            this.setUserData('', '');
             reject('not authenticated');
           }
         }
@@ -104,7 +104,9 @@ export class AuthenticationService {
   private loadGooglePlusUserData() {
     return new Promise((resolve, reject) => {
       console.log('load Google Plus data');
-      resolve(gapi.client.plus.people.get({ 'userId': 'me' }));
+      const request = gapi.client.plus.people.get({ 'userId': 'me' });
+      request.execute((response) => this.setUserData(response.result.displayName, response.result.image.url));
+      resolve();
     }).catch((reason: any) => {
       console.log('loadGooglePlusUserData Error: ' + reason);
     });

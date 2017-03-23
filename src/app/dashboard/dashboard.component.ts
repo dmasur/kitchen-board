@@ -31,6 +31,12 @@ export class DashboardComponent implements OnInit {
     this.onlineStatus = window.navigator.onLine ? 'online' : 'offline';
   }
 
+  silentLoginToGoogle(): void {
+    if (this.enabled && !this.authenticationService.isAuthenticated) {
+      this.authenticationService.silentLoginToGoogle();
+    }
+  }
+
   loginToGoogle(): void {
     if (this.enabled && !this.authenticationService.isAuthenticated) {
       this.authenticationService.login();
@@ -40,6 +46,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.setDates();
     this.setOnlineStatus();
-    this.loginToGoogle();
+    this.silentLoginToGoogle();
   }
 }
