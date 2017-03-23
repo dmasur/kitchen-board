@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
-import { CalendarService, AppointmentsService, NextEventsService } from '../services/index';
+import { CalendarService, AppointmentsService, NextEventsService } from '../services';
 import { CookieService } from 'angular2-cookie/core';
 import { Calendar, CalendarDay } from './shared/calendar';
 import { Event } from '../next-events/shared/event';

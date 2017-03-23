@@ -50,6 +50,9 @@ export class AppointmentsService {
   loadAppointments() {
     return new Promise((resolve, reject) => {
       this.getAllCalendars().then(calendars => {
+        if (calendars === undefined) {
+          return new Promise(null);
+        }
         const eventPromises = calendars.map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));
