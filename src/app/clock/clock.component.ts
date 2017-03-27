@@ -9,7 +9,7 @@ import { DateFormatPipe } from 'angular2-moment';
   styleUrls: ['clock.component.css']
 })
 export class ClockComponent implements OnInit, OnDestroy {
-  private dateTime: Date;
+  public dateTime: Date;
   private timerObserver: any;
 
   constructor(private cdRef: ChangeDetectorRef) {}

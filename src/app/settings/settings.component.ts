@@ -10,7 +10,7 @@ declare var window: any;
   styleUrls: ['settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  constructor(private cookieService: CookieService, private settings: Settings) {
+  constructor(private cookieService: CookieService, public settings: Settings) {
   }
 
   ngOnInit() {

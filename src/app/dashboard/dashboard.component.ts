@@ -8,10 +8,10 @@ import { Settings } from '../shared/settings';
   styleUrls: ['dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  @Input() private onlineStatus: string;
+  @Input() public onlineStatus: string;
   private enabled: boolean;
-  private thisMonth: Date;
-  private nextMonth: Date;
+  public thisMonth: Date;
+  public nextMonth: Date;
 
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
     this.enabled = settings.googleApiKey !== undefined &&

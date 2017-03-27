@@ -22,8 +22,14 @@ import { CalendarComponent } from './calendar';
 import { NextEventsComponent } from './next-events';
 import { AuthenticationService } from './services';
 
-const myCookieOptions = new MyCookieOptions('/');
-const settings = new CookieService(myCookieOptions).getObject('settings') as Settings || new Settings();
+// must be exported function to use...
+export function settingsFactory() {
+  return new CookieService(new MyCookieOptions('/')).getObject('settings') as Settings || new Settings();
+}
+
+export function cookieOptionsFactory() {
+  return new MyCookieOptions('/');
+}
 
 export const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -46,8 +52,8 @@ export const appRoutes: Routes = [
   ],
   providers: [
     Location,
-    { provide: Settings, useValue: settings },
-    { provide: CookieOptions, useValue: myCookieOptions }
+    { provide: Settings, useFactory: settingsFactory },
+    { provide: CookieOptions, useFactory: cookieOptionsFactory }
   ],
   bootstrap: [AppComponent]
 })
