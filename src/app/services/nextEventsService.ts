@@ -1,7 +1,7 @@
 import { Event } from '../next-events/shared/event';
 import { Day } from '../next-events/shared/day';
 import { Injectable } from '@angular/core';
-import { AppointmentsService } from './appointments.service';
+import { AppointmentsService } from '.';
 import IEvent = gapi.client.calendar.Event;
 
 @Injectable()

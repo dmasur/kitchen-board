@@ -1,0 +1,11 @@
+export { WeatherComponent } from './weather';
+export { NewsComponent} from './news';
+export { ScheduleComponent } from './schedule';
+export { CameraComponent } from './camera';
+export { QuoteComponent } from './quote';
+export { ClockComponent } from './clock';
+export { HumidorComponent } from './humidor';
+export { CalendarComponent } from './calendar';
+export { NextEventsComponent } from './next-events';
+export { SettingsComponent } from './settings';
+export { DashboardComponent } from './dashboard';

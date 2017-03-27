@@ -2,7 +2,7 @@
 /// <reference path="../../../node_modules/@types/gapi.calendar/index.d.ts" />
 
 import { Injectable } from '@angular/core';
-import { AuthenticationService, WaitService } from './index';
+import { AuthenticationService, WaitService } from '.';
 import CalendarListEntry = gapi.client.calendar.CalendarListEntry;
 import Event = gapi.client.calendar.Event;
 import Events = gapi.client.calendar.Events;

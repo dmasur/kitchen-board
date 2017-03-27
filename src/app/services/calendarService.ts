@@ -1,6 +1,6 @@
 import { Calendar, CalendarDay } from '../calendar/shared/calendar';
 import { Injectable } from '@angular/core';
-import { Event } from '../next-events/shared/event'
+import { Event } from '../next-events/shared/event';
 
 @Injectable()
 export class CalendarService {
