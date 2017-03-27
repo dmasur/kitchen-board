@@ -1,27 +1,24 @@
-/// <reference path="../../../typings/globals/gapi.client/gapi.client.calendar.d.ts" />
+/// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
+/// <reference path="../../../node_modules/@types/gapi.calendar/index.d.ts" />
 
 import { Injectable } from '@angular/core';
 import { AuthenticationService, WaitService } from './index';
-import ICalendarListEntry = gapi.client.calendar.ICalendarListEntry;
-import IEvent = gapi.client.calendar.IEvent;
+import CalendarListEntry = gapi.client.calendar.CalendarListEntry;
+import Event = gapi.client.calendar.Event;
+import Events = gapi.client.calendar.Events;
+import Calendar = gapi.client.calendar.Calendar;
 
 @Injectable()
 export class AppointmentsService {
   constructor(private authenticationService: AuthenticationService) {
   }
 
-  getAllCalendars(): Promise<Array<ICalendarListEntry>> {
+  private getAllCalendars(): Promise<Array<CalendarListEntry>> {
     return WaitService.waitForTrue(this.authenticationService, 'isAuthenticated')
       .then(() => {
         return new Promise((resolve, reject) => {
           gapi.client.load('calendar', 'v3', () => {
-            gapi.client.calendar.calendarList.list({}).execute((data) => {
-              if (!data.error) {
-                resolve(data.result.items);
-              } else {
-                reject(data.error);
-              }
-            });
+            gapi.client.calendar.calendarList.list({}).execute(jsonResp => resolve(jsonResp.items));
           });
         }).catch((reason: any) => {
           console.log('getAllCalendars Error: ');
@@ -30,29 +27,22 @@ export class AppointmentsService {
       });
   }
 
-  getEvents(calendar) {
-    return new Promise((resolve, reject) => {
+  private getEvents(calendarListEntry: CalendarListEntry): Promise<Event[]> {
+    return new Promise<Event[]>((resolve, reject) => {
       gapi.client.calendar.events.list({
-        'calendarId': calendar.id,
+        'calendarId': calendarListEntry.id,
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
         'maxResults': 10,
         'orderBy': 'startTime'
-      }).execute((resp) => {
-        resolve(resp.result.items);
-      });
-    }).catch((reason: any) => {
-      console.log('getEvents Error: ' + reason);
+      }).execute((events) => resolve(events.items));
     });
   };
 
-  loadAppointments() {
+  public loadAppointments() {
     return new Promise((resolve, reject) => {
       this.getAllCalendars().then(calendars => {
-        if (calendars === undefined) {
-          return new Promise(null);
-        }
         const eventPromises = calendars.map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));

@@ -1,4 +1,5 @@
-/// <reference path="../../../typings/globals/gapi.client/gapi.client.plus.d.ts" />
+/// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
+/// <reference path="../../../node_modules/@types/gapi.plus/index.d.ts" />
 
 import { Injectable } from '@angular/core';
 import { Settings } from '../shared/settings';
@@ -21,8 +22,6 @@ export class AuthenticationService {
   private apiKey: string;
 
   constructor(private settings: Settings) {
-    // check the authentication silently
-    this.internalAuthenticate(true);
     console.log('Init AuthenticationService');
   }
   silentLoginToGoogle(): Promise<void> {
@@ -107,7 +106,7 @@ export class AuthenticationService {
     return new Promise((resolve, reject) => {
       console.log('load Google Plus data');
       const request = gapi.client.plus.people.get({ 'userId': 'me' });
-      request.execute((response) => this.setUserData(response.result.displayName, response.result.image.url));
+      request.execute((response) => this.setUserData(response.displayName, response.image.url));
       resolve();
     }).catch((reason: any) => {
       console.log('loadGooglePlusUserData Error: ' + reason);

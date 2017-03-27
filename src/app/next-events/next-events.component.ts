@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/globals/gapi.client/gapi.client.calendar.d.ts" />
-
 import { Component, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { AppointmentsService, NextEventsService } from '../services/index';
@@ -7,13 +5,11 @@ import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
 import { Day } from './shared/day';
-import IEvent = gapi.client.calendar.IEvent;
 
 @Component({
   selector: 'app-next-events',
   templateUrl: 'next-events.component.html',
-  styleUrls: ['next-events.component.css'],
-  providers: [AppointmentsService]
+  styleUrls: ['next-events.component.css']
 })
 export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
@@ -57,9 +53,6 @@ export class NextEventsComponent extends BasePanel {
   }
 
   refreshData(): void {
-    const saveCallback = (daysWithEvents) => {
-      this.saveData(daysWithEvents);
-    };
-    this.nextEventsService.getDaysWithEvents(4, saveCallback);
+    this.nextEventsService.getDaysWithEvents(4, (daysWithEvents) => this.saveData(daysWithEvents));
   }
 }

@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CookieService, CookieOptions } from 'angular2-cookie/core';
+import { MomentModule } from 'angular2-moment';
+import { AppComponent } from './app.component';
 import { Settings } from './shared/settings';
 import { MyCookieOptions } from './cookie-options/my-cookie-options';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,16 +20,10 @@ import { ClockComponent } from './clock';
 import { HumidorComponent } from './humidor';
 import { CalendarComponent } from './calendar';
 import { NextEventsComponent } from './next-events';
-import { MomentModule } from 'angular2-moment';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthenticationService } from './services';
 
-export function settingsFactory() {
-  return new CookieService(new CookieOptions({})).getObject('settings') || new Settings();
-};
-
-export function cookieOptionFactory() {
-  return new MyCookieOptions('/');
-}
+const myCookieOptions = new MyCookieOptions('/');
+const settings = new CookieService(myCookieOptions).getObject('settings') as Settings || new Settings();
 
 export const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -50,8 +46,8 @@ export const appRoutes: Routes = [
   ],
   providers: [
     Location,
-    { provide: Settings, useFactory: settingsFactory },
-    { provide: CookieOptions, useFactory: cookieOptionFactory }
+    { provide: Settings, useValue: settings },
+    { provide: CookieOptions, useValue: myCookieOptions }
   ],
   bootstrap: [AppComponent]
 })

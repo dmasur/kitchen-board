@@ -1,10 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../services/index';
-
 import { Settings } from '../shared/settings';
 
 @Component({
-  providers: [AuthenticationService],
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
