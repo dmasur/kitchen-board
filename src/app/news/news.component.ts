@@ -3,6 +3,7 @@ import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
+import { CorsService } from '../services';
 declare var $: any;
 
 class News {
@@ -18,7 +19,7 @@ export class NewsComponent extends BasePanel {
   newsItems: Array<News> = [];
   @Input() private onlineStatus: string;
 
-  constructor(protected cookieService: CookieService, private http: Http) {
+  constructor(protected cookieService: CookieService, private http: Http, private corsService: CorsService) {
     super('news', 15 * 60, cookieService);
   }
 
@@ -53,11 +54,6 @@ export class NewsComponent extends BasePanel {
   }
 
   refreshData() {
-    const observer = this.http.get('https://crossorigin.me/http://www.spiegel.de/schlagzeilen/tops/index.rss');
-    observer.subscribe(
-      data => this.parse(data),
-      error => console.error('Error: ' + error),
-      () => console.log('Received News Headlines!')
-    );
+    this.corsService.getResponse('http://www.spiegel.de/schlagzeilen/tops/index.rss', (data) => {this.parse(data); });
   }
 }

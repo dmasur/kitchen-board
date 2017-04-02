@@ -3,6 +3,7 @@ import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
+import { CorsService } from '../services';
 
 declare var $: any;
 
@@ -20,7 +21,7 @@ export class QuoteComponent extends BasePanel {
   public quote: Quote = new Quote('', '');
   @Input() private onlineStatus: string;
 
-  constructor(protected cookieService: CookieService, private http: Http) {
+  constructor(protected cookieService: CookieService, private http: Http, private corsService: CorsService) {
     super('quote', 60 * 60, cookieService); // every Hour
   }
 
@@ -34,12 +35,7 @@ export class QuoteComponent extends BasePanel {
   }
 
   refreshData() {
-    const observer = this.http.get('https://crossorigin.me/http://spruchsammlung.com/content/rssquotes');
-    observer.subscribe(
-      data => this.parse(data),
-      error => console.error('Error: ' + error),
-      () => console.log('Received Quote!')
-    );
+    this.corsService.getResponse('http://spruchsammlung.com/content/rssquotes', (data) => {this.parse(data); });
   }
 
   loadSavedData() {

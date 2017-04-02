@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthenticationService, NextEventsService, CalendarService, AppointmentsService } from './services/index';
+import { AuthenticationService, NextEventsService, CalendarService, AppointmentsService, CorsService } from './services/index';
 import * as moment from 'moment';
 import { CookieService } from 'angular2-cookie/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthenticationService, CookieService, NextEventsService, CalendarService, AppointmentsService]
+  providers: [AuthenticationService, CookieService, NextEventsService, CalendarService, AppointmentsService, CorsService]
 })
 export class AppComponent implements OnInit  {
   @Input() public onlineStatus: string;

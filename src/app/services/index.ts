@@ -3,3 +3,4 @@ export * from './appointmentsService';
 export * from './nextEventsService';
 export * from './calendarService';
 export * from './waitService';
+export * from './corsService';

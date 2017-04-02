@@ -39,6 +39,7 @@ export class CameraComponent extends BasePanel implements OnInit {
   }
 
   refreshImage() {
+    console.log('Camera image updated');
     this.lastUpdate = new Date();
     (<HTMLImageElement>document.getElementById('cameraImage')).src = this.createUrl();
   }
