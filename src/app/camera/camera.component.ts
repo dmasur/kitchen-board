@@ -20,6 +20,10 @@ export class CameraComponent extends BasePanel implements OnInit {
     super('camera', 20, cookieService);
   }
 
+  ngOnInit() {
+    this.refreshImage();
+  }
+
   enableConditions(): {} {
     return {
       foscamUser: this.settings.cameraUsername != null,
@@ -35,12 +39,20 @@ export class CameraComponent extends BasePanel implements OnInit {
   }
 
   refreshData() {
-    this.refreshImage();
+    // Don't use normal Intervall
   }
 
   refreshImage() {
     console.log('Camera image updated');
     this.lastUpdate = new Date();
+
+    const image = new Image();
+    image.src = this.createUrl();
+
     (<HTMLImageElement>document.getElementById('cameraImage')).src = this.createUrl();
+  }
+
+  imageLoaded() {
+    this.refreshImage();
   }
 }

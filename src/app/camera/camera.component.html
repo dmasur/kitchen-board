@@ -4,5 +4,5 @@
     <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
     <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
   </div>
-  <img id="cameraImage" src="{{createUrl()}}" style="max-height: 180px"/>
+  <img id="cameraImage" (load)="imageLoaded()" style="max-height: 180px"/>
 </div>

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
-import { BasePanel } from '../shared/basePanel';
+import { BasePanel, Settings } from '../shared';
 import * as moment from 'moment';
 
 declare var $: any;
@@ -21,7 +21,7 @@ export class HumidorComponent extends BasePanel {
   public data: Data = new Data('N/A', new Date());
   @Input() private onlineStatus: string;
 
-  constructor(protected cookieService: CookieService, private http: Http) {
+  constructor(protected cookieService: CookieService, private http: Http, private settings: Settings) {
     super('humidor', 60, cookieService); // every Hour
   }
 
@@ -33,7 +33,7 @@ export class HumidorComponent extends BasePanel {
   }
 
   refreshData() {
-    const observer = this.http.get('https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json');
+    const observer = this.http.get(this.settings.firebaseUrl);
     observer.subscribe(
       data => this.parse(data),
       error => console.error('Error: ' + error),
