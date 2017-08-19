@@ -5,6 +5,7 @@ export class Settings {
   forecastIoApiKey: string;
   googleClientId: string;
   googleApiKey: string;
+  cameraIp: string;
   cameraUsername: string;
   cameraPassword: string;
   timeTable: Array<Array<string>> = [

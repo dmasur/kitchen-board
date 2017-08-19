@@ -14,7 +14,6 @@ import { Settings } from '../shared/settings';
 export class CameraComponent extends BasePanel implements OnInit {
   dateTime: Date;
   @Input() private onlineStatus: string;
-  public baseUrl = 'https://192.168.178.21:443/cgi-bin/CGIProxy.fcgi';
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
     super('camera', 20, cookieService);
@@ -32,7 +31,7 @@ export class CameraComponent extends BasePanel implements OnInit {
   }
 
   createUrl(): string {
-    return this.baseUrl +
+    return 'https://' + this.settings.cameraIp + ':443/cgi-bin/CGIProxy.fcgi' +
       '?cmd=snapPicture2&usr=' + this.settings.cameraUsername +
       '&pwd=' + this.settings.cameraPassword +
       '&date=' + new Date().getTime();
