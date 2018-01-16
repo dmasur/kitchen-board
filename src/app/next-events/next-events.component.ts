@@ -33,6 +33,7 @@ export class NextEventsComponent extends BasePanel {
   }
 
   loadSavedData(): void {
+    console.log('loadSaveData from next Event', new Date())
     this.daysWithEvents = super.loadSavedData() as Array<Day>;
   }
 
@@ -53,7 +54,9 @@ export class NextEventsComponent extends BasePanel {
   }
 
   refreshData(): void {
+    console.log('refreshData from next Event', new Date())
     this.nextEventsService.getDaysWithEvents(4, (daysWithEvents) => {
+      console.log('refreshData from next Event success', new Date())
       this.saveData(daysWithEvents);
       this.daysWithEvents = daysWithEvents;
     });
