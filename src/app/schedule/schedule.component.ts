@@ -44,11 +44,14 @@ export class ScheduleComponent extends BasePanel {
   getDisplayedDate(currentDate: Date): Date {
     let displayedDay: Date;
     if (currentDate > this.classDurations[this.classDurations.length - 1].to) {
+      console.log("Scheduler: Display next date", currentDate, this.classDurations[this.classDurations.length - 1].to);
       displayedDay = this.getNextDay(currentDate);
     } else {
+      console.log("Scheduler: Display this date", currentDate, this.classDurations[this.classDurations.length - 1].to);
       displayedDay = currentDate;
     }
     while (!this.timeTableHasClasses(displayedDay)) {
+      console.log("Skip this day: no scheudle");
       displayedDay = this.getNextDay(displayedDay);
     }
     return displayedDay;

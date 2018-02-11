@@ -4,9 +4,6 @@ import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
   async, inject
 } from '@angular/core/testing';
 
@@ -20,7 +17,7 @@ describe('Component: Schedule', () => {
 
   it('should display today before 12 o\'clock', () => {
     let component = new ScheduleComponent(null, null);
-    var date = new Date(2000, 1, 1, 8);
+    var date = new Date(2000, 1, 1, 11);
     var displayedDate = component.getDisplayedDate(date);
     expect(displayedDate).toBe(date);
     expect(component).toBeTruthy();
@@ -28,7 +25,7 @@ describe('Component: Schedule', () => {
 
   it('should display today after 12 o\'clock', () => {
     let component = new ScheduleComponent(null, null);
-    var date = new Date(2000, 1, 1, 15);
+    var date = new Date(2000, 1, 1, 13);
     var displayedDate = component.getDisplayedDate(date);
     expect(displayedDate.getTime()).toBe(new Date(2000, 1, 2, 15).getTime());
     expect(component).toBeTruthy();
