@@ -16,7 +16,7 @@ export class AppointmentsService {
   private getAllCalendars(): Promise<Array<CalendarListEntry>> {
     return WaitService.waitForTrue(this.authenticationService, 'isAuthenticated')
       .then(() => {
-        return new Promise((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
           gapi.client.load('calendar', 'v3', () => {
             gapi.client.calendar.calendarList.list({}).execute(jsonResp => resolve(jsonResp.items));
           });

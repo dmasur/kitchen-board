@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class WaitService {
     static waitForIt(objectToObserve, propertyToObserve) {
-        return new Promise(function (resolve, reject) {
+        return new Promise<any>(function (resolve, reject) {
             const checkIt = function (objectToObserve, propertyToObserve) {
                 if (typeof objectToObserve[propertyToObserve] == 'undefined') {
                     console.log('Waiting 0.5 Second for property ' + propertyToObserve + ' on ' + objectToObserve);
@@ -17,7 +17,7 @@ export class WaitService {
     }
 
     static waitForTrue(objectToObserve, propertyToObserve) {
-        return new Promise(function (resolve, reject) {
+        return new Promise<any>(function (resolve, reject) {
             const checkIt = function (objectToObserve, propertyToObserve) {
                 if (objectToObserve[propertyToObserve] === false) {
                     console.log('Waiting 0.5 Second for property ' + propertyToObserve + ' on ' + objectToObserve);
