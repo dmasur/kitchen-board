@@ -41,17 +41,23 @@ export class ScheduleComponent extends BasePanel {
     return new Date(day.getTime() + 24 * 60 * 60 * 1000);
   }
 
-  getDisplayedDate(currentDate: Date): Date {
+  getDisplayedDate(currentDate: Date, withLog: boolean = false): Date {
     let displayedDay: Date;
     if (currentDate > this.classDurations[this.classDurations.length - 1].to) {
-      console.log("Scheduler: Display next date", currentDate, this.classDurations[this.classDurations.length - 1].to);
+      if (withLog) {
+        console.log('Scheduler: Display next date', currentDate, this.classDurations[this.classDurations.length - 1].to);
+      }
       displayedDay = this.getNextDay(currentDate);
     } else {
-      console.log("Scheduler: Display this date", currentDate, this.classDurations[this.classDurations.length - 1].to);
+      if (withLog) {
+        console.log('Scheduler: Display this date', currentDate, this.classDurations[this.classDurations.length - 1].to);
+      }
       displayedDay = currentDate;
     }
     while (!this.timeTableHasClasses(displayedDay)) {
-      console.log("Skip this day: no scheudle");
+      if (withLog) {
+        console.log('Skip this day: no scheudle');
+      }
       displayedDay = this.getNextDay(displayedDay);
     }
     return displayedDay;
@@ -62,7 +68,7 @@ export class ScheduleComponent extends BasePanel {
   }
 
   refreshData() {
-    const displayedDay = this.getDisplayedDate(new Date());
+    const displayedDay = this.getDisplayedDate(new Date(), true);
     const classInfos = this.getClassInfos(this.classDurations, this.settings.timeTable, displayedDay);
     this.schedule = new Schedule(displayedDay, classInfos);
     this.saveData(this.schedule);

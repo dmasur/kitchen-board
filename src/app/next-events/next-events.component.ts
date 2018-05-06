@@ -24,6 +24,7 @@ export class NextEventsComponent extends BasePanel {
   }
 
   enableConditions(): {} {
+    debugger
     return {
       googleApiKey: this.settings.googleApiKey != null,
       googleClientId: this.settings.googleClientId != null,
@@ -32,9 +33,19 @@ export class NextEventsComponent extends BasePanel {
     };
   }
 
+  filterOldEvents(daysWithEvents: Array<Day>): Array<Day> {
+    if(daysWithEvents === undefined) {
+      return new Array<Day>();
+    }
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    daysWithEvents.filter((day) => day.date >= today);
+    return daysWithEvents;
+  }
+
   loadSavedData(): void {
-    console.log('loadSaveData from next Event', new Date())
-    this.daysWithEvents = super.loadSavedData() as Array<Day>;
+    console.log('loadSaveData from next Event', new Date());
+    this.daysWithEvents = this.filterOldEvents(super.loadSavedData() as Array<Day>);
   }
 
   rowClass(day: Day): string {
@@ -42,7 +53,7 @@ export class NextEventsComponent extends BasePanel {
       return '';
     }
     const today = new Date();
-    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
     const dateString = NextEventsService.dateToString(new Date(day.date.toString()));
     if (dateString === NextEventsService.dateToString(today)) {
       return 'success';
@@ -56,7 +67,8 @@ export class NextEventsComponent extends BasePanel {
   refreshData(): void {
     console.log('refreshData from next Event', new Date())
     this.nextEventsService.getDaysWithEvents(4, (daysWithEvents) => {
-      console.log('refreshData from next Event success', new Date())
+      console.log('refreshData from next Event success', new Date());
+      daysWithEvents = this.filterOldEvents(daysWithEvents);
       this.saveData(daysWithEvents);
       this.daysWithEvents = daysWithEvents;
     });
