@@ -9,6 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "buildGh": "ng build --prod --base-href \"https://dmasur.github.io/kitchen-board/\"",
+    "deployGh": "angular-cli-ghpages --no-silent",
     "gh-page": "ng build --prod --base-href \"https://dmasur.github.io/kitchen-board/\" && angular-cli-ghpages --no-silent"
   },
   "private": true,
