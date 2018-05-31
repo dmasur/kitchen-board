@@ -5,11 +5,13 @@ import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
 import { Day } from './shared/day';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-next-events',
   templateUrl: 'next-events.component.html',
-  styleUrls: ['next-events.component.css']
+  styleUrls: ['next-events.component.css'],
+  providers: [NGXLogger]
 })
 export class NextEventsComponent extends BasePanel {
   daysWithEvents: Array<Day>;
@@ -19,12 +21,12 @@ export class NextEventsComponent extends BasePanel {
     private appointmentsService: AppointmentsService,
     protected cookieService: CookieService,
     private settings: Settings,
-    private nextEventsService: NextEventsService) {
+    private nextEventsService: NextEventsService,
+    private logger: NGXLogger) {
     super('nextEvents', 10 * 60, cookieService);
   }
 
   enableConditions(): {} {
-    debugger
     return {
       googleApiKey: this.settings.googleApiKey != null,
       googleClientId: this.settings.googleClientId != null,
@@ -44,7 +46,7 @@ export class NextEventsComponent extends BasePanel {
   }
 
   loadSavedData(): void {
-    console.log('loadSaveData from next Event', new Date());
+    this.logger.info('loadSaveData from next Event', new Date());
     this.daysWithEvents = this.filterOldEvents(super.loadSavedData() as Array<Day>);
   }
 

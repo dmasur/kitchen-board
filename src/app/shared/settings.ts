@@ -8,6 +8,11 @@ export class Settings {
   cameraIp: string;
   cameraUsername: string;
   cameraPassword: string;
+  weatherCity: string;
+  weatherLongitude: string;
+  weatherLatitude: string;
+  enableSchedule = true;
+  enableHumidor = true;
   timeTable: Array<Array<string>> = [
     [],
     ['Mathe', 'Sport', 'Religon', 'Englisch'],

@@ -13,6 +13,7 @@ import { NewsComponent, ScheduleComponent, CameraComponent, WeatherComponent, Qu
 import { ClockComponent, HumidorComponent, CalendarComponent, NextEventsComponent, SettingsComponent } from './components.index';
 import { DashboardComponent } from './components.index';
 import { AuthenticationService } from './services';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 // must be exported function to use...
 export function settingsFactory() {
@@ -28,6 +29,7 @@ export const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'settings', component: SettingsComponent }
 ];
+const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTriggerCSharp1';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ export const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MomentModule
+    MomentModule,
+    LoggerModule.forRoot({serverLoggingUrl: serverLogUrl, level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.DEBUG})
   ],
   providers: [
     Location,

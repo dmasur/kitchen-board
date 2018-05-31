@@ -1,5 +1,8 @@
 <div class="panel panel-default" *ngIf="schedule">
-  <div class="panel-heading lead">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}</div>
+  <div class="panel-heading lead">
+    Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}
+    <span *ngIf="!isEnabled" class="alert-danger">Disabled</span>
+  </div>
   <table class="table table-striped">
     <tbody>
       <tr *ngFor="let classInfo of schedule.classInfos" class="{{getClassInfoClass(classInfo.classDuration)}}">

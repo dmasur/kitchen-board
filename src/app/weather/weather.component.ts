@@ -57,6 +57,9 @@ export class WeatherComponent extends BasePanel {
     return {
       forecastIoApiKey: this.settings.forecastIoApiKey !== undefined,
       onlineStatus: this.onlineStatus === 'online',
+      weatherCity: this.settings.weatherCity !== undefined,
+      weatherLongitude: this.settings.weatherLongitude !== undefined,
+      weatherLatitude: this.settings.weatherLatitude !== undefined
     }
   }
 

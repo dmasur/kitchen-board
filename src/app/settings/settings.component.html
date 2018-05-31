@@ -15,6 +15,14 @@
           <input [(ngModel)]="settings.googleApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleApiKey">
         </div>
         <div class="form-group">
+          <label for="weatherCity">Weather City</label>
+          <input [(ngModel)]="settings.weatherCity" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherCity">
+          <label for="weatherLongitude">Weather Longitude</label>
+          <input [(ngModel)]="settings.weatherLongitude" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherLongitude">
+          <label for="weatherLatitude">Weather Latitude</label>
+          <input [(ngModel)]="settings.weatherLatitude" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherLatitude">
+        </div>
+        <div class="form-group">
           <label for="cameraIp">Foscam IP</label>
           <input [(ngModel)]="settings.cameraIp" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraIp">
           
@@ -28,6 +36,14 @@
           <label for="firebaseUrl">Humidor Firebase Url</label>
           <input [(ngModel)]="settings.firebaseUrl" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="firebaseUrl">
           <span id="helpBlock" class="help-block">Example: https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json</span>
+        </div>
+        <div class="form-group">
+          <label for="enableSchedule">Enable Schedule</label>
+          <input [(ngModel)]="settings.enableSchedule" [ngModelOptions]="{standalone: true}" type="checkbox" class="form-control" id="enableSchedule">
+        </div>
+        <div class="form-group">
+          <label for="enableHumidor">Enable Humidor</label>
+          <input [(ngModel)]="settings.enableHumidor" [ngModelOptions]="{standalone: true}" type="checkbox" class="form-control" id="enableHumidor">
         </div>
       </div>
       <div class="col-md-12">

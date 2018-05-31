@@ -12,6 +12,9 @@ export class DashboardComponent implements OnInit {
   private enabled: boolean;
   public thisMonth: Date;
   public nextMonth: Date;
+  public weatherCity: string;
+  public weatherLongitude: string;
+  public weatherLatitude: string;
 
   constructor(private authenticationService: AuthenticationService, private settings: Settings) {
     this.enabled = settings.googleApiKey !== undefined &&
@@ -45,5 +48,8 @@ export class DashboardComponent implements OnInit {
     this.setDates();
     this.setOnlineStatus();
     this.silentLoginToGoogle();
+    this.weatherCity = this.settings.weatherCity;
+    this.weatherLongitude = this.settings.weatherLongitude;
+    this.weatherLatitude = this.settings.weatherLatitude;
   }
 }

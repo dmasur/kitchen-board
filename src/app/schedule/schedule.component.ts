@@ -30,7 +30,9 @@ export class ScheduleComponent extends BasePanel {
   }
 
   enableConditions(): {} {
-    return {};
+    return {
+      isEnabled: this.settings.enableSchedule !== undefined && this.settings.enableSchedule
+    };
   }
 
   timeTableHasClasses(date: Date): boolean {

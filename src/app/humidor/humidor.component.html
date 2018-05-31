@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading"><span class="lead">Humidor</span>
     <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
+    <span *ngIf="!isEnabled" class="alert-danger">Disabled</span>
   </div>
   <div *ngIf="data">
     <p class="humidity">{{data.humidity}} %</p>

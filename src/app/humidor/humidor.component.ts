@@ -47,7 +47,8 @@ export class HumidorComponent extends BasePanel {
 
   enableConditions(): {} {
     return {
-      onlineStatus: this.onlineStatus === 'online'
+      onlineStatus: this.onlineStatus === 'online',
+      enabled: this.settings.enableHumidor !== undefined && this.settings.enableHumidor
     };
   }
 }
