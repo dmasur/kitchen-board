@@ -46,7 +46,7 @@ export class NextEventsService {
     const hasTime = eventItem.start.dateTime !== undefined;
     const date = hasTime ? eventItem.start.dateTime : eventItem.start.date;
     let displayName = eventItem.creator.displayName;
-    if (displayName.includes('webcal')) { displayName = null; }
+    if (displayName === undefined || displayName.includes('webcal')) { displayName = null; }
     return new Event(new Date(date), eventItem.summary, hasTime, displayName);
   }
 
