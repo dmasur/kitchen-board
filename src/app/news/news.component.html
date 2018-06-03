@@ -5,7 +5,7 @@
     <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
   </div>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let news of newsItems">
+    <li class="list-group-item" *ngFor="let news of newsItems; let i = index" (click)="openNews(i)">
       <img *ngIf="news.image" src="{{news.image}}" />
       <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>
     </li>

@@ -1,5 +1,6 @@
+export { NewsFormModalComponent } from './news-form-modal/news-form-modal.component';
 export { WeatherComponent } from './weather';
-export { NewsComponent} from './news';
+export { NewsComponent } from './news';
 export { ScheduleComponent } from './schedule';
 export { CameraComponent } from './camera';
 export { QuoteComponent } from './quote';

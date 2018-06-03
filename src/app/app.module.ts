@@ -11,9 +11,11 @@ import { Settings } from './shared/settings';
 import { MyCookieOptions } from './cookie-options/my-cookie-options';
 import { NewsComponent, ScheduleComponent, CameraComponent, WeatherComponent, QuoteComponent } from './components.index';
 import { ClockComponent, HumidorComponent, CalendarComponent, NextEventsComponent, SettingsComponent } from './components.index';
+import { NewsFormModalComponent } from './components.index';
 import { DashboardComponent } from './components.index';
 import { AuthenticationService } from './services';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // must be exported function to use...
 export function settingsFactory() {
@@ -35,18 +37,22 @@ const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTrig
   declarations: [
     AppComponent, DashboardComponent, SettingsComponent, HumidorComponent,
     NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent,
-    ClockComponent, QuoteComponent, CalendarComponent, CameraComponent
+    ClockComponent, QuoteComponent, CalendarComponent, CameraComponent, NewsFormModalComponent
+  ],
+  entryComponents: [
+    NewsFormModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot(),
     MomentModule,
     LoggerModule.forRoot({serverLoggingUrl: serverLogUrl, level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.DEBUG})
   ],
   providers: [
-    Location,
+    Location, NewsFormModalComponent, NgbActiveModal,
     { provide: Settings, useFactory: settingsFactory },
     { provide: CookieOptions, useFactory: cookieOptionsFactory }
   ],

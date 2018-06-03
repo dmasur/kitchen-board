@@ -1,3 +1,4 @@
+import { NewsFormModalComponent } from './../news-form-modal/news-form-modal.component';
 import { Component, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
@@ -5,9 +6,13 @@ import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
 import { CorsService } from '../services';
 declare var $: any;
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 class News {
-  constructor(public title: string, public image: string, public summary: string, public date: Date) { }
+  constructor(public title: string,
+    public image: string,
+    public summary: string,
+    public date: Date) { }
 }
 
 @Component({
@@ -19,8 +24,18 @@ export class NewsComponent extends BasePanel {
   newsItems: Array<News> = [];
   @Input() private onlineStatus: string;
 
-  constructor(protected cookieService: CookieService, private http: Http, private corsService: CorsService) {
-    super('news', 15 * 60, cookieService);
+  constructor(protected cookieService: CookieService,
+    private http: Http,
+    private corsService: CorsService,
+    private newsFormModalComponent: NewsFormModalComponent,
+    private modalService: NgbModal) {
+      super('news', 15 * 60, cookieService);
+  }
+
+  openNews(index: number) {
+    console.log(this.newsItems[index]);
+    debugger
+    this.modalService.open(NewsFormModalComponent);
   }
 
   loadSavedData() {
