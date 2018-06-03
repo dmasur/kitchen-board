@@ -58,9 +58,9 @@ export class NextEventsComponent extends BasePanel {
     const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
     const dateString = NextEventsService.dateToString(new Date(day.date.toString()));
     if (dateString === NextEventsService.dateToString(today)) {
-      return 'success';
+      return 'table-success';
     } else if (dateString === NextEventsService.dateToString(tomorrow)) {
-      return 'info';
+      return 'table-info';
     } else {
       return '';
     }

@@ -1,8 +1,8 @@
-<div class="panel panel-default camera">
-  <div class="panel-heading">
-    <span class="lead">Eingang</span>
-    <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
-    <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
+<div class="card camera">
+  <div class="card-header"> <span class="lead">Eingang</span>
+  <span class="small last-update">Stand: {{lastUpdate | amDateFormat: &apos;LT&apos;}}</span>
+  <span class="small error-message" *ngIf="errorMessage">
+    <br>Fehler: {{errorMessage}}</span>
   </div>
-  <img id="cameraImage" (load)="imageLoaded()" style="max-height: 180px"/>
+  <img id="cameraImage" (load)="imageLoaded()" style="max-height: 180px">
 </div>

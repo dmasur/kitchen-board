@@ -1,47 +1,48 @@
 <div class="dashboard container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <div class="row">
-        <div class="item col-md-9">
-          <app-quote onlineStatus={{onlineStatus}}></app-quote>
+        <div class="item col-lg-9">
+          <app-quote onlineStatus="{{onlineStatus}}"></app-quote>
         </div>
-          <div class="item col-md-3">
-            <app-humidor onlineStatus={{onlineStatus}}></app-humidor>
-          </div>
-        <div class="item col-md-6">
+        <div class="item col-lg-3">
+          <app-humidor onlineStatus="{{onlineStatus}}"></app-humidor>
+        </div>
+        <div class="item col-lg-6">
           <app-clock></app-clock>
           <app-schedule></app-schedule>
         </div>
-        <div class="item col-md-6">
-          <app-news onlineStatus={{onlineStatus}}></app-news>
+        <div class="item col-lg-6">
+          <app-news onlineStatus="{{onlineStatus}}"></app-news>
         </div>
       </div>
     </div>
-    <div class="item col-md-6">
+    <div class="item col-lg-6">
       <div class="row">
-        <div class="item col-md-3">
+        <div class="item col-lg-3">
           <div class="row">
-            <div class="item col-md-12">
-              <app-calendar dateString={{thisMonth}} onlineStatus={{onlineStatus}}></app-calendar>
+            <div class="item col-lg-12">
+              <app-calendar dateString="{{thisMonth}}" onlineStatus="{{onlineStatus}}"></app-calendar>
             </div>
           </div>
           <div class="row">
-            <div class="item col-md-12">
-              <app-calendar dateString={{nextMonth}} onlineStatus={{onlineStatus}}></app-calendar>
+            <div class="item col-lg-12">
+              <app-calendar dateString="{{nextMonth}}" onlineStatus="{{onlineStatus}}"></app-calendar>
             </div>
           </div>
         </div>
-        <div class="item col-md-9">
-          <app-next-events onlineStatus={{onlineStatus}}></app-next-events>
+        <div class="item col-lg-9">
+          <app-next-events onlineStatus="{{onlineStatus}}"></app-next-events>
         </div>
       </div>
       <div class="row">
-        <div class="item col-md-6">
-          <app-weather city="{{weatherCity}}" longitude="{{weatherLongitude}}" latitude="{{weatherLatitude}}" onlineStatus={{onlineStatus}}></app-weather>
+        <div class="item col-lg-6">
+          <app-weather city="{{weatherCity}}" longitude="{{weatherLongitude}}" latitude="{{weatherLatitude}}" onlineStatus="{{onlineStatus}}"></app-weather>
         </div>
-        <div class="item col-md-6">
-          <!--<app-weather city="Düsseldorf" longitude="51.233333" latitude="6.783333" onlineStatus={{onlineStatus}}></app-weather>-->
-          <app-camera onlineStatus={{onlineStatus}}></app-camera>
+        <div class="item col-lg-6">
+          <!--<app-weather city="Düsseldorf" longitude="51.233333" latitude="6.783333"
+                    onlineStatus={{onlineStatus}}></app-weather>-->
+          <app-camera onlineStatus="{{onlineStatus}}"></app-camera>
         </div>
       </div>
     </div>

@@ -58,13 +58,13 @@ export class CalendarComponent extends BasePanel implements OnInit {
       return '';
     }
     if (day.hasEvents) {
-      return 'success';
+      return 'table-success';
     }
     if (CalendarService.isToday(day.date)) {
-      return 'danger';
+      return 'table-danger';
     }
     if (CalendarService.isWeekend(day.date)) {
-      return 'info';
+      return 'table-info';
     }
     return '';
   }

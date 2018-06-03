@@ -1,13 +1,15 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <span class="lead">Nachrichten</span>
-    <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
-    <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let news of newsItems; let i = index" (click)="openNews(i)">
-      <img *ngIf="news.image" src="{{news.image}}" />
-      <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>
-    </li>
-  </ul>
+<div class="card">
+    <div class="card-header">
+        Nachrichten
+        <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
+        <span class="small error-message" *ngIf="errorMessage">
+            <br>Fehler: {{errorMessage}}
+        </span>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let news of newsItems; let i = index" (click)="openNews(i)">
+            <img *ngIf="news.image" src="{{news.image}}">
+            <span>{{news.date | amDateFormat: 'LT'}}: {{news.title}}</span>
+        </li>
+    </ul>
 </div>

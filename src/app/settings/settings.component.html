@@ -1,87 +1,108 @@
 <div class="settings container">
-  <form (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="forecastIoApiKey">Forecast.io Api Key</label>
-          <input [(ngModel)]="settings.forecastIoApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="forecastIoApiKey">
+    <form (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="forecastIoApiKey">Forecast.io Api Key</label>
+                    <input [(ngModel)]="settings.forecastIoApiKey"
+                    [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                    id="forecastIoApiKey">
+                </div>
+                <div class="form-group">
+                    <label for="googleClientId">Google Client ID</label>
+                    <input [(ngModel)]="settings.googleClientId" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="googleClientId">
+                </div>
+                <div class="form-group">
+                    <label for="googleApiKey">Google Api Key</label>
+                    <input [(ngModel)]="settings.googleApiKey" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="googleApiKey">
+                </div>
+                <div class="form-group">
+                    <label for="weatherCity">Weather City</label>
+                    <input [(ngModel)]="settings.weatherCity" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="weatherCity">
+                    <label for="weatherLongitude">Weather Longitude</label>
+                    <input [(ngModel)]="settings.weatherLongitude"
+                    [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                    id="weatherLongitude">
+                    <label for="weatherLatitude">Weather Latitude</label>
+                    <input [(ngModel)]="settings.weatherLatitude"
+                    [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                    id="weatherLatitude">
+                </div>
+                <div class="form-group">
+                    <label for="cameraIp">Foscam IP</label>
+                    <input [(ngModel)]="settings.cameraIp" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="cameraIp">
+                    <label for="cameraUsername">Foscam Username</label>
+                    <input [(ngModel)]="settings.cameraUsername" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="cameraUsername">
+                    <label for="cameraPassword">Foscam Password</label>
+                    <input [(ngModel)]="settings.cameraPassword" [ngModelOptions]="{standalone: true}"
+                    type="text" class="form-control" id="cameraPassword">
+                </div>
+                <div class="form-group">
+                    <label for="firebaseUrl">Humidor Firebase Url</label>
+                    <input [(ngModel)]="settings.firebaseUrl"
+                    [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                    id="firebaseUrl"> <span id="helpBlock" class="form-text">Example: https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json</span>
+                </div>
+                <div class="form-group">
+                    <label for="enableSchedule">Enable Schedule</label>
+                    <input [(ngModel)]="settings.enableSchedule" [ngModelOptions]="{standalone: true}"
+                    type="checkbox" class="form-control" id="enableSchedule">
+                </div>
+                <div class="form-group">
+                    <label for="enableHumidor">Enable Humidor</label>
+                    <input [(ngModel)]="settings.enableHumidor" [ngModelOptions]="{standalone: true}"
+                    type="checkbox" class="form-control" id="enableHumidor">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                 <h3>TimeTable</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Stundenanfang</th>
+                            <th colspan="3">Stundenende</th>
+                            <th>Montag</th>
+                            <th>Dienstag</th>
+                            <th>Mittwoch</th>
+                            <th>Donnerstag</th>
+                            <th>Freitag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of hourArray()">
+                            <ng-template ngFor="" [ngForOf]="[0,1]" let-j="">
+                                <td>
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][0]"
+                                    class="classDurationColumn">
+                                </td>
+                                <td class="classDurationSpacer">:</td>
+                                <td>
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][1]"
+                                    class="classDurationColumn">
+                                </td>
+                            </ng-template>
+                            <ng-template ngFor="" [ngForOf]="[1,2,3,4,5]" let-j="">
+                                <td>
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.timeTable[j][i]">
+                                </td>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </table> <a href="#" class="btn btn-secondary" (click)="addHourToSchedule()">Add hour to schedule</a>
+                <a
+                href="#" class="btn btn-secondary" (click)="removeHourFromSchedule()">Remove hour from schedule</a>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="googleClientId">Google Client ID</label>
-          <input [(ngModel)]="settings.googleClientId" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleClientId">
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-secondary">Speichern</button>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="googleApiKey">Google Api Key</label>
-          <input [(ngModel)]="settings.googleApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="googleApiKey">
-        </div>
-        <div class="form-group">
-          <label for="weatherCity">Weather City</label>
-          <input [(ngModel)]="settings.weatherCity" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherCity">
-          <label for="weatherLongitude">Weather Longitude</label>
-          <input [(ngModel)]="settings.weatherLongitude" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherLongitude">
-          <label for="weatherLatitude">Weather Latitude</label>
-          <input [(ngModel)]="settings.weatherLatitude" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="weatherLatitude">
-        </div>
-        <div class="form-group">
-          <label for="cameraIp">Foscam IP</label>
-          <input [(ngModel)]="settings.cameraIp" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraIp">
-          
-          <label for="cameraUsername">Foscam Username</label>
-          <input [(ngModel)]="settings.cameraUsername" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraUsername">
-        
-          <label for="cameraPassword">Foscam Password</label>
-          <input [(ngModel)]="settings.cameraPassword" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="cameraPassword">
-        </div>
-        <div class="form-group">
-          <label for="firebaseUrl">Humidor Firebase Url</label>
-          <input [(ngModel)]="settings.firebaseUrl" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="firebaseUrl">
-          <span id="helpBlock" class="help-block">Example: https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json</span>
-        </div>
-        <div class="form-group">
-          <label for="enableSchedule">Enable Schedule</label>
-          <input [(ngModel)]="settings.enableSchedule" [ngModelOptions]="{standalone: true}" type="checkbox" class="form-control" id="enableSchedule">
-        </div>
-        <div class="form-group">
-          <label for="enableHumidor">Enable Humidor</label>
-          <input [(ngModel)]="settings.enableHumidor" [ngModelOptions]="{standalone: true}" type="checkbox" class="form-control" id="enableHumidor">
-        </div>
-      </div>
-      <div class="col-md-12">
-        <h3>TimeTable</h3>
-        <table class="table">
-          <thead>
-            <tr>
-              <th colspan=3>Stundenanfang</th>
-              <th colspan=3>Stundenende</th>
-              <th>Montag</th>
-              <th>Dienstag</th>
-              <th>Mittwoch</th>
-              <th>Donnerstag</th>
-              <th>Freitag</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let i of hourArray()">
-              <ng-template ngFor [ngForOf]=[0,1] let-j>
-                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][0]" class="classDurationColumn"/></td>
-                <td class="classDurationSpacer">:</td>
-                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.classDurationNumbers[i][j][1]" class="classDurationColumn"/></td>
-              </ng-template>
-              <ng-template ngFor [ngForOf]=[1,2,3,4,5] let-j>
-                <td><input [ngModelOptions]="{standalone: true}" [(ngModel)]="settings.timeTable[j][i]"/></td>
-              </ng-template>
-            </tr>
-          </tbody>
-        </table>
-        <a href="#" class="btn btn-default" (click)="addHourToSchedule()">Add hour to schedule</a>
-        <a href="#" class="btn btn-default" (click)="removeHourFromSchedule()">Remove hour from schedule</a>
-      </div>
-    </div>
-    <hr/>
-    <div class="row">
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-default">Speichern</button>
-      </div>
-    </div>
-  </form>
+    </form>
 </div>

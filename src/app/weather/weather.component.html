@@ -1,45 +1,61 @@
-<div class="weather panel panel-default">
-  <div class="panel-heading"><span class="lead">{{city}}</span>
-    <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
-    <span class="small error-message" *ngIf="errorMessage"><br />Fehler: {{errorMessage}}</span>
-    <span *ngIf="!isEnabled" class="alert-danger">Disabled</span>
-  </div>
-  <table class="table" *ngIf="weatherForcast">
-    <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
-      <td class="day">{{dailyWeatherInfo.date | amDateFormat: 'dd'}}</td>
-      <td class="icon"><i class="{{getIconClass(dailyWeatherInfo.icon)}}"></i></td>
-      <td class="temp" colspan=2>{{dailyWeatherInfo.maxTemp}}°C - {{dailyWeatherInfo.minTemp}}°C</td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <table class="dailyInfos">
-          <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
-            <td>
-              <span *ngIf="dailyWeatherInfo.morning">
-                <i class="{{getIconClass(dailyWeatherInfo.morning.icon)}}"></i><br/>{{dailyWeatherInfo.morning.averageTemp}}°C
-              </span>
+<div class="weather card">
+    <div class="card-header">
+        {{city}}
+        <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
+        <span class="small error-message" *ngIf="errorMessage">
+            <br>Fehler: {{errorMessage}}</span>
+        <span *ngIf="!isEnabled" class="alert-danger">Disabled</span>
+    </div>
+    <table class="table" *ngIf="weatherForcast">
+        <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
+            <td class="day">{{dailyWeatherInfo.date | amDateFormat: 'dd'}}</td>
+            <td class="icon">
+                <i class="{{getIconClass(dailyWeatherInfo.icon)}}"></i>
             </td>
-            <td>
-              <span *ngIf="dailyWeatherInfo.midday">
-                <i class="{{getIconClass(dailyWeatherInfo.midday.icon)}}"></i><br/>{{dailyWeatherInfo.midday.averageTemp}}°C
-              </span>
+            <td class="temp" colspan="2">{{dailyWeatherInfo.maxTemp}}&#xB0;C - {{dailyWeatherInfo.minTemp}}&#xB0;C</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table class="dailyInfos">
+                    <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
+                        <td>
+                            <span *ngIf="dailyWeatherInfo.morning">
+
+                                <i class="{{getIconClass(dailyWeatherInfo.morning.icon)}}"></i>
+                                <br>{{dailyWeatherInfo.morning.averageTemp}}&#xB0;C
+
+                            </span>
+                        </td>
+                        <td>
+                            <span *ngIf="dailyWeatherInfo.midday">
+
+                                <i class="{{getIconClass(dailyWeatherInfo.midday.icon)}}"></i>
+                                <br>{{dailyWeatherInfo.midday.averageTemp}}&#xB0;C
+
+                            </span>
+                        </td>
+                        <td>
+                            <span *ngIf="dailyWeatherInfo.afternoon">
+
+                                <i class="{{getIconClass(dailyWeatherInfo.afternoon.icon)}}"></i>
+                                <br>{{dailyWeatherInfo.afternoon.averageTemp}}&#xB0;C
+
+                            </span>
+                        </td>
+                        <td>
+                            <span *ngIf="dailyWeatherInfo.evening">
+
+                                <i class="{{getIconClass(dailyWeatherInfo.evening.icon)}}"></i>
+                                <br>{{dailyWeatherInfo.evening.averageTemp}}&#xB0;C
+
+                            </span>
+                        </td>
+                    </tr>
+                </table>
             </td>
-            <td>
-              <span *ngIf="dailyWeatherInfo.afternoon">
-                <i class="{{getIconClass(dailyWeatherInfo.afternoon.icon)}}"></i><br/>{{dailyWeatherInfo.afternoon.averageTemp}}°C
-              </span>
-            </td>
-            <td>
-              <span *ngIf="dailyWeatherInfo.evening">
-                <i class="{{getIconClass(dailyWeatherInfo.evening.icon)}}"></i><br/>{{dailyWeatherInfo.evening.averageTemp}}°C
-              </span>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">{{weatherForcast.summary}}</td>
-    </tr>
-  </table>
+        </tr>
+        <tr>
+            <td colspan="4">{{weatherForcast.summary}}</td>
+        </tr>
+    </table>
 </div>
