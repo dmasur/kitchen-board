@@ -74,7 +74,6 @@ export class ScheduleComponent extends BasePanel {
     const displayedDay = this.getDisplayedDate(new Date(), true);
     const classInfos = this.getClassInfos(this.classDurations, this.settings.timeTable, displayedDay);
     this.schedule = new Schedule(displayedDay, classInfos);
-    debugger;
     this.saveData(this.schedule);
   }
 

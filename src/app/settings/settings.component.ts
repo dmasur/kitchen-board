@@ -15,7 +15,6 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.settings = this.settings || new Settings();
-    debugger
     this.settings.timeTable = new Settings().timeTable;
     this.settings.classDurationNumbers = new Settings().classDurationNumbers;
   }

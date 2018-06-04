@@ -26,7 +26,11 @@ export class HumidorComponent extends BasePanel {
   }
 
   parse(data) {
-    const json = $.parseJSON(data.text());
+    const text = data.text();
+    let json = null;
+    if (text.indexOf('<') !== 0) {
+      json = $.parseJSON(text);
+    }
     if (json != null) {
       const el = $(json);
       const date = moment(el[0].date + '000', 'x').toDate();

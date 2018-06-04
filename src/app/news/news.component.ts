@@ -34,7 +34,6 @@ export class NewsComponent extends BasePanel {
 
   openNews(index: number) {
     console.log(this.newsItems[index]);
-    debugger
     this.modalService.open(NewsFormModalComponent);
   }
 
