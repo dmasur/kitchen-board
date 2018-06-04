@@ -43,6 +43,9 @@ export class AppointmentsService {
   public loadAppointments() {
     return new Promise((resolve, reject) => {
       this.getAllCalendars().then(calendars => {
+        if (calendars === undefined) {
+          return null;
+        }
         const eventPromises = calendars.map(calendar => { return this.getEvents(calendar); });
         Promise.all(eventPromises).then(function (result) {
           resolve([].concat.apply([], result));

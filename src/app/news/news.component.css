@@ -10,3 +10,6 @@ li {
 .last-update {
   float: right;
 }
+.list-group-item span {
+  font-size: 1.4em;
+}
