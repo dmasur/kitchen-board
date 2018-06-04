@@ -9,4 +9,6 @@
 }
 .card-header{
   font-weight: bold;
+  font-size: 1.4em;
+  padding: 10px;
 }
