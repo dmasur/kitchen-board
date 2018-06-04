@@ -14,13 +14,13 @@ export class Settings {
   enableSchedule = true;
   enableHumidor = true;
   timeTable: Array<Array<string>> = [
-    [],
-    ['Mathe', 'Sport', 'Religon', 'Englisch'],
+    ['', '', '', '', ''],
+    ['Mathe', 'Sport', 'Religon', 'Englisch', ''],
     ['Biologie', 'Deutsch', 'SoWi', 'Musik', 'Kunst'],
     ['Englisch', 'Kunst', 'Instrument', 'Sport', 'Deutsch'],
     ['MINT', 'Musik', 'Mathe', 'Religion', 'Klassenleiterst.'],
     ['Erdkunde', 'Deutsch', 'Englisch', 'Biologie', 'Sport'],
-    []
+    ['', '', '', '', '']
   ];
   classDurationNumbers = [
     [[8, 0], [9, 0]],

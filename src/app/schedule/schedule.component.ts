@@ -31,7 +31,8 @@ export class ScheduleComponent extends BasePanel {
 
   enableConditions(): {} {
     return {
-      isEnabled: this.settings.enableSchedule !== undefined && this.settings.enableSchedule
+      isEnabled: this.settings.enableSchedule !== undefined && this.settings.enableSchedule,
+      hasClassDurations: this.classDurations !== undefined
     };
   }
 
@@ -73,6 +74,7 @@ export class ScheduleComponent extends BasePanel {
     const displayedDay = this.getDisplayedDate(new Date(), true);
     const classInfos = this.getClassInfos(this.classDurations, this.settings.timeTable, displayedDay);
     this.schedule = new Schedule(displayedDay, classInfos);
+    debugger;
     this.saveData(this.schedule);
   }
 

@@ -15,15 +15,24 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.settings = this.settings || new Settings();
+    debugger
+    this.settings.timeTable = new Settings().timeTable;
+    this.settings.classDurationNumbers = new Settings().classDurationNumbers;
   }
 
   addHourToSchedule() {
     this.settings.classDurationNumbers.push([[0, 0], [0, 0]]);
+    for (let i = 0; i < 6; i++) {
+      this.settings.timeTable[i].push('');
+    }
     event.preventDefault();
   }
 
   removeHourFromSchedule() {
-    this.settings.classDurationNumbers.pop()
+    this.settings.classDurationNumbers.pop();
+    for (let i = 0; i < this.settings.timeTable.length; i++) {
+      this.settings.timeTable[i].pop();
+    }
     event.preventDefault();
   }
 
