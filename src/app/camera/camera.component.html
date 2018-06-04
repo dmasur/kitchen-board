@@ -1,6 +1,6 @@
 <div class="card camera">
   <div class="card-header">Eingang
-  <span class="small last-update">Stand: {{lastUpdate | amDateFormat: &apos;LT&apos;}}</span>
+  <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
   <span class="small error-message" *ngIf="errorMessage">
     <br>Fehler: {{errorMessage}}</span>
   </div>

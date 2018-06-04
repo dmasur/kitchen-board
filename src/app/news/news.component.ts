@@ -5,15 +5,11 @@ import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
 import { CorsService } from '../services';
+import { News } from './shared/news';
 declare var $: any;
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
-class News {
-  constructor(public title: string,
-    public image: string,
-    public summary: string,
-    public date: Date) { }
-}
+
 
 @Component({
   selector: 'app-news',
@@ -33,8 +29,8 @@ export class NewsComponent extends BasePanel {
   }
 
   openNews(index: number) {
-    console.log(this.newsItems[index]);
-    this.modalService.open(NewsFormModalComponent);
+    const modal = this.modalService.open(NewsFormModalComponent);
+    modal.componentInstance.news = this.newsItems[index];
   }
 
   loadSavedData() {
