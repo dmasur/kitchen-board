@@ -1,11 +1,11 @@
 i {
-  font-size: 3em;
+  font-size: 1.5vw;
 }
 .icon {
   text-align: center;
 }
 .time, .temp, .precip, .day {
-  font-size: 1.9vw;
+  font-size: 1.5vw;
   vertical-align: center;
   text-align: center;
 }
@@ -23,4 +23,8 @@ i {
 }
 .weather{
   font-size: 1em;
+}
+
+.dailyInfosParent{
+  padding:0;
 }

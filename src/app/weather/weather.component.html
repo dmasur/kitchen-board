@@ -15,7 +15,7 @@
             <td class="temp" colspan="2">{{dailyWeatherInfo.maxTemp}}&#xB0;C - {{dailyWeatherInfo.minTemp}}&#xB0;C</td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="4" class="dailyInfosParent">
                 <table class="dailyInfos">
                     <tr *ngFor="let dailyWeatherInfo of weatherForcast.dailyWeatherInfos">
                         <td>
