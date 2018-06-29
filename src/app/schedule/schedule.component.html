@@ -2,7 +2,7 @@
     <div class="card-header">Stundenplan {{schedule.displayedDate | amDateFormat:'dddd'}}
         <span *ngIf="!isEnabled" class="alert-danger">Disabled</span>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" *ngIf="isEnabled">
         <tbody>
             <tr *ngFor="let classInfo of schedule.classInfos" class="{{getClassInfoClass(classInfo.classDuration)}}">
                 <td class="time">{{classInfo.classDuration.from | amDateFormat:'LT'}} - {{classInfo.classDuration.to | amDateFormat:'LT'}}</td>

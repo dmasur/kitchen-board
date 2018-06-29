@@ -26,6 +26,7 @@ export class ScheduleComponent extends BasePanel {
 
   constructor(protected cookieService: CookieService, private settings: Settings) {
     super('schedule', 5 * 60, cookieService);
+    this.schedule = new Schedule(new Date(), null);
     this.classDurations = ClassDuration.importFromClassDurationNumbers(settings.classDurationNumbers);
   }
 
