@@ -1,3 +1,4 @@
+import { TodoistService } from './services/todolistService';
 import { BrowserModule } from '@angular/platform-browser';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { DashboardComponent } from './components.index';
 import { AuthenticationService } from './services';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TodoistComponent } from './todoist/todoist.component';
 
 // must be exported function to use...
 export function settingsFactory() {
@@ -36,8 +38,8 @@ const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTrig
 @NgModule({
   declarations: [
     AppComponent, DashboardComponent, SettingsComponent, HumidorComponent,
-    NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent,
-    ClockComponent, QuoteComponent, CalendarComponent, CameraComponent, NewsFormModalComponent
+    NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent, 
+    TodoistComponent, ClockComponent, QuoteComponent, CalendarComponent, CameraComponent, NewsFormModalComponent, TodoistComponent
   ],
   entryComponents: [
     NewsFormModalComponent
@@ -52,7 +54,7 @@ const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTrig
     LoggerModule.forRoot({serverLoggingUrl: serverLogUrl, level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.DEBUG})
   ],
   providers: [
-    Location, NewsFormModalComponent, NgbActiveModal,
+    Location, NewsFormModalComponent, NgbActiveModal, TodoistService,
     { provide: Settings, useFactory: settingsFactory },
     { provide: CookieOptions, useFactory: cookieOptionsFactory }
   ],

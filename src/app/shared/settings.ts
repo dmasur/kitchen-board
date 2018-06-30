@@ -30,5 +30,6 @@ export class Settings {
     [[12, 50], [13, 50]]
   ];
   firebaseUrl = 'https://testproject-91ab2.firebaseio.com/5c:cf:7f:8b:61:6f/latest.json';
+  todoistApiKey = '';
 }
 
