@@ -1,0 +1,17 @@
+<div class="settings container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="form-group">
+        <label for="todoistApiKey">Todoist Token</label>
+        <input [(ngModel)]="settings.todoistApiKey" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="todoistApiKey">
+        <span id="helpBlock" class="form-text">Example: 0123456789abcdef0123456789abcdef01234567</span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12">
+        <button type="submit" class="btn btn-secondary">Speichern</button>
+      </div>
+    </div>
+  </form>
+</div>

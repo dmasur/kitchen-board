@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
 import { Settings } from '../shared/settings';
 import { ClassDuration } from '../schedule/shared/classDuration';
+import { BaseSettings } from 'app/shared/baseSettings';
 declare var window: any;
 
 @Component({
@@ -9,8 +10,9 @@ declare var window: any;
   templateUrl: 'settings.component.html',
   styleUrls: ['settings.component.css']
 })
-export class SettingsComponent implements OnInit {
-  constructor(private cookieService: CookieService, public settings: Settings) {
+export class SettingsComponent extends BaseSettings implements OnInit {
+  constructor(cookieService: CookieService, settings: Settings) {
+    super(cookieService, settings);
   }
 
   ngOnInit() {
@@ -37,10 +39,5 @@ export class SettingsComponent implements OnInit {
 
   hourArray(): Array<number> {
     return this.settings.classDurationNumbers.map((_, i) => i);
-  }
-
-  onSubmit() {
-    this.cookieService.putObject('settings', this.settings);
-    window.history.back();
   }
 }
