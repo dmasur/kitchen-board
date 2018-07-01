@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
-import { AppointmentsService, NextEventsService } from '../services/index';
 import { Observable } from 'rxjs/Rx';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
 import { Day } from './shared/day';
 import { NGXLogger } from 'ngx-logger';
+import { AppointmentsService } from 'app/services/appointmentsService';
+import { NextEventsService } from 'app/services/nextEventsService';
 
 @Component({
   selector: 'app-next-events',

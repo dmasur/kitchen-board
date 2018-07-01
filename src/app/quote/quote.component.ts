@@ -3,7 +3,7 @@ import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
-import { CorsService } from '../services';
+import { CorsService } from 'app/services/corsService';
 
 declare var $: any;
 

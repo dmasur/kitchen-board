@@ -4,10 +4,10 @@ import { CookieService } from 'angular2-cookie/core';
 import { Http } from '@angular/http';
 import { DateFormatPipe } from 'angular2-moment';
 import { BasePanel } from '../shared/basePanel';
-import { CorsService } from '../services';
 import { News } from './shared/news';
 declare var $: any;
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { CorsService } from 'app/services/corsService';
 
 
 

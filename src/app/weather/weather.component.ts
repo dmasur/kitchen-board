@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import { DateFormatPipe, TimeAgoPipe } from 'angular2-moment';
 import { Settings } from '../shared/settings';
 import { BasePanel } from '../shared/basePanel';
-import { CorsService } from '../services';
+import { CorsService } from 'app/services/corsService';
 
 class Weather {
   constructor(

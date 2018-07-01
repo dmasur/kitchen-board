@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { Settings } from '../shared/settings';
-import { WaitService } from './index';
+import { WaitService } from 'app/services/waitService';
 
 @Injectable()
 export class AuthenticationService {

@@ -14,7 +14,6 @@ import { NewsComponent, ScheduleComponent, CameraComponent, WeatherComponent, Qu
 import { ClockComponent, HumidorComponent, CalendarComponent, NextEventsComponent, SettingsComponent } from './components.index';
 import { NewsFormModalComponent } from './components.index';
 import { DashboardComponent } from './components.index';
-import { AuthenticationService } from './services';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TodoistComponent } from './todoist/todoist.component';

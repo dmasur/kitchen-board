@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthenticationService } from '../services/index';
 import { Settings } from '../shared/settings';
+import { AuthenticationService } from 'app/services/authenticationService';
 
 @Component({
   selector: 'app-dashboard',
