@@ -28,3 +28,6 @@ i {
 .dailyInfosParent{
   padding:0;
 }
+.settingLink {
+  display: inline
+}

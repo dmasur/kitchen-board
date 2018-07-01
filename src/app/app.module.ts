@@ -19,6 +19,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TodoistComponent } from './todoist/todoist.component';
 import { TodoistSettingsComponent } from './Todoist/todoist-settings/todoist-settings.component';
 import { ScheduleSettingsComponent } from './schedule/schedule-settings/schedule-settings.component';
+import { WeatherSettingsComponent } from './weather/weather-settings/weather-settings.component';
 
 // must be exported function to use...
 export function settingsFactory() {
@@ -34,6 +35,7 @@ export const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'todoist/todoistSettings', component: TodoistSettingsComponent },
+  { path: 'weather/weatherSettings', component: WeatherSettingsComponent },
   { path: 'schedule/scheduleSettings', component: ScheduleSettingsComponent }
 ];
 const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTriggerCSharp1';
@@ -44,7 +46,8 @@ const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTrig
     NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent,
     TodoistComponent, ClockComponent, QuoteComponent, CalendarComponent, CameraComponent, NewsFormModalComponent, TodoistComponent,
     TodoistSettingsComponent,
-    ScheduleSettingsComponent
+    ScheduleSettingsComponent,
+    WeatherSettingsComponent
   ],
   entryComponents: [
     NewsFormModalComponent

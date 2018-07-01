@@ -1,6 +1,7 @@
 <div class="weather card">
     <div class="card-header">
         {{city}}
+        <a [routerLink]="['/weather/weatherSettings']" class="settingLink"><img src="assets/open-iconic/png/cog.png"></a>
         <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
         <span class="small error-message" *ngIf="errorMessage">
             <br>Fehler: {{errorMessage}}</span>
