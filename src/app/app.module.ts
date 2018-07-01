@@ -18,6 +18,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TodoistComponent } from './todoist/todoist.component';
 import { TodoistSettingsComponent } from './Todoist/todoist-settings/todoist-settings.component';
+import { ScheduleSettingsComponent } from './schedule/schedule-settings/schedule-settings.component';
 
 // must be exported function to use...
 export function settingsFactory() {
@@ -32,7 +33,8 @@ export const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'todoist/todoistSettings', component: TodoistSettingsComponent }
+  { path: 'todoist/todoistSettings', component: TodoistSettingsComponent },
+  { path: 'schedule/scheduleSettings', component: ScheduleSettingsComponent }
 ];
 const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTriggerCSharp1';
 
@@ -41,7 +43,8 @@ const serverLogUrl = 'https://kitchenboardlogging.azurewebsites.net/api/HttpTrig
     AppComponent, DashboardComponent, SettingsComponent, HumidorComponent,
     NextEventsComponent, WeatherComponent, NewsComponent, ScheduleComponent,
     TodoistComponent, ClockComponent, QuoteComponent, CalendarComponent, CameraComponent, NewsFormModalComponent, TodoistComponent,
-    TodoistSettingsComponent
+    TodoistSettingsComponent,
+    ScheduleSettingsComponent
   ],
   entryComponents: [
     NewsFormModalComponent

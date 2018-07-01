@@ -1,3 +1,6 @@
 .last-update {
-    float: right;
-  }
+  float: right;
+}
+.settingLink {
+  display: inline
+}

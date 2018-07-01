@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
       <span class="card-title">Todo</span>
-      <a style="display: inline" [routerLink]="['todoist/todoistSettings']" class="nav-link"><img src="assets/open-iconic/png/cog.png"></a>
+      <a [routerLink]="['/todoist/todoistSettings']" class="settingLink"><img src="assets/open-iconic/png/cog.png"></a>
       <span class="small last-update">Stand: {{lastUpdate | amDateFormat: 'LT'}}</span>
       <span class="small error-message" *ngIf="errorMessage">
           <br>Fehler: {{errorMessage}}
