@@ -14,7 +14,7 @@ export class CorsService {
   getResponseWithCorsAnywhere(url: string, callback: any) {
     const headers = new Headers();
     headers.append('X-Requested-With', 'FooBar');
-    const observer = this.http.get('https://cors-anywhere.herokuapp.com/' + url, {
+    const observer = this.http.get('https://cors.bridged.cc/' + url, {
       headers: headers
     });
     observer.subscribe(
