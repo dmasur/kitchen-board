@@ -44,6 +44,7 @@
     "@types/gapi.plus": "^1.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "angular-cli-ghpages": "^1.0.0",
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
