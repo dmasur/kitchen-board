@@ -8,10 +8,24 @@ export class CorsService {
   }
 
   getResponse(url: string, callback: any): void {
-      this.getResponseWithCorsAnywhere(url, callback);
+      this.getResponseWithThingProxy(url, callback);
   }
 
-  getResponseWithCorsAnywhere(url: string, callback: any) {
+  getResponseWithThingProxy(url: string, callback: any) {
+    const headers = new Headers();
+    const observer = this.http.get('https://thingproxy.freeboard.io/fetch/' + url, {
+      headers: headers
+    });
+    observer.subscribe(
+      data => callback(data),
+      error => () => {
+          console.error('thingproxy Proxy Problem: ' + error);
+          this.getResponseWithCrossOriginMe(url, callback);
+      }
+    );
+  }
+
+  getResponseWithBridged(url: string, callback: any) {
     const headers = new Headers();
     headers.append('X-Requested-With', 'FooBar');
     const observer = this.http.get('https://cors.bridged.cc/' + url, {

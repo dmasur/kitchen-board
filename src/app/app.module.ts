@@ -17,7 +17,7 @@ import { DashboardComponent } from './components.index';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TodoistComponent } from './todoist/todoist.component';
-import { TodoistSettingsComponent } from './Todoist/todoist-settings/todoist-settings.component';
+import { TodoistSettingsComponent } from './todoist/todoist-settings/todoist-settings.component';
 import { ScheduleSettingsComponent } from './schedule/schedule-settings/schedule-settings.component';
 import { WeatherSettingsComponent } from './weather/weather-settings/weather-settings.component';
 
